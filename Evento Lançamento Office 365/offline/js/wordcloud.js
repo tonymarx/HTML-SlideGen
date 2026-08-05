@@ -9,9 +9,9 @@ class TeamWordCloud {
     this.ctx = this.canvas.getContext('2d');
 
     this.names = [
-      'André', 'Caíque', 'Carlos', 'Diogo',
-      'Ivo', 'Leonardo', 'Marcelo Carvalho',
-      'Rafael', 'Rui Bisneto', 'Stênio', 'Vinícius Ximenes'
+      'André Luís', 'Caíque Lira', 'Carlos Magno', 'Diogo Bento',
+      'Ivo Portela', 'Leonardo Santos', 'Marcelo Carvalho',
+      'Rafael Pontes', 'Rui Bisneto', 'Stênio Mendes', 'Vinícius Ximenes'
     ];
 
     this.words = [];

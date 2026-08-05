@@ -8,7 +8,7 @@ class WordCloud {
     this.canvas = document.getElementById(canvasId);
     if (!this.canvas) return;
     this.ctx = this.canvas.getContext('2d');
-    this.names = ['André', 'Caíque', 'Carlos', 'Diogo', 'Ivo', 'Leonardo', 'Marcelo Carvalho', 'Rafael', 'Rui Bisneto', 'Stênio', 'Vinícius Ximenes'];
+    this.names = ['André Luís', 'Caíque Lira', 'Carlos Magno', 'Diogo Bento', 'Ivo Portela', 'Leonardo Santos', 'Marcelo Carvalho', 'Rafael Pontes', 'Rui Bisneto', 'Stênio Mendes', 'Vinícius Ximenes'];
     this.words = [];
     this.raf = null;
     this.init();

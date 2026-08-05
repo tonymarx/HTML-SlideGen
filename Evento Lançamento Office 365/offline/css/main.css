@@ -241,10 +241,10 @@ p {
 ================================================ */
 .team-recognition-layout {
   display: grid;
-  grid-template-columns: 1.35fr 1fr;
+  grid-template-columns: 1.45fr 1fr;
   gap: 24px;
   flex: 1;
-  margin-top: 18px;
+  margin-top: 16px;
   align-items: stretch;
 }
 
@@ -256,10 +256,10 @@ p {
   border: 1px solid rgba(17, 72, 148, 0.14);
   box-shadow: none;
   overflow: hidden;
-  padding: 16px 18px 14px;
+  padding: 20px 22px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Linha decorativa no topo */
@@ -269,52 +269,41 @@ p {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(90deg, var(--cyan), var(--blue-700), var(--blue-900));
   border-radius: 22px 22px 0 0;
 }
 
-/* Cabeçalho do painel */
-.team-panel-header {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding-top: 4px;
-}
-
-.team-panel-header i {
-  font-size: 13px;
-  color: #f59e0b;
-}
-
-.team-panel-header span {
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.11em;
-  color: var(--blue-800);
-}
-
-/* Grid de Cards dos Membros */
+/* Container de Cards dos Membros — Proporcional e Centralizado */
 .team-panel-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 14px 12px;
+  width: 100%;
+  height: 100%;
 }
 
-/* Card individual */
+/* Card individual expandido */
 .member-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 10px 4px 8px;
-  border-radius: 14px;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 8px 12px;
+  border-radius: 16px;
   background: #ffffff;
-  border: 1px solid rgba(17, 72, 148, 0.1);
+  border: 1px solid rgba(17, 72, 148, 0.12);
   cursor: default;
   transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(14, 52, 106, 0.06);
+  box-shadow: 0 4px 12px rgba(14, 52, 106, 0.07);
+  flex: 1 1 calc(25% - 12px);
+  max-width: 155px;
+  min-width: 115px;
+  box-sizing: border-box;
 
   /* Entrada animada */
   opacity: 0;
@@ -331,26 +320,26 @@ p {
 
 .member-card:hover {
   background: #eef5ff;
-  border-color: rgba(29, 99, 190, 0.3);
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 8px 22px rgba(17, 72, 148, 0.14);
+  border-color: rgba(29, 99, 190, 0.35);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 10px 26px rgba(17, 72, 148, 0.16);
 }
 
-/* Container da foto — empilha foto e iniciais */
+/* Container da foto — ampliado */
 .member-photo-wrap {
   position: relative;
-  width: 52px;
-  height: 52px;
+  width: 62px;
+  height: 62px;
   flex-shrink: 0;
 }
 
-/* Foto redonda */
+/* Foto redonda ampliada */
 .member-photo {
-  width: 52px;
-  height: 52px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2.5px solid var(--blue-700);
+  border: 3px solid var(--blue-700);
   display: block;
   background: var(--blue-100);
   transition: border-color 0.28s ease;
@@ -360,17 +349,17 @@ p {
   border-color: var(--cyan);
 }
 
-/* Iniciais — exibidas apenas quando a foto falha (via onerror no HTML) */
+/* Iniciais ampliadas — exibidas apenas quando a foto falha */
 .member-initials {
-  width: 52px;
-  height: 52px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--blue-700) 0%, var(--blue-900) 100%);
-  border: 2.5px solid var(--blue-700);
+  border: 3px solid var(--blue-700);
   display: none;       /* controlado pelo onerror da <img> */
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 900;
   color: #ffffff;
   letter-spacing: 0.04em;
@@ -382,14 +371,14 @@ p {
   background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
 }
 
-/* Nome do membro */
+/* Nome do membro ampliado */
 .member-name {
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 700;
   color: var(--blue-900);
   text-align: center;
-  line-height: 1.2;
-  max-width: 80px;
+  line-height: 1.25;
+  width: 100%;
   transition: color 0.28s ease;
 }
 
