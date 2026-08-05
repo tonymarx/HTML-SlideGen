@@ -1,266 +1,296 @@
 /* ==========================================================================
-   PRESENTATION CONTROLLER & SLIDE NAVIGATION ENGINE
+   LÓGICA DA APRESENTAÇÃO INSTITUCIONAL MICROSOFT 365 CODEVASF
    ========================================================================== */
 
-class PresentationController {
-  constructor() {
-    this.slides = Array.from(document.querySelectorAll('.slide'));
-    this.currentSlideIndex = 0;
-    this.totalSlides = this.slides.length;
-    
-    // UI Controls
-    this.prevBtn = document.getElementById('prev-btn');
-    this.nextBtn = document.getElementById('next-btn');
-    this.counterEl = document.getElementById('slide-counter');
-    this.progressBar = document.getElementById('progress-bar');
-    this.timerEl = document.getElementById('timer-display');
-    this.fullscreenBtn = document.getElementById('fullscreen-btn');
-    this.gridBtn = document.getElementById('grid-btn');
-    this.modalOverlay = document.getElementById('modal-overlay');
-    this.thumbsGrid = document.getElementById('thumbs-grid');
-    this.closeModalBtn = document.getElementById('close-modal-btn');
-
-    // Timer variables
-    this.secondsElapsed = 0;
-    this.timerInterval = null;
-
-    // Component instances
-    this.wordCloudInstance = null;
-    this.collabGraphInstance = null;
-
+/* -------- WORD CLOUD (Slide 1) -------- */
+class WordCloud {
+  constructor(canvasId) {
+    this.canvas = document.getElementById(canvasId);
+    if (!this.canvas) return;
+    this.ctx = this.canvas.getContext('2d');
+    this.names = ['André', 'Caíque', 'Carlos', 'Diogo', 'Ivo', 'Leonardo', 'Marcelo Carvalho', 'Rafael', 'Rui', 'Stênio', 'Vinícius Ximenes'];
+    this.words = [];
+    this.raf = null;
     this.init();
   }
 
   init() {
-    this.bindEvents();
-    this.buildThumbnails();
-    this.updateSlideState(0);
-    this.startTimer();
-
-    // Initialize ambient background
-    new AmbientBackground('ambient-canvas');
+    this.resize();
+    window.addEventListener('resize', () => this.resize());
+    const colors = ['#ffffff', '#49b7ff', '#a0d4f5', '#d0e8ff', '#7cb9f0', '#c8e6ff'];
+    this.words = this.names.map((name, i) => {
+      const angle = (i / this.names.length) * Math.PI * 2;
+      const r = 95 + Math.random() * 55;
+      return {
+        text: name, x: this.w / 2 + Math.cos(angle) * r, y: this.h / 2 + Math.sin(angle) * r,
+        size: 14 + Math.random() * 12, color: colors[i % colors.length],
+        angle, speed: .004 + Math.random() * .004, radius: r
+      };
+    });
+    this.animate();
   }
 
-  bindEvents() {
-    // Navigation Buttons
-    this.prevBtn?.addEventListener('click', () => this.prevSlide());
-    this.nextBtn?.addEventListener('click', () => this.nextSlide());
+  resize() {
+    const rect = this.canvas.parentElement.getBoundingClientRect();
+    this.w = this.canvas.width = rect.width || 500;
+    this.h = this.canvas.height = rect.height || 340;
+  }
 
-    // Keyboard Shortcuts
-    document.addEventListener('keydown', (e) => {
-      if (this.modalOverlay.classList.contains('open')) {
-        if (e.key === 'Escape') this.toggleModal(false);
+  animate() {
+    this.ctx.clearRect(0, 0, this.w, this.h);
+    const cx = this.w / 2, cy = this.h / 2;
+    // Orbital rings
+    [80, 130, 165].forEach(r => {
+      this.ctx.beginPath();
+      this.ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      this.ctx.strokeStyle = 'rgba(255,255,255,.08)';
+      this.ctx.lineWidth = 1;
+      this.ctx.stroke();
+    });
+    // Words
+    this.words.forEach(w => {
+      w.angle += w.speed;
+      w.x = cx + Math.cos(w.angle) * w.radius;
+      w.y = cy + Math.sin(w.angle) * (w.radius * 0.56);
+      this.ctx.save();
+      this.ctx.font = `700 ${w.size}px Inter,Segoe UI,sans-serif`;
+      this.ctx.fillStyle = w.color;
+      this.ctx.shadowColor = w.color;
+      this.ctx.shadowBlur = 10;
+      this.ctx.textAlign = 'center';
+      this.ctx.textBaseline = 'middle';
+      this.ctx.fillText(w.text, w.x, w.y);
+      this.ctx.restore();
+    });
+    this.raf = requestAnimationFrame(() => this.animate());
+  }
+}
+
+/* -------- COLLAB GRAPH (Slide 3) -------- */
+class CollabGraph {
+  constructor(canvasId) {
+    this.canvas = document.getElementById(canvasId);
+    if (!this.canvas) return;
+    this.ctx = this.canvas.getContext('2d');
+    this.nodes = [];
+    this.init();
+  }
+
+  init() {
+    const rect = this.canvas.parentElement.getBoundingClientRect();
+    this.w = this.canvas.width = rect.width || 480;
+    this.h = this.canvas.height = rect.height || 300;
+    const labels = ['Diretoria', 'Gerências', 'Equipes Técnicas', 'TI', 'Usuários'];
+    const cx = this.w / 2, cy = this.h / 2;
+    this.nodes = labels.map((label, i) => {
+      const angle = (i / labels.length) * Math.PI * 2;
+      const r = Math.min(this.w, this.h) * 0.34;
+      return {
+        label, x: cx + Math.cos(angle) * r, y: cy + Math.sin(angle) * r,
+        angle, speed: .004 + i * .001, radius: r
+      };
+    });
+    this.center = { x: cx, y: cy };
+    this.animate();
+  }
+
+  animate() {
+    this.ctx.clearRect(0, 0, this.w, this.h);
+    const cx = this.w / 2, cy = this.h / 2;
+
+    // Lines center→nodes and node→node
+    this.nodes.forEach(n => {
+      n.angle += n.speed;
+      n.x = cx + Math.cos(n.angle) * n.radius;
+      n.y = cy + Math.sin(n.angle) * (n.radius * 0.72);
+
+      this.ctx.beginPath();
+      this.ctx.moveTo(cx, cy);
+      this.ctx.lineTo(n.x, n.y);
+      this.ctx.strokeStyle = 'rgba(17,72,148,.18)';
+      this.ctx.lineWidth = 1.5;
+      this.ctx.stroke();
+    });
+
+    // Center node
+    this.ctx.beginPath();
+    this.ctx.arc(cx, cy, 26, 0, Math.PI * 2);
+    const g = this.ctx.createRadialGradient(cx - 6, cy - 6, 2, cx, cy, 26);
+    g.addColorStop(0, '#2f7de6');
+    g.addColorStop(1, '#0b2e63');
+    this.ctx.fillStyle = g;
+    this.ctx.shadowBlur = 18;
+    this.ctx.shadowColor = 'rgba(73,183,255,.5)';
+    this.ctx.fill();
+    this.ctx.shadowBlur = 0;
+    this.ctx.fillStyle = 'white';
+    this.ctx.font = 'bold 10px Inter,sans-serif';
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.fillText('M365', cx, cy);
+
+    // Outer nodes
+    this.nodes.forEach(n => {
+      this.ctx.beginPath();
+      this.ctx.arc(n.x, n.y, 18, 0, Math.PI * 2);
+      this.ctx.fillStyle = 'white';
+      this.ctx.strokeStyle = 'rgba(17,72,148,.28)';
+      this.ctx.lineWidth = 2;
+      this.ctx.fill();
+      this.ctx.stroke();
+
+      this.ctx.fillStyle = '#0b2e63';
+      this.ctx.font = '600 10px Inter,sans-serif';
+      this.ctx.textAlign = 'center';
+      this.ctx.fillText(n.label, n.x, n.y + 30);
+    });
+
+    requestAnimationFrame(() => this.animate());
+  }
+}
+
+/* -------- COUNTER ANIMATION -------- */
+function animateCounter(el, target, dur = 1800, fmt) {
+  if (!el) return;
+  const start = performance.now();
+  (function tick(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = fmt ? fmt(Math.floor(ease * target)) : Math.floor(ease * target).toLocaleString('pt-BR');
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = fmt ? fmt(target) : target.toLocaleString('pt-BR');
+  })(start);
+}
+
+/* -------- PRESENTATION CONTROLLER -------- */
+class Presentation {
+  constructor() {
+    this.slides = Array.from(document.querySelectorAll('.slide'));
+    this.cur = 0;
+    this.total = this.slides.length;
+    this.wc = null;
+    this.cg = null;
+
+    this.progFill = document.getElementById('prog-fill');
+    this.curEl = document.getElementById('cur-slide');
+    this.totalEl = document.getElementById('total-slides');
+    this.btnPrev = document.getElementById('btn-prev');
+    this.btnNext = document.getElementById('btn-next');
+    this.btnGrid = document.getElementById('btn-grid');
+    this.modal = document.getElementById('modal-overlay');
+    this.thumbsGrid = document.getElementById('thumbs-grid');
+    this.btnClose = document.getElementById('btn-close-modal');
+
+    if (this.totalEl) this.totalEl.textContent = this.total;
+    this.buildThumbs();
+    this.bind();
+    this.update(0);
+  }
+
+  bind() {
+    this.btnPrev?.addEventListener('click', () => this.go(this.cur - 1));
+    this.btnNext?.addEventListener('click', () => this.go(this.cur + 1));
+    this.btnGrid?.addEventListener('click', () => this.openModal());
+    this.btnClose?.addEventListener('click', () => this.closeModal());
+    this.modal?.addEventListener('click', e => { if (e.target === this.modal) this.closeModal(); });
+
+    document.addEventListener('keydown', e => {
+      if (this.modal?.classList.contains('open')) {
+        if (e.key === 'Escape') this.closeModal();
         return;
       }
-
-      switch (e.key) {
-        case 'ArrowRight':
-        case 'Space':
-        case 'PageDown':
-          e.preventDefault();
-          this.nextSlide();
-          break;
-        case 'ArrowLeft':
-        case 'PageUp':
-          e.preventDefault();
-          this.prevSlide();
-          break;
-        case 'Home':
-          e.preventDefault();
-          this.goToSlide(0);
-          break;
-        case 'End':
-          e.preventDefault();
-          this.goToSlide(this.totalSlides - 1);
-          break;
-        case 'f':
-        case 'F':
-          this.toggleFullscreen();
-          break;
-        case 'm':
-        case 'M':
-          this.toggleModal(true);
-          break;
-      }
+      if (['ArrowRight', 'Space', 'PageDown'].includes(e.key)) { e.preventDefault(); this.go(this.cur + 1); }
+      if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); this.go(this.cur - 1); }
+      if (e.key === 'Home') this.go(0);
+      if (e.key === 'End') this.go(this.total - 1);
+      if (e.key === 'm' || e.key === 'M') this.openModal();
+      if (e.key === 'f' || e.key === 'F') document.documentElement.requestFullscreen?.().catch(() => { });
     });
 
-    // Touch Swiping support
-    let touchStartX = 0;
-    document.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
+    let tx = 0;
+    document.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; });
+    document.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].screenX - tx;
+      if (dx < -50) this.go(this.cur + 1);
+      if (dx > 50) this.go(this.cur - 1);
     });
-
-    document.addEventListener('touchend', (e) => {
-      const touchEndX = e.changedTouches[0].screenX;
-      if (touchStartX - touchEndX > 50) this.nextSlide();
-      if (touchEndX - touchStartX > 50) this.prevSlide();
-    });
-
-    // Fullscreen Button
-    this.fullscreenBtn?.addEventListener('click', () => this.toggleFullscreen());
-    this.gridBtn?.addEventListener('click', () => this.toggleModal(true));
-    this.closeModalBtn?.addEventListener('click', () => this.toggleModal(false));
   }
 
-  goToSlide(index) {
-    if (index < 0 || index >= this.totalSlides) return;
-    const previousIndex = this.currentSlideIndex;
-    this.currentSlideIndex = index;
-    this.updateSlideState(previousIndex);
+  go(idx) {
+    if (idx < 0 || idx >= this.total) return;
+    const prev = this.cur;
+    this.slides[prev].classList.remove('active');
+    this.slides[prev].classList.add('prev');
+    setTimeout(() => this.slides[prev].classList.remove('prev'), 620);
+    this.cur = idx;
+    this.slides[idx].classList.add('active');
+    this.update(idx);
+    this.triggerAnim(idx);
   }
 
-  nextSlide() {
-    if (this.currentSlideIndex < this.totalSlides - 1) {
-      this.goToSlide(this.currentSlideIndex + 1);
-    }
+  update(idx) {
+    const pct = ((idx + 1) / this.total) * 100;
+    if (this.progFill) this.progFill.style.width = pct + '%';
+    if (this.curEl) this.curEl.textContent = idx + 1;
+    if (this.btnPrev) this.btnPrev.disabled = idx === 0;
+    if (this.btnNext) this.btnNext.disabled = idx === this.total - 1;
   }
 
-  prevSlide() {
-    if (this.currentSlideIndex > 0) {
-      this.goToSlide(this.currentSlideIndex - 1);
-    }
-  }
-
-  updateSlideState(previousIndex) {
-    this.slides.forEach((slide, idx) => {
-      slide.classList.remove('active', 'exit-left', 'exit-right');
-      if (idx === this.currentSlideIndex) {
-        slide.classList.add('active');
-      } else if (idx < this.currentSlideIndex) {
-        slide.classList.add('exit-left');
+  triggerAnim(idx) {
+    // Slide 0 — Vídeo capa: play ao entrar, pause ao sair
+    const vid = document.getElementById('cover-video');
+    if (vid) {
+      if (idx === 0) {
+        vid.playbackRate = 0.5;
+        vid.play().catch(() => { });
       } else {
-        slide.classList.add('exit-right');
+        vid.pause();
       }
-    });
-
-    // Update Counter & Progress Bar
-    if (this.counterEl) {
-      this.counterEl.innerHTML = `<span>${this.currentSlideIndex + 1}</span> / ${this.totalSlides}`;
     }
-
-    if (this.progressBar) {
-      const progressPercent = ((this.currentSlideIndex + 1) / this.totalSlides) * 100;
-      this.progressBar.style.width = `${progressPercent}%`;
+    // Slide 1 (antigo slide 0) — Word Cloud
+    if (idx === 1 && !this.wc) {
+      setTimeout(() => { this.wc = new WordCloud('wordcloud-canvas'); }, 200);
     }
-
-    // Nav buttons disabled state
-    if (this.prevBtn) this.prevBtn.disabled = this.currentSlideIndex === 0;
-    if (this.nextBtn) this.nextBtn.disabled = this.currentSlideIndex === this.totalSlides - 1;
-
-    // Trigger Slide-Specific Animations
-    this.triggerSlideAnimations(this.currentSlideIndex);
-  }
-
-  triggerSlideAnimations(index) {
-    // Slide 1: Word Cloud
-    if (index === 0) {
+    // Slide 3 (antigo slide 2) — Collab Graph
+    if (idx === 3 && !this.cg) {
+      setTimeout(() => { this.cg = new CollabGraph('collab-canvas'); }, 200);
+    }
+    // Slide 4 (antigo slide 3) — 1.800 counter
+    if (idx === 4) {
       setTimeout(() => {
-        if (!this.wordCloudInstance) {
-          this.wordCloudInstance = new TeamWordCloud('wordcloud-canvas');
-        }
-      }, 300);
+        const el = document.getElementById('count-1800');
+        if (el) animateCounter(el, 1800, 1600, n => n.toLocaleString('pt-BR'));
+      }, 150);
     }
-
-    // Slide 3: Collab Network Graph
-    if (index === 2) {
-      setTimeout(() => {
-        if (!this.collabGraphInstance) {
-          this.collabGraphInstance = new CollabGraph('collab-canvas');
-        }
-      }, 300);
-    }
-
-    // Slide 4: Counter 1800
-    if (index === 3) {
-      const counterEl = document.getElementById('migrated-count');
-      if (counterEl) animateCounter(counterEl, 1800, 1800);
-    }
-
-    // Slide 5: Volume Stats 12M e 6TB
-    if (index === 4) {
-      const msgEl = document.getElementById('stat-messages');
-      const tbEl = document.getElementById('stat-tb');
-      if (msgEl) animateCounter(msgEl, 12, 1500, '', ' Milhões');
-      if (tbEl) animateCounter(tbEl, 6, 1500, '', ' TB');
-    }
-
-    // Slide 6: Storage comparison (5GB vs 50GB)
-    if (index === 5) {
-      const barBefore = document.getElementById('fill-before');
-      const barAfter = document.getElementById('fill-after');
-      if (barBefore) barBefore.style.width = '10%';
-      if (barAfter) barAfter.style.width = '100%';
-    }
-
-    // Slide 7: Petabytes Counter
-    if (index === 6) {
-      const pbEl = document.getElementById('stat-pb');
-      if (pbEl) animateCounter(pbEl, 2, 1200, '+', ' Petabytes');
-    }
-
-    // Slide 8: Users and Days Counters
-    if (index === 7) {
-      const usersEl = document.getElementById('stat-val-users');
-      const daysEl = document.getElementById('stat-val-days');
-      if (usersEl) animateCounter(usersEl, 50, 1200, '', '+');
-      if (daysEl) animateCounter(daysEl, 30, 1200, '', '+');
+    // Slide 6 (antigo slide 5) — Storage bars
+    if (idx === 6) {
+      const b = document.getElementById('fill-before');
+      const a = document.getElementById('fill-after');
+      setTimeout(() => { if (b) b.style.width = '10%'; if (a) a.style.width = '100%'; }, 200);
     }
   }
 
-  buildThumbnails() {
+  buildThumbs() {
     if (!this.thumbsGrid) return;
     this.thumbsGrid.innerHTML = '';
-    
-    this.slides.forEach((slide, idx) => {
-      const title = slide.querySelector('.slide-title')?.textContent || `Slide ${idx + 1}`;
+    this.slides.forEach((s, i) => {
+      const title = s.querySelector('h2')?.textContent || `Slide ${i + 1}`;
       const card = document.createElement('div');
-      card.className = `thumb-card ${idx === this.currentSlideIndex ? 'active' : ''}`;
-      card.innerHTML = `
-        <div class="thumb-num">SLIDE ${idx + 1}</div>
-        <div class="thumb-title">${title}</div>
-      `;
-      card.addEventListener('click', () => {
-        this.goToSlide(idx);
-        this.toggleModal(false);
-      });
+      card.className = 'thumb-card' + (i === this.cur ? ' active' : '');
+      card.innerHTML = `<div class="thumb-num">SLIDE ${i + 1}</div><div class="thumb-title">${title}</div>`;
+      card.addEventListener('click', () => { this.go(i); this.closeModal(); });
       this.thumbsGrid.appendChild(card);
     });
   }
 
-  toggleModal(open) {
-    if (open) {
-      this.buildThumbnails();
-      this.modalOverlay.classList.add('open');
-    } else {
-      this.modalOverlay.classList.remove('open');
-    }
+  openModal() {
+    this.buildThumbs();
+    this.modal?.classList.add('open');
   }
 
-  toggleFullscreen() {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(err => {
-        console.error(`Erro ao ativar tela cheia: ${err.message}`);
-      });
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
-    }
-  }
-
-  startTimer() {
-    this.timerInterval = setInterval(() => {
-      this.secondsElapsed++;
-      const mins = Math.floor(this.secondsElapsed / 60).toString().padStart(2, '0');
-      const secs = (this.secondsElapsed % 60).toString().padStart(2, '0');
-      if (this.timerEl) {
-        this.timerEl.textContent = `${mins}:${secs}`;
-      }
-    }, 1000);
+  closeModal() {
+    this.modal?.classList.remove('open');
   }
 }
 
-// Start application on DOM Ready
-document.addEventListener('DOMContentLoaded', () => {
-  window.app = new PresentationController();
-});
+document.addEventListener('DOMContentLoaded', () => { window.ppt = new Presentation(); });
