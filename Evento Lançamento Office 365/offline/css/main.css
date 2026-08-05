@@ -105,7 +105,7 @@ body {
 }
 
 #cover-video {
-  filter: brightness(1.3) contrast(1.05);
+  filter: brightness(1.2) contrast(1.05);
 }
 
 .slide.active {
@@ -249,10 +249,13 @@ p {
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(.92);
     opacity: .72;
   }
+
   50% {
     transform: scale(1.1);
     opacity: 1;
@@ -286,14 +289,39 @@ p {
   font-weight: 800;
 }
 
-.fc1 { top: 22px; left: 20px; }
-.fc2 { top: 30px; right: 16px; animation-delay: .7s; }
-.fc3 { bottom: 36px; left: 18px; animation-delay: 1.3s; }
-.fc4 { bottom: 20px; right: 14px; animation-delay: 2s; }
+.fc1 {
+  top: 22px;
+  left: 20px;
+}
+
+.fc2 {
+  top: 30px;
+  right: 16px;
+  animation-delay: .7s;
+}
+
+.fc3 {
+  bottom: 36px;
+  left: 18px;
+  animation-delay: 1.3s;
+}
+
+.fc4 {
+  bottom: 20px;
+  right: 14px;
+  animation-delay: 2s;
+}
 
 @keyframes bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .panel-center {
@@ -373,7 +401,9 @@ p {
 .pillar-card::after {
   content: '';
   position: absolute;
-  left: 0; right: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 5px;
   background: linear-gradient(90deg, var(--cyan), var(--blue-700));
   border-radius: 0 0 var(--radius-md) var(--radius-md);
@@ -703,7 +733,9 @@ p {
 .app-card::after {
   content: '';
   position: absolute;
-  left: 0; right: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 4px;
   background: linear-gradient(90deg, var(--cyan), var(--blue-700));
   transform: scaleX(0);
@@ -1001,50 +1033,63 @@ p {
   .slide {
     padding: clamp(16px, 2.5vh, 28px) clamp(20px, 3vw, 40px) !important;
   }
+
   .slide-top {
     margin-bottom: clamp(6px, 1.2vh, 12px) !important;
   }
+
   h2 {
     font-size: clamp(20px, 2.8vw, 34px) !important;
   }
+
   .lead {
     font-size: clamp(12px, 1.3vw, 15px) !important;
     margin-top: 4px !important;
   }
+
   .speaker-note {
     margin-top: auto !important;
     padding-top: 6px !important;
     font-size: clamp(10px, 0.9vw, 12px) !important;
     line-height: 1.3 !important;
   }
+
   .wc-wrapper {
     height: clamp(150px, 25vh, 230px) !important;
   }
+
   .stat-hero {
     padding: clamp(14px, 2vh, 24px) clamp(18px, 3vw, 32px) !important;
   }
+
   .stat-hero .big-num {
     font-size: clamp(38px, 5vw, 64px) !important;
   }
+
   .card {
     padding: clamp(10px, 1.4vh, 16px) clamp(12px, 1.8vw, 18px) !important;
   }
+
   .card-icon {
     width: 34px !important;
     height: 34px !important;
     font-size: 16px !important;
     margin-bottom: 8px !important;
   }
+
   .card h4 {
     font-size: 14px !important;
   }
+
   .card p {
     font-size: 12px !important;
   }
+
   .app-card {
     padding: 10px 14px !important;
     gap: 6px !important;
   }
+
   .app-icon {
     width: 32px !important;
     height: 32px !important;
