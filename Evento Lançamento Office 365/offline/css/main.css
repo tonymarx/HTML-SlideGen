@@ -537,9 +537,10 @@ p {
 }
 
 .fill-before {
-  width: 10%;
+  width: 20%;
   background: #b0c4d8;
 }
+
 
 .fill-after {
   width: 100%;

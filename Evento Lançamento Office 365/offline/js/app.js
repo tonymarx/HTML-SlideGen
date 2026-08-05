@@ -266,7 +266,7 @@ class Presentation {
     if (idx === 6) {
       const b = document.getElementById('fill-before');
       const a = document.getElementById('fill-after');
-      setTimeout(() => { if (b) b.style.width = '10%'; if (a) a.style.width = '100%'; }, 200);
+      setTimeout(() => { if (b) b.style.width = '20%'; if (a) a.style.width = '100%'; }, 200);
     }
   }
 
