@@ -384,36 +384,69 @@
         <h2>Construção Colaborativa da Solução</h2>
         <p class="lead">Uma decisão construída com a participação de todas as áreas da Companhia.</p>
 
-        <div
-          style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; flex:1; margin-top:24px; align-items:center;">
+        <!-- Elemento Animado Centralizado de Governança &amp; Colaboração M365 -->
+        <div style="flex:1; display:flex; align-items:center; justify-content:center; margin-top:16px; width:100%;">
+          <div class="collab-hub-container" style="max-width:680px; height:380px;">
 
-          <!-- Nós colaborativos -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-            <div class="card pillar-card">
-              <div class="card-icon"><i class="fa-solid fa-building-user"></i></div>
-              <h4>Diretoria Executiva</h4>
-              <p>Visão estratégica e aporte de recursos</p>
-            </div>
-            <div class="card pillar-card">
-              <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
-              <h4>Gerências (AA / GTI)</h4>
-              <p>Gestão e acompanhamento do projeto</p>
-            </div>
-            <div class="card pillar-card">
-              <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
-              <h4>Equipes Técnicas</h4>
-              <p>Modelagem de arquitetura em nuvem</p>
-            </div>
-            <div class="card pillar-card">
-              <div class="card-icon"><i class="fa-solid fa-user-group"></i></div>
-              <h4>Usuários &amp; Regionais</h4>
-              <p>Foco na usabilidade e rotina de trabalho</p>
-            </div>
-          </div>
+            <!-- Linhas Conectoras Energizadas e Órbitas (SVG Animado) -->
+            <svg class="collab-hub-svg" viewBox="0 0 540 340" fill="none">
+              <!-- Linhas conectoras do Hub Central aos 4 Satélites -->
+              <path class="energy-line" d="M 270 170 L 120 70" />
+              <path class="energy-line" d="M 270 170 L 420 70" />
+              <path class="energy-line" d="M 270 170 L 120 270" />
+              <path class="energy-line" d="M 270 170 L 420 270" />
 
-          <!-- Canvas grafo -->
-          <div style="position:relative; height:300px;">
-            <canvas id="collab-canvas" style="width:100%;height:100%;"></canvas>
+              <!-- Anéis de Órbita Animados -->
+              <circle class="orbit-ring-outer" cx="270" cy="170" r="140" stroke="rgba(73, 183, 255, 0.22)" stroke-width="1.5" stroke-dasharray="6 8" />
+              <circle class="orbit-ring-inner" cx="270" cy="170" r="90" stroke="rgba(29, 99, 190, 0.28)" stroke-width="1" stroke-dasharray="4 6" />
+            </svg>
+
+            <!-- Hub Central: Logo Microsoft -->
+            <div class="hub-center">
+              <div class="hub-center-glow"></div>
+              <div class="hub-center-ring"></div>
+              <div class="hub-logo-box">
+                <img src="imagens/logo-microsoft.png" alt="Microsoft 365" class="hub-microsoft-logo">
+              </div>
+              <span class="hub-center-badge">M365 Hub</span>
+            </div>
+
+            <!-- Satélite 1: Superior Esquerdo (Diretoria Executiva) -->
+            <div class="hub-sat sat-tl">
+              <div class="sat-icon"><i class="fa-solid fa-building-user"></i></div>
+              <div class="sat-text">
+                <span class="sat-title">Diretoria Executiva</span>
+                <span class="sat-sub">Visão estratégica &amp; recursos</span>
+              </div>
+            </div>
+
+            <!-- Satélite 2: Superior Direito (Gerências) -->
+            <div class="hub-sat sat-tr">
+              <div class="sat-icon"><i class="fa-solid fa-users-gear"></i></div>
+              <div class="sat-text">
+                <span class="sat-title">Gerências (AA / GTI)</span>
+                <span class="sat-sub">Gestão &amp; acompanhamento</span>
+              </div>
+            </div>
+
+            <!-- Satélite 3: Inferior Esquerdo (Equipes Técnicas) -->
+            <div class="hub-sat sat-bl">
+              <div class="sat-icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <div class="sat-text">
+                <span class="sat-title">Equipes Técnicas</span>
+                <span class="sat-sub">Arquitetura em nuvem</span>
+              </div>
+            </div>
+
+            <!-- Satélite 4: Inferior Direito (Usuários & Regionais) -->
+            <div class="hub-sat sat-br">
+              <div class="sat-icon"><i class="fa-solid fa-user-group"></i></div>
+              <div class="sat-text">
+                <span class="sat-title">Usuários &amp; Regionais</span>
+                <span class="sat-sub">Usabilidade &amp; rotina</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -654,20 +687,57 @@
           </div>
         </div>
 
-        <!-- Métricas de validação -->
-        <div class="stats-row" style="flex:1; margin-top:24px; align-items:stretch;">
-          <div class="stat-chip" style="padding:28px;">
-            <div class="val" id="count-users">50+</div>
-            <div class="desc">Usuários testadores no período piloto</div>
+        <!-- Métricas de Validação Animadas -->
+        <div class="metrics-animated-grid">
+
+          <!-- Card 1: 50+ Usuários testadores -->
+          <div class="metric-animated-card metric-card-1">
+            <div class="metric-card-header">
+              <div class="metric-icon-wrap icon-cyan">
+                <div class="metric-pulse-ring"></div>
+                <i class="fa-solid fa-users-gear"></i>
+              </div>
+              <span class="metric-badge">Piloto Homologado</span>
+            </div>
+            <div class="metric-val" id="count-users">50+</div>
+            <div class="metric-desc">Usuários testadores no período piloto</div>
+            <div class="metric-bar-track">
+              <div class="metric-bar-fill bar-fill-1" id="bar-users"></div>
+            </div>
           </div>
-          <div class="stat-chip" style="padding:28px;">
-            <div class="val" id="count-days">30+</div>
-            <div class="desc">Dias de validação contínua em ambiente real</div>
+
+          <!-- Card 2: 30+ Dias de validação contínua -->
+          <div class="metric-animated-card metric-card-2">
+            <div class="metric-card-header">
+              <div class="metric-icon-wrap icon-blue">
+                <div class="metric-pulse-ring"></div>
+                <i class="fa-solid fa-calendar-check"></i>
+              </div>
+              <span class="metric-badge">Ambiente Real</span>
+            </div>
+            <div class="metric-val" id="count-days">30+</div>
+            <div class="metric-desc">Dias de validação contínua em ambiente real</div>
+            <div class="metric-bar-track">
+              <div class="metric-bar-fill bar-fill-2" id="bar-days"></div>
+            </div>
           </div>
-          <div class="stat-chip" style="padding:28px;">
-            <div class="val" style="color:#1a7a4a;">0</div>
-            <div class="desc">Falhas significativas registradas no período</div>
+
+          <!-- Card 3: 0 Falhas significativas -->
+          <div class="metric-animated-card metric-card-3">
+            <div class="metric-card-header">
+              <div class="metric-icon-wrap icon-green">
+                <div class="metric-pulse-ring ring-green"></div>
+                <i class="fa-solid fa-shield-check"></i>
+              </div>
+              <span class="metric-badge badge-green"><i class="fa-solid fa-circle-check"></i> 100% Estável</span>
+            </div>
+            <div class="metric-val val-green" id="count-bugs">0</div>
+            <div class="metric-desc">Falhas significativas registradas no período</div>
+            <div class="metric-bar-track">
+              <div class="metric-bar-fill bar-fill-green"></div>
+            </div>
           </div>
+
         </div>
 
         <div class="speaker-note">

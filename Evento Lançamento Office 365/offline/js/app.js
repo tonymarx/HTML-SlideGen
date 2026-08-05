@@ -275,6 +275,19 @@ class Presentation {
       const a = document.getElementById('fill-after');
       setTimeout(() => { if (b) b.style.width = '20%'; if (a) a.style.width = '100%'; }, 200);
     }
+    // Slide 8 — Testes e Validação: Contadores e Barras Animadas
+    if (idx === 8) {
+      setTimeout(() => {
+        const u = document.getElementById('count-users');
+        const d = document.getElementById('count-days');
+        const bu = document.getElementById('bar-users');
+        const bd = document.getElementById('bar-days');
+        if (u) animateCounter(u, 50, 1400, '', '+');
+        if (d) animateCounter(d, 30, 1400, '', '+');
+        if (bu) bu.style.width = '100%';
+        if (bd) bd.style.width = '100%';
+      }, 150);
+    }
   }
 
   buildThumbs() {
