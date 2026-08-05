@@ -102,7 +102,7 @@
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       overflow: hidden;
-      padding: 52px 64px 44px;
+      padding: clamp(18px, 2.8vh, 36px) clamp(24px, 3.5vw, 52px);
       opacity: 0;
       transform: translateX(60px) scale(.982);
       transition: opacity .55s cubic-bezier(.16, 1, .3, 1), transform .55s cubic-bezier(.16, 1, .3, 1);
@@ -141,7 +141,10 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
     }
+
 
     /* ================================================
        HEADER DO SLIDE — Logo + kicker
@@ -1023,91 +1026,111 @@
     }
 
     /* ================================================
-       RESPONSIVIDADE COMPLETA — SLIDES 1 A 10
+       RESPONSIVIDADE COMPLETA — SLIDES 1 A 10 (SEM SCROLL)
     ================================================ */
 
-    /* Scrollbar sutil para o conteúdo interno do slide quando necessário */
     .slide-content {
       position: relative;
       z-index: 2;
       height: 100%;
       display: flex;
       flex-direction: column;
-      overflow-y: auto;
-      overflow-x: hidden;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(17, 72, 148, 0.2) transparent;
+      justify-content: space-between;
+      overflow: hidden !important;
     }
 
-    .slide-content::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    .slide-content::-webkit-scrollbar-thumb {
-      background: rgba(17, 72, 148, 0.2);
-      border-radius: 4px;
-    }
-
-    /* Ajuste para telas com altura reduzida (laptops 1366x768 e menores) */
-    @media (max-height: 820px) {
+    /* Ajustes universais de proporção vertical */
+    @media (max-height: 850px) {
       .slide {
-        padding: 28px 36px 24px !important;
+        padding: clamp(16px, 2.5vh, 28px) clamp(20px, 3vw, 40px) !important;
       }
       .slide-top {
-        margin-bottom: 14px !important;
+        margin-bottom: clamp(6px, 1.2vh, 12px) !important;
+      }
+      h2 {
+        font-size: clamp(20px, 2.8vw, 34px) !important;
+      }
+      .lead {
+        font-size: clamp(12px, 1.3vw, 15px) !important;
+        margin-top: 4px !important;
       }
       .speaker-note {
-        margin-top: 10px !important;
-        padding-top: 8px !important;
-        font-size: 13px !important;
+        margin-top: auto !important;
+        padding-top: 6px !important;
+        font-size: clamp(10px, 0.9vw, 12px) !important;
+        line-height: 1.3 !important;
       }
       .wc-wrapper {
-        height: 240px !important;
+        height: clamp(150px, 25vh, 230px) !important;
       }
       .stat-hero {
-        padding: 24px 32px !important;
+        padding: clamp(14px, 2vh, 24px) clamp(18px, 3vw, 32px) !important;
       }
       .stat-hero .big-num {
-        font-size: clamp(44px, 5.5vw, 72px) !important;
+        font-size: clamp(38px, 5vw, 64px) !important;
+      }
+      .card {
+        padding: clamp(10px, 1.4vh, 16px) clamp(12px, 1.8vw, 18px) !important;
+      }
+      .card-icon {
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 16px !important;
+        margin-bottom: 8px !important;
+      }
+      .card h4 {
+        font-size: 14px !important;
+      }
+      .card p {
+        font-size: 12px !important;
+      }
+      .app-card {
+        padding: 10px 14px !important;
+        gap: 6px !important;
+      }
+      .app-icon {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 14px !important;
       }
     }
 
     /* ── Breakpoint: Laptops Médios e Tablets (≤ 1100px) ── */
     @media (max-width: 1100px) {
       .slide {
-        padding: 28px 32px 24px !important;
+        padding: clamp(16px, 2.5vh, 24px) clamp(18px, 2.8vw, 32px) !important;
         width: min(96vw, 1100px) !important;
       }
 
       .grid-3 {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 16px !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 12px !important;
       }
 
       .grid-4 {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 14px !important;
+        gap: 10px !important;
       }
 
       .wc-wrapper {
-        height: 260px !important;
+        height: clamp(140px, 24vh, 210px) !important;
       }
     }
 
     /* ── Breakpoint: Tablets Portrait e Telas Médias (≤ 900px) ── */
     @media (max-width: 900px) {
       .slide {
-        padding: 22px 20px 20px !important;
+        padding: 16px 14px 14px !important;
         width: min(96vw, 900px) !important;
-        height: min(96svh, calc(100vh - 75px)) !important;
-        border-radius: 20px !important;
+        height: min(96svh, calc(100vh - 70px)) !important;
+        border-radius: 16px !important;
       }
 
       .deck {
-        padding: 6px 6px 56px !important;
+        padding: 4px 4px 50px !important;
       }
 
-      /* Converter TODOS os layouts de grade em coluna única */
+      /* Manter grids compactos sem estourar altura */
       .grid-2,
       .grid-3,
       .grid-4,
@@ -1117,170 +1140,27 @@
         display: flex !important;
         flex-direction: column !important;
         grid-template-columns: 1fr !important;
-        gap: 16px !important;
-        flex: initial !important;
-        align-items: stretch !important;
+        gap: 10px !important;
+        flex: 1 !important;
+        justify-content: center !important;
       }
 
       .wc-wrapper {
-        height: 210px !important;
+        height: clamp(130px, 20vh, 180px) !important;
         width: 100% !important;
       }
 
       /* Grafo colaborativo */
       div[style*="position:relative"][style*="height:300px"] {
-        height: 210px !important;
+        height: clamp(130px, 20vh, 180px) !important;
       }
 
       h2 {
-        font-size: clamp(20px, 3.5vw, 32px) !important;
+        font-size: clamp(18px, 3.2vw, 26px) !important;
       }
 
       .lead {
-        font-size: clamp(13px, 1.8vw, 16px) !important;
-        margin-top: 6px !important;
-      }
-
-      p {
-        font-size: 14px !important;
-      }
-
-      .stat-hero {
-        padding: 20px 24px !important;
-        border-radius: 20px !important;
-      }
-
-      .stat-hero .big-num {
-        font-size: clamp(40px, 7vw, 64px) !important;
-      }
-
-      /* Timeline adaptativa */
-      .timeline {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 14px !important;
-        margin-top: 18px !important;
-      }
-
-      .timeline::before {
-        display: none !important;
-      }
-
-      .tl-step {
-        flex: 0 0 calc(50% - 10px) !important;
-        padding: 0 !important;
-      }
-
-      /* Pipeline adaptativo */
-      .pipeline {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 8px !important;
-        margin-top: 16px !important;
-      }
-
-      .pip-step {
-        min-width: 110px !important;
-        padding: 12px 10px !important;
-      }
-
-      .pip-arrow {
-        display: none !important;
-      }
-
-      /* Nav bar */
-      .nav-bar {
-        padding: 0 16px !important;
-        height: 52px !important;
-      }
-
-      .nav-logo {
-        height: 22px !important;
-      }
-
-      .prog-bar {
-        width: 120px !important;
-      }
-
-      .btn-nav {
-        padding: 6px 14px !important;
-        font-size: 12px !important;
-      }
-
-      /* Modal */
-      .modal-overlay {
-        padding: 16px !important;
-      }
-
-      .thumbs-grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
-        gap: 10px !important;
-      }
-
-      /* Slide top */
-      .slide-top {
-        margin-bottom: 12px !important;
-      }
-
-      .slide-logo {
-        height: 26px !important;
-      }
-
-      .kicker {
-        font-size: 11px !important;
-      }
-
-      /* Cards */
-      .card {
-        padding: 14px 16px !important;
-      }
-
-      .card h4 {
-        font-size: 15px !important;
-      }
-
-      .card p {
-        font-size: 13px !important;
-      }
-
-      /* Speaker note */
-      .speaker-note {
-        font-size: 12px !important;
-        padding-top: 8px !important;
-        margin-top: 12px !important;
-      }
-
-      /* Stats row */
-      .stats-row {
-        flex-direction: column !important;
-        gap: 10px !important;
-      }
-
-      .stat-chip {
-        width: 100% !important;
-        padding: 14px !important;
-      }
-    }
-
-    /* ── Breakpoint: Mobile / Telas Pequenas (≤ 640px) ── */
-    @media (max-width: 640px) {
-      .slide {
-        padding: 16px 12px 14px !important;
-        border-radius: 14px !important;
-        width: 98vw !important;
-        height: calc(100svh - 64px) !important;
-      }
-
-      .deck {
-        padding: 4px 4px 50px !important;
-      }
-
-      h2 {
-        font-size: clamp(17px, 5vw, 24px) !important;
-      }
-
-      .lead {
-        font-size: clamp(12px, 3.2vw, 14px) !important;
+        font-size: clamp(12px, 1.6vw, 14px) !important;
         margin-top: 4px !important;
       }
 
@@ -1288,8 +1168,144 @@
         font-size: 13px !important;
       }
 
+      .stat-hero {
+        padding: 14px 18px !important;
+        border-radius: 16px !important;
+      }
+
+      .stat-hero .big-num {
+        font-size: clamp(36px, 6vw, 52px) !important;
+      }
+
+      .timeline {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        margin-top: 10px !important;
+      }
+
+      .timeline::before {
+        display: none !important;
+      }
+
+      .tl-step {
+        flex: 0 0 calc(50% - 8px) !important;
+        padding: 0 !important;
+      }
+
+      .pipeline {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        margin-top: 10px !important;
+      }
+
+      .pip-step {
+        min-width: 100px !important;
+        padding: 8px 8px !important;
+      }
+
+      .pip-arrow {
+        display: none !important;
+      }
+
+      .nav-bar {
+        padding: 0 14px !important;
+        height: 48px !important;
+      }
+
+      .nav-logo {
+        height: 20px !important;
+      }
+
+      .prog-bar {
+        width: 100px !important;
+      }
+
+      .btn-nav {
+        padding: 5px 12px !important;
+        font-size: 11px !important;
+      }
+
+      .modal-overlay {
+        padding: 14px !important;
+      }
+
+      .thumbs-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+        gap: 8px !important;
+      }
+
+      .slide-top {
+        margin-bottom: 8px !important;
+      }
+
+      .slide-logo {
+        height: 22px !important;
+      }
+
+      .kicker {
+        font-size: 10px !important;
+      }
+
+      .card {
+        padding: 10px 12px !important;
+      }
+
+      .card h4 {
+        font-size: 14px !important;
+      }
+
+      .card p {
+        font-size: 12px !important;
+      }
+
+      .speaker-note {
+        font-size: 11px !important;
+        padding-top: 6px !important;
+        margin-top: 8px !important;
+      }
+
+      .stats-row {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+      }
+
+      .stat-chip {
+        flex: 1 1 calc(50% - 6px) !important;
+        padding: 10px !important;
+      }
+    }
+
+    /* ── Breakpoint: Mobile / Telas Pequenas (≤ 640px) ── */
+    @media (max-width: 640px) {
+      .slide {
+        padding: 12px 10px 10px !important;
+        border-radius: 12px !important;
+        width: 98vw !important;
+        height: calc(100svh - 58px) !important;
+      }
+
+      .deck {
+        padding: 2px 2px 46px !important;
+      }
+
+      h2 {
+        font-size: clamp(16px, 4.5vw, 22px) !important;
+      }
+
+      .lead {
+        font-size: clamp(11px, 3vw, 13px) !important;
+        margin-top: 2px !important;
+      }
+
+      p {
+        font-size: 12px !important;
+      }
+
       .wc-wrapper {
-        height: 150px !important;
+        height: 120px !important;
       }
 
       .float-chip {
@@ -1297,17 +1313,17 @@
       }
 
       .slide-top {
-        margin-bottom: 8px !important;
+        margin-bottom: 6px !important;
         flex-wrap: wrap !important;
-        gap: 6px !important;
+        gap: 4px !important;
       }
 
       .slide-logo {
-        height: 20px !important;
+        height: 18px !important;
       }
 
       .kicker {
-        font-size: 10px !important;
+        font-size: 9px !important;
       }
 
       .speaker-note {
@@ -1315,8 +1331,8 @@
       }
 
       .nav-bar {
-        padding: 0 8px !important;
-        height: 48px !important;
+        padding: 0 6px !important;
+        height: 44px !important;
       }
 
       .nav-logo {
@@ -1324,41 +1340,46 @@
       }
 
       .prog-bar {
-        width: 75px !important;
+        width: 60px !important;
       }
 
       .btn-nav {
-        padding: 5px 8px !important;
-        font-size: 11px !important;
+        padding: 4px 6px !important;
+        font-size: 10px !important;
       }
 
       .slide-count {
-        font-size: 11px !important;
+        font-size: 10px !important;
       }
 
       .timeline {
         flex-direction: column !important;
         align-items: stretch !important;
-        gap: 10px !important;
+        gap: 6px !important;
       }
 
       .tl-step {
-        width: 100% !important;
+        width: 100 !important;
         flex: 0 0 100% !important;
         flex-direction: row !important;
         text-align: left !important;
-        gap: 10px !important;
+        gap: 8px !important;
       }
 
       .tl-step .tl-dot {
         margin-bottom: 0 !important;
         flex-shrink: 0 !important;
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 11px !important;
       }
 
       .pipeline {
         flex-direction: column !important;
+        gap: 4px !important;
       }
     }
+
 
     /* ── Breakpoint: Telas Extremamente Pequenas (≤ 400px) ── */
     @media (max-width: 400px) {
