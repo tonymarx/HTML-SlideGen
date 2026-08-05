@@ -38,10 +38,14 @@
 
       <!-- Linhas Onduladas Animadas -->
       <g class="bg-lines-group">
-        <path class="wave-line wave-line-1" d="M -80 340 C 220 180, 520 520, 820 300 S 1220 160, 1520 340" stroke="rgba(73,183,255,.22)" stroke-width="2.2" />
-        <path class="wave-line wave-line-2" d="M -80 410 C 270 240, 570 580, 870 360 S 1270 210, 1520 410" stroke="rgba(29,99,190,.16)" stroke-width="1.8" />
-        <path class="wave-line wave-line-3" d="M -80 480 C 300 300, 620 620, 920 420 S 1300 270, 1520 480" stroke="rgba(73,183,255,.12)" stroke-width="1.2" />
-        <path class="wave-line wave-line-4" d="M -80 260 C 180 380, 480 140, 780 240 S 1180 390, 1520 220" stroke="rgba(123,94,167,.10)" stroke-width="1" stroke-dasharray="8 12" />
+        <path class="wave-line wave-line-1" d="M -80 340 C 220 180, 520 520, 820 300 S 1220 160, 1520 340"
+          stroke="rgba(73,183,255,.22)" stroke-width="2.2" />
+        <path class="wave-line wave-line-2" d="M -80 410 C 270 240, 570 580, 870 360 S 1270 210, 1520 410"
+          stroke="rgba(29,99,190,.16)" stroke-width="1.8" />
+        <path class="wave-line wave-line-3" d="M -80 480 C 300 300, 620 620, 920 420 S 1300 270, 1520 480"
+          stroke="rgba(73,183,255,.12)" stroke-width="1.2" />
+        <path class="wave-line wave-line-4" d="M -80 260 C 180 380, 480 140, 780 240 S 1180 390, 1520 220"
+          stroke="rgba(123,94,167,.10)" stroke-width="1" stroke-dasharray="8 12" />
       </g>
 
       <!-- Pontos de Luz Discretos Animados (Light Nodes com Flutuação 2D) -->
@@ -326,27 +330,37 @@
           </div>
         </div>
 
-        <!-- Vendor Cards -->
-        <div class="grid-2" style="margin-top:28px; flex:1; align-items:center;">
-          <div class="card" style="display:flex; align-items:center; gap:20px; border-left:4px solid var(--blue-700);">
-            <div style="font-size:40px;">🪟</div>
-            <div>
-              <div style="font-weight:800; font-size:20px; color:var(--blue-900);">Microsoft</div>
-              <div style="font-size:14px; color:var(--muted); margin-top:4px;">Microsoft 365 E1 — Plataforma selecionada
-                para a Codevasf</div>
+        <!-- Elementos Circulares dos Fornecedores (Perspectiva Ampliada para a Solução Selecionada) -->
+        <div class="vendor-circular-layout">
+
+          <!-- Elemento Circular Microsoft (Solução Selecionada - Maior Perspectiva & Destaque 3D) -->
+          <div class="vendor-circle vendor-circle-selected">
+            <div class="vendor-circle-badge">
+              <i class="fa-solid fa-circle-check"></i> Selecionada &amp; Homologada
             </div>
-            <div
-              style="margin-left:auto; background:var(--blue-100); color:var(--blue-900); font-weight:700; font-size:13px; padding:6px 14px; border-radius:99px;">
-              ✓ Selecionada</div>
-          </div>
-          <div class="card" style="display:flex; align-items:center; gap:20px; opacity:.72;">
-            <div style="font-size:40px;">🔵</div>
-            <div>
-              <div style="font-weight:800; font-size:20px; color:var(--blue-900);">Google</div>
-              <div style="font-size:14px; color:var(--muted); margin-top:4px;">Google Workspace — Avaliado
-                comparativamente</div>
+
+            <!-- Logo da Microsoft -->
+            <div class="vendor-circle-logo-wrap">
+              <img class="vendor-logo" src="imagens/logo-microsoft.png" alt="Microsoft">
             </div>
+
+            <h3 class="vendor-circle-title">Microsoft</h3>
+            <p class="vendor-circle-subtitle">Microsoft 365 E1</p>
           </div>
+
+          <!-- Elemento Circular Google (Avaliado Comparativamente) -->
+          <div class="vendor-circle vendor-circle-evaluated">
+            <div class="vendor-circle-badge-sec">Avaliado</div>
+
+            <!-- Logo do Google -->
+            <div class="vendor-circle-logo-wrap">
+              <img class="vendor-logo" src="imagens/logo-google.png" alt="Google">
+            </div>
+
+            <h3 class="vendor-circle-title">Google</h3>
+            <p class="vendor-circle-subtitle">Google Workspace</p>
+          </div>
+
         </div>
 
         <div class="speaker-note">
