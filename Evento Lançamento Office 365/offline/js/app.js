@@ -8,7 +8,7 @@ class WordCloud {
     this.canvas = document.getElementById(canvasId);
     if (!this.canvas) return;
     this.ctx = this.canvas.getContext('2d');
-    this.names = ['André', 'Caíque', 'Carlos', 'Diogo', 'Ivo', 'Leonardo', 'Marcelo Carvalho', 'Rafael', 'Rui', 'Stênio', 'Vinícius Ximenes'];
+    this.names = ['André', 'Caíque', 'Carlos', 'Diogo', 'Ivo', 'Leonardo', 'Marcelo Carvalho', 'Rafael', 'Rui Bisneto', 'Stênio', 'Vinícius Ximenes'];
     this.words = [];
     this.raf = null;
     this.init();
@@ -247,9 +247,16 @@ class Presentation {
         vid.pause();
       }
     }
-    // Slide 1 (antigo slide 0) — Word Cloud
-    if (idx === 1 && !this.wc) {
-      setTimeout(() => { this.wc = new WordCloud('wordcloud-canvas'); }, 200);
+    // Slide 1 — Painel de Equipe: reinicia animação de entrada a cada visita
+    if (idx === 1) {
+      setTimeout(() => {
+        const cards = document.querySelectorAll('#slide-1 .member-card');
+        cards.forEach(card => {
+          card.style.animation = 'none';
+          void card.offsetWidth; // force reflow
+          card.style.animation = '';
+        });
+      }, 80);
     }
     // Slide 3 (antigo slide 2) — Collab Graph
     if (idx === 3 && !this.cg) {

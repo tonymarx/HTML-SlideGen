@@ -7,13 +7,13 @@ class TeamWordCloud {
     this.canvas = document.getElementById(canvasId);
     if (!this.canvas) return;
     this.ctx = this.canvas.getContext('2d');
-    
+
     this.names = [
       'André', 'Caíque', 'Carlos', 'Diogo',
       'Ivo', 'Leonardo', 'Marcelo Carvalho',
-      'Rafael', 'Rui', 'Stênio', 'Vinícius Ximenes'
+      'Rafael', 'Rui Bisneto', 'Stênio', 'Vinícius Ximenes'
     ];
-    
+
     this.words = [];
     this.animationFrame = null;
     this.init();
@@ -22,9 +22,9 @@ class TeamWordCloud {
   init() {
     this.resize();
     window.addEventListener('resize', () => this.resize());
-    
+
     const colors = ['#ffffff', '#00f0ff', '#38bdf8', '#00a896', '#60a5fa', '#93c5fd'];
-    
+
     this.words = this.names.map((name, index) => {
       const angle = (index / this.names.length) * Math.PI * 2;
       const radius = 100 + Math.random() * 80;
@@ -55,7 +55,7 @@ class TeamWordCloud {
   start() {
     const render = () => {
       this.ctx.clearRect(0, 0, this.width, this.height);
-      
+
       const centerX = this.width / 2;
       const centerY = this.height / 2;
 
