@@ -17,20 +17,77 @@
 
 <body>
 
-  <!-- Onda de fundo decorativa sutil (inspirada nas imagens do evento) -->
+  <!-- Onda de fundo decorativa animada com pontos de luz sutis -->
   <div class="bg-wave" aria-hidden="true">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
-      <path d="M -60 350 C 200 200, 500 500, 800 320 S 1200 180, 1500 350" stroke="rgba(73,183,255,.18)"
-        stroke-width="2" fill="none" />
-      <path d="M -60 420 C 250 260, 550 560, 850 380 S 1250 230, 1500 420" stroke="rgba(29,99,190,.12)"
-        stroke-width="1.5" fill="none" />
-      <path d="M -60 490 C 280 320, 600 600, 900 440 S 1280 290, 1500 490" stroke="rgba(73,183,255,.08)"
-        stroke-width="1" fill="none" />
-      <circle cx="120" cy="160" r="6" fill="rgba(73,183,255,.3)" />
-      <circle cx="380" cy="80" r="4" fill="rgba(29,99,190,.2)" />
-      <circle cx="900" cy="200" r="5" fill="rgba(73,183,255,.25)" />
-      <circle cx="1200" cy="100" r="4" fill="rgba(29,99,190,.18)" />
-      <circle cx="1350" cy="300" r="6" fill="rgba(73,183,255,.22)" />
+      <defs>
+        <!-- Gradientes de luz discretos -->
+        <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#49b7ff" stop-opacity="0.6" />
+          <stop offset="60%" stop-color="#1d63be" stop-opacity="0.2" />
+          <stop offset="100%" stop-color="#0b2e63" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="glow-blue" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#2f7de6" stop-opacity="0.5" />
+          <stop offset="100%" stop-color="#114894" stop-opacity="0" />
+        </radialGradient>
+        <filter id="blur-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="6" />
+        </filter>
+      </defs>
+
+      <!-- Linhas Onduladas Animadas -->
+      <g class="bg-lines-group">
+        <path class="wave-line wave-line-1" d="M -80 340 C 220 180, 520 520, 820 300 S 1220 160, 1520 340" stroke="rgba(73,183,255,.22)" stroke-width="2.2" />
+        <path class="wave-line wave-line-2" d="M -80 410 C 270 240, 570 580, 870 360 S 1270 210, 1520 410" stroke="rgba(29,99,190,.16)" stroke-width="1.8" />
+        <path class="wave-line wave-line-3" d="M -80 480 C 300 300, 620 620, 920 420 S 1300 270, 1520 480" stroke="rgba(73,183,255,.12)" stroke-width="1.2" />
+        <path class="wave-line wave-line-4" d="M -80 260 C 180 380, 480 140, 780 240 S 1180 390, 1520 220" stroke="rgba(123,94,167,.10)" stroke-width="1" stroke-dasharray="8 12" />
+      </g>
+
+      <!-- Pontos de Luz Discretos Animados (Light Nodes com Flutuação 2D) -->
+      <g class="bg-lights-group">
+        <!-- Ponto 1: Superior Esquerdo -->
+        <g class="light-node light-node-1">
+          <circle class="light-orb" cx="140" cy="150" r="22" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="140" cy="150" r="3.5" fill="#49b7ff" />
+        </g>
+
+        <!-- Ponto 2: Centro Superior -->
+        <g class="light-node light-node-2">
+          <circle class="light-orb" cx="520" cy="100" r="18" fill="url(#glow-blue)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="520" cy="100" r="2.5" fill="#a0d4f5" />
+        </g>
+
+        <!-- Ponto 3: Centro Direito -->
+        <g class="light-node light-node-3">
+          <circle class="light-orb" cx="920" cy="220" r="24" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="920" cy="220" r="4" fill="#ffffff" />
+        </g>
+
+        <!-- Ponto 4: Superior Direito -->
+        <g class="light-node light-node-4">
+          <circle class="light-orb" cx="1260" cy="110" r="20" fill="url(#glow-blue)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="1260" cy="110" r="3" fill="#49b7ff" />
+        </g>
+
+        <!-- Ponto 5: Inferior Esquerdo -->
+        <g class="light-node light-node-5">
+          <circle class="light-orb" cx="280" cy="580" r="26" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="280" cy="580" r="3.5" fill="#38bdf8" />
+        </g>
+
+        <!-- Ponto 6: Inferior Direito -->
+        <g class="light-node light-node-6">
+          <circle class="light-orb" cx="1380" cy="520" r="22" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="1380" cy="520" r="3" fill="#ffffff" />
+        </g>
+
+        <!-- Ponto 7: Centro Inferior -->
+        <g class="light-node light-node-7">
+          <circle class="light-orb" cx="720" cy="650" r="20" fill="url(#glow-blue)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="720" cy="650" r="3" fill="#a0d4f5" />
+        </g>
+      </g>
     </svg>
   </div>
 
