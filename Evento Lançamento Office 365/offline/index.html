@@ -301,29 +301,45 @@
         <h2>Início dos Estudos e Avaliação de Soluções</h2>
         <p class="lead">Escolha fundamentada em análise comparativa com as maiores empresas do segmento.</p>
 
-        <!-- Timeline -->
+        <!-- Timeline com Animação Exclusiva na Trilha -->
         <div class="timeline">
+          <!-- Trilha Horizontal Conectora Animada -->
+          <div class="timeline-track">
+            <div class="timeline-pulse"></div>
+          </div>
+
           <div class="tl-step">
-            <div class="tl-dot"><i class="fa-solid fa-lightbulb"></i></div>
+            <div class="tl-dot-container">
+              <div class="tl-dot-ping"></div>
+              <div class="tl-dot"><i class="fa-solid fa-lightbulb"></i></div>
+            </div>
             <div class="tl-year">2025</div>
             <h4>Estudos Técnicos</h4>
             <p>Levantamento de requisitos institucionais</p>
           </div>
           <div class="tl-step">
-            <div class="tl-dot"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <div class="tl-dot-container">
+              <div class="tl-dot-ping"></div>
+              <div class="tl-dot"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            </div>
             <div class="tl-year">Fase 2</div>
             <h4>Avaliação de Mercado</h4>
             <p>Benchmarking de soluções disponíveis</p>
           </div>
           <div class="tl-step">
-            <div class="tl-dot"><i class="fa-solid fa-comments"></i></div>
+            <div class="tl-dot-container">
+              <div class="tl-dot-ping"></div>
+              <div class="tl-dot"><i class="fa-solid fa-comments"></i></div>
+            </div>
             <div class="tl-year">Fase 3</div>
             <h4>Reuniões com Fornecedores</h4>
             <p>Microsoft e Google presencialmente</p>
           </div>
           <div class="tl-step">
-            <div class="tl-dot" style="background: linear-gradient(135deg, var(--cyan), var(--blue-700));"><i
-                class="fa-solid fa-circle-check"></i></div>
+            <div class="tl-dot-container">
+              <div class="tl-dot-ping ping-active"></div>
+              <div class="tl-dot tl-dot-active"><i class="fa-solid fa-circle-check"></i></div>
+            </div>
             <div class="tl-year">Definição</div>
             <h4>Microsoft 365 E1</h4>
             <p>Melhor aderência às necessidades da Codevasf</p>
@@ -384,24 +400,26 @@
         <h2>Construção Colaborativa da Solução</h2>
         <p class="lead">Uma decisão construída com a participação de todas as áreas da Companhia.</p>
 
-        <!-- Elemento Animado Centralizado de Governança &amp; Colaboração M365 -->
-        <div style="flex:1; display:flex; align-items:center; justify-content:center; margin-top:16px; width:100%;">
-          <div class="collab-hub-container" style="max-width:680px; height:380px;">
+        <!-- Elemento Animado Centralizado de Governança &amp; Colaboração M365 (Dimensionamento Ampliado) -->
+        <div style="flex:1; display:flex; align-items:center; justify-content:center; margin-top:10px; width:100%;">
+          <div class="collab-hub-container" style="max-width:860px; height:460px;">
 
-            <!-- Linhas Conectoras Energizadas e Órbitas (SVG Animado) -->
-            <svg class="collab-hub-svg" viewBox="0 0 540 340" fill="none">
+            <!-- Linhas Conectoras Energizadas e Órbitas (SVG Animado Ampliado) -->
+            <svg class="collab-hub-svg" viewBox="0 0 700 420" fill="none">
               <!-- Linhas conectoras do Hub Central aos 4 Satélites -->
-              <path class="energy-line" d="M 270 170 L 120 70" />
-              <path class="energy-line" d="M 270 170 L 420 70" />
-              <path class="energy-line" d="M 270 170 L 120 270" />
-              <path class="energy-line" d="M 270 170 L 420 270" />
+              <path class="energy-line" d="M 350 210 L 150 85" />
+              <path class="energy-line" d="M 350 210 L 550 85" />
+              <path class="energy-line" d="M 350 210 L 150 335" />
+              <path class="energy-line" d="M 350 210 L 550 335" />
 
-              <!-- Anéis de Órbita Animados -->
-              <circle class="orbit-ring-outer" cx="270" cy="170" r="140" stroke="rgba(73, 183, 255, 0.22)" stroke-width="1.5" stroke-dasharray="6 8" />
-              <circle class="orbit-ring-inner" cx="270" cy="170" r="90" stroke="rgba(29, 99, 190, 0.28)" stroke-width="1" stroke-dasharray="4 6" />
+              <!-- Anéis de Órbita Animados em Torno do Eixo Central -->
+              <circle class="orbit-ring-outer" cx="350" cy="210" r="185" stroke="rgba(73, 183, 255, 0.24)"
+                stroke-width="1.8" stroke-dasharray="8 10" />
+              <circle class="orbit-ring-inner" cx="350" cy="210" r="120" stroke="rgba(29, 99, 190, 0.3)"
+                stroke-width="1.2" stroke-dasharray="5 7" />
             </svg>
 
-            <!-- Hub Central: Logo Microsoft -->
+            <!-- Hub Central: Logo Microsoft Ampliada -->
             <div class="hub-center">
               <div class="hub-center-glow"></div>
               <div class="hub-center-ring"></div>
@@ -424,7 +442,7 @@
             <div class="hub-sat sat-tr">
               <div class="sat-icon"><i class="fa-solid fa-users-gear"></i></div>
               <div class="sat-text">
-                <span class="sat-title">Gerências (AA / GTI)</span>
+                <span class="sat-title">Gerências</span>
                 <span class="sat-sub">Gestão &amp; acompanhamento</span>
               </div>
             </div>
@@ -516,20 +534,124 @@
         <h2>Volume de Dados Migrados</h2>
         <p class="lead">Transferência segura e íntegra de milhões de mensagens para a nuvem Microsoft.</p>
 
-        <div class="grid-2" style="flex:1; margin-top:24px; align-items:stretch; gap:24px;">
-          <div class="stat-hero"
-            style="display:flex; flex-direction:column; justify-content:center; align-items:center;">
-            <div style="font-size:48px; margin-bottom:12px; position:relative; z-index:1;">💬</div>
-            <div class="big-num" id="count-12m" style="font-size:clamp(52px,6vw,88px);">+12 Milhões</div>
-            <div class="big-label">Mensagens de e-mail transferidas com integridade total</div>
+        <!-- Container Animado de Volume de Dados (Grandiosidade Técnica) -->
+        <div class="data-volume-container">
+
+          <!-- Card 1: 12+ Milhões de Mensagens -->
+          <div class="data-card data-card-messages">
+            <div class="data-card-bg-glow"></div>
+            <div class="data-card-header">
+              <div class="data-icon-box icon-box-cyan">
+                <i class="fa-solid fa-envelopes-bulk"></i>
+              </div>
+              <span class="data-card-tag">Mensagens Migradas</span>
+            </div>
+
+            <div class="data-num-wrap">
+              <span class="data-big-num" id="count-12m">+12.000.000</span>
+            </div>
+
+            <div class="data-card-desc">
+              Mensagens de e-mail transferidas com integridade total
+            </div>
+
+            <!-- Gráfico Integrado de Fluxo de Cartas / E-mails (Zimbra -> Microsoft 365) -->
+            <div class="data-stream-wrapper">
+              <svg class="data-stream-svg" viewBox="0 0 340 88" fill="none">
+
+                <!-- 1. Trajetória Pontilhada do Fluxo (Do centro exato Zimbra ao centro exato Microsoft) -->
+                <path d="M 32 34 Q 170 10, 308 34" stroke="rgba(73, 183, 255, 0.55)" stroke-width="2.5"
+                  stroke-dasharray="6 6" />
+
+                <!-- 2. Envelopes de E-mail em Migração -->
+                <g class="stream-envelope envelope-1">
+                  <rect x="-10" y="-7" width="20" height="13" rx="2.5" fill="#0078d4" />
+                  <path d="M -10 -7 L 0 0 L 10 -7" stroke="#ffffff" stroke-width="1.2" fill="none" />
+                  <path d="M -10 6 L -3 0 M 10 6 L 3 0" stroke="rgba(255,255,255,0.4)" stroke-width="1" />
+                </g>
+
+                <g class="stream-envelope envelope-2">
+                  <rect x="-10" y="-7" width="20" height="13" rx="2.5" fill="#00f0ff" />
+                  <path d="M -10 -7 L 0 0 L 10 -7" stroke="#003865" stroke-width="1.2" fill="none" />
+                  <path d="M -10 6 L -3 0 M 10 6 L 3 0" stroke="rgba(0,56,101,0.4)" stroke-width="1" />
+                </g>
+
+                <g class="stream-envelope envelope-3">
+                  <rect x="-10" y="-7" width="20" height="13" rx="2.5" fill="#3a8df5" />
+                  <path d="M -10 -7 L 0 0 L 10 -7" stroke="#ffffff" stroke-width="1.2" fill="none" />
+                  <path d="M -10 6 L -3 0 M 10 6 L 3 0" stroke="rgba(255,255,255,0.4)" stroke-width="1" />
+                </g>
+
+                <!-- 3. Círculo de Origem Ampliado com Moldura (Zimbra Local) -->
+                <g class="stream-node-start">
+                  <circle cx="32" cy="34" r="28" fill="#ffffff" stroke="#d9381e" stroke-width="3" />
+                  <image href="imagens/logo-zimbra.png" x="15" y="17" width="34" height="34"
+                    onerror="this.style.display='none'; document.getElementById('zimbra-svg-fallback').style.display='block';" />
+                  <!-- Fallback ícone de servidor caso logo-zimbra.png não exista -->
+                  <g id="zimbra-svg-fallback" style="display:none;">
+                    <rect x="20" y="23" width="24" height="22" rx="3" fill="#d9381e" />
+                    <line x1="24" y1="28" x2="40" y2="28" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" />
+                    <line x1="24" y1="34" x2="40" y2="34" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" />
+                    <circle cx="27" cy="39" r="1.3" fill="#ffffff" />
+                  </g>
+                  <text x="32" y="78" fill="#c02b12" font-size="11.5" font-weight="800"
+                    text-anchor="middle">Zimbra</text>
+                </g>
+
+                <!-- 4. Círculo de Destino Ampliado com Moldura (Microsoft 365 Nuvem) -->
+                <g class="stream-node-end">
+                  <circle cx="308" cy="34" r="28" fill="#ffffff" stroke="#0078d4" stroke-width="3" />
+                  <image href="imagens/logo-microsoft.png" x="291" y="17" width="34" height="34" />
+                  <text x="308" y="78" fill="#0078d4" font-size="11.5" font-weight="800"
+                    text-anchor="middle">M365</text>
+                </g>
+
+              </svg>
+            </div>
           </div>
 
-          <div class="stat-hero"
-            style="display:flex; flex-direction:column; justify-content:center; align-items:center; background: linear-gradient(145deg, var(--blue-700), #3a8df5);">
-            <div style="font-size:48px; margin-bottom:12px; position:relative; z-index:1;">🗄️</div>
-            <div class="big-num" id="count-6tb" style="font-size:clamp(52px,6vw,88px);">~6 TB</div>
-            <div class="big-label">Quase 6 Terabytes de informações carregadas na nuvem</div>
+          <!-- Conector de Ingestão de Dados com Animação Central -->
+          <div class="data-flow-connector">
+            <div class="flow-icon-hub">
+              <div class="flow-hub-pulse"></div>
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+            </div>
+            <span class="flow-speed-badge"><i class="fa-solid fa-bolt"></i> Nuvem M365</span>
           </div>
+
+          <!-- Card 2: ~6 Terabytes de Dados -->
+          <div class="data-card data-card-storage">
+            <div class="data-card-bg-glow glow-blue"></div>
+            <div class="data-card-header">
+              <div class="data-icon-box icon-box-blue">
+                <i class="fa-solid fa-database"></i>
+              </div>
+              <span class="data-card-tag tag-blue">Volume Total</span>
+            </div>
+
+            <div class="data-num-wrap">
+              <span class="data-big-num" id="count-6tb">~6 TB</span>
+            </div>
+
+            <div class="data-card-desc">
+              Quase 6 Terabytes de informações carregadas na nuvem
+            </div>
+
+            <!-- Visualizador da Barra de Capacidade do Servidor Animada -->
+            <div class="storage-gauge-wrap">
+              <div class="storage-gauge-track">
+                <div class="storage-gauge-fill" id="gauge-fill-6tb">
+                  <div class="gauge-shimmer"></div>
+                  <div class="gauge-fill-head"></div>
+                </div>
+              </div>
+              <div class="storage-gauge-labels">
+                <span>0 TB</span>
+                <span class="gauge-target"><i class="fa-solid fa-cloud-arrow-up"></i> ~6 TB Migrados</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div class="speaker-note">

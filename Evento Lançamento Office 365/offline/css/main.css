@@ -916,6 +916,167 @@ p {
   gap: 24px;
 }
 
+
+/* ================================================
+   SLIDE 3 (#slide-2) — TIMELINE COM EFEITOS NA TRILHA
+================================================ */
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 14px;
+  margin-bottom: 10px;
+  padding-top: 8px;
+  width: 100%;
+}
+
+/* Trilha Horizontal com Pulso de Luz */
+.timeline-track {
+  position: absolute;
+  top: 33px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 4px;
+  background: rgba(17, 72, 148, 0.12);
+  border-radius: 99px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.timeline-pulse {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(73, 183, 255, 0.6) 35%,
+      #00f0ff 50%,
+      rgba(73, 183, 255, 0.6) 65%,
+      transparent 100%);
+  background-size: 60% 100%;
+  animation: timelineSweep 6s linear infinite;
+  border-radius: 99px;
+}
+
+@keyframes timelineSweep {
+  0% {
+    background-position: -60% 0;
+  }
+
+  100% {
+    background-position: 160% 0;
+  }
+}
+
+/* Container do ícone com ping */
+.tl-dot-container {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  z-index: 2;
+}
+
+/* Anel de Ping que irradia para fora do ícone */
+.tl-dot-ping {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(73, 183, 255, 0.5);
+  animation: dotPingExpand 5s ease-out infinite;
+  pointer-events: none;
+}
+
+.ping-active {
+  border-color: #00f0ff;
+  animation: dotPingExpand 1.8s ease-out infinite;
+}
+
+@keyframes dotPingExpand {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+
+  70% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+/* Ícone dos Nós da Timeline */
+.tl-dot {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-700), var(--blue-900));
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 6px 16px rgba(11, 46, 99, 0.22);
+  z-index: 1;
+}
+
+.tl-dot-active {
+  background: linear-gradient(135deg, #0078d4, #00f0ff);
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.65);
+}
+
+/* Labels e Texto (SEM animação de movimento) */
+.tl-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.tl-year {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--blue-700);
+  background: rgba(17, 72, 148, 0.08);
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin-bottom: 5px;
+}
+
+.tl-step:last-child .tl-year {
+  background: linear-gradient(90deg, #0078d4, #00f0ff);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 240, 255, 0.3);
+}
+
+.tl-step h4 {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--blue-900);
+  margin: 0 0 3px;
+  line-height: 1.2;
+}
+
+.tl-step p {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.3;
+  max-width: 160px;
+  margin: 0;
+}
+
 /* ================================================
    SLIDE 2 — ELEMENTOS CIRCULARES DOS FORNECEDORES
 ================================================ */
@@ -950,7 +1111,7 @@ p {
   height: 240px;
   background: linear-gradient(145deg, #ffffff 0%, #edf5ff 60%, #e1efff 100%);
   border: 3.5px solid var(--blue-600);
-  box-shadow: 
+  box-shadow:
     0 18px 48px rgba(11, 46, 99, 0.18),
     0 0 0 8px rgba(73, 183, 255, 0.14),
     inset 0 2px 0 rgba(255, 255, 255, 0.9);
@@ -960,7 +1121,7 @@ p {
 .vendor-circle-selected:hover {
   transform: translateY(-4px) scale(1.03);
   border-color: var(--cyan);
-  box-shadow: 
+  box-shadow:
     0 24px 56px rgba(11, 46, 99, 0.24),
     0 0 30px rgba(73, 183, 255, 0.3);
 }
@@ -1070,7 +1231,7 @@ p {
 .collab-hub-container {
   position: relative;
   width: 100%;
-  height: 330px;
+  height: 460px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1089,37 +1250,52 @@ p {
 
 .energy-line {
   stroke: rgba(73, 183, 255, 0.45);
-  stroke-width: 2.2;
+  stroke-width: 2.5;
   stroke-dasharray: 8 8;
   animation: energyFlow 12s linear infinite;
 }
 
 @keyframes energyFlow {
-  0% { stroke-dashoffset: 100; }
-  100% { stroke-dashoffset: 0; }
+  0% {
+    stroke-dashoffset: 100;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 .orbit-ring-outer {
-  transform-origin: 270px 170px;
+  transform-origin: 350px 210px;
   animation: orbitSpinCw 35s linear infinite;
 }
 
 .orbit-ring-inner {
-  transform-origin: 270px 170px;
+  transform-origin: 350px 210px;
   animation: orbitSpinCcw 25s linear infinite;
 }
 
 @keyframes orbitSpinCw {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes orbitSpinCcw {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
-/* Hub Central com Logo Microsoft */
+/* Hub Central com Logo Microsoft Ampliada */
 .hub-center {
   position: relative;
   z-index: 3;
@@ -1131,46 +1307,58 @@ p {
 
 .hub-center-glow {
   position: absolute;
-  width: 130px;
-  height: 130px;
+  width: 195px;
+  height: 195px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(73, 183, 255, 0.4) 0%, rgba(29, 99, 190, 0.15) 60%, transparent 80%);
+  background: radial-gradient(circle, rgba(73, 183, 255, 0.45) 0%, rgba(29, 99, 190, 0.16) 60%, transparent 80%);
   animation: hubPulseGlow 3s ease-in-out infinite alternate;
 }
 
 @keyframes hubPulseGlow {
-  0% { transform: scale(0.9); opacity: 0.6; }
-  100% { transform: scale(1.25); opacity: 1; }
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
 }
 
 .hub-center-ring {
   position: absolute;
-  width: 116px;
-  height: 116px;
+  width: 172px;
+  height: 172px;
   border-radius: 50%;
-  border: 2px dashed rgba(73, 183, 255, 0.6);
+  border: 2.5px dashed rgba(73, 183, 255, 0.65);
   animation: hubRingRotate 18s linear infinite;
 }
 
 @keyframes hubRingRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .hub-logo-box {
   position: relative;
-  width: 96px;
-  height: 96px;
+  width: 145px;
+  height: 145px;
   border-radius: 50%;
   background: linear-gradient(145deg, #ffffff 0%, #edf5ff 100%);
-  border: 3px solid var(--blue-600);
+  border: 4px solid var(--blue-600);
   box-shadow:
-    0 12px 32px rgba(11, 46, 99, 0.22),
-    0 0 20px rgba(73, 183, 255, 0.35);
+    0 18px 42px rgba(11, 46, 99, 0.26),
+    0 0 30px rgba(73, 183, 255, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
+  padding: 22px;
   transition: transform 0.3s ease;
 }
 
@@ -1178,8 +1366,8 @@ p {
   transform: scale(1.08);
   border-color: var(--cyan);
   box-shadow:
-    0 16px 40px rgba(11, 46, 99, 0.28),
-    0 0 30px rgba(73, 183, 255, 0.5);
+    0 24px 54px rgba(11, 46, 99, 0.32),
+    0 0 40px rgba(73, 183, 255, 0.6);
 }
 
 .hub-microsoft-logo {
@@ -1191,52 +1379,52 @@ p {
 
 .hub-center-badge {
   position: absolute;
-  bottom: -10px;
+  bottom: -14px;
   background: linear-gradient(135deg, var(--blue-700), var(--blue-900));
   color: #ffffff;
-  font-size: 10.5px;
+  font-size: 12.5px;
   font-weight: 800;
-  padding: 3px 10px;
+  padding: 5px 16px;
   border-radius: 99px;
-  box-shadow: 0 4px 10px rgba(29, 99, 190, 0.3);
+  box-shadow: 0 4px 14px rgba(29, 99, 190, 0.35);
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
 
-/* Satélites Colaborativos */
+/* Satélites Colaborativos Ampliados */
 .hub-sat {
   position: absolute;
   z-index: 4;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(17, 72, 148, 0.15);
-  box-shadow: 0 8px 22px rgba(11, 46, 99, 0.09);
-  backdrop-filter: blur(10px);
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(17, 72, 148, 0.16);
+  box-shadow: 0 10px 28px rgba(11, 46, 99, 0.1);
+  backdrop-filter: blur(12px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  min-width: 135px;
+  min-width: 175px;
 }
 
 .hub-sat:hover {
   background: #ffffff;
   border-color: var(--blue-600);
-  transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 14px 30px rgba(17, 72, 148, 0.16);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 16px 36px rgba(17, 72, 148, 0.18);
 }
 
 .sat-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--cyan-light), rgba(29, 99, 190, 0.12));
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--cyan-light), rgba(29, 99, 190, 0.14));
   color: var(--blue-800);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 21px;
   flex-shrink: 0;
 }
 
@@ -1251,33 +1439,392 @@ p {
 }
 
 .sat-title {
-  font-size: 12.5px;
+  font-size: 14.5px;
   font-weight: 800;
   color: var(--blue-900);
   line-height: 1.15;
 }
 
 .sat-sub {
-  font-size: 10.5px;
+  font-size: 11.5px;
   font-weight: 600;
   color: var(--muted);
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
-/* Posições dos 4 Satélites em Órbita Centralizada */
-.sat-tl { top: 30px; left: 30px; animation: satFloat1 6s ease-in-out infinite alternate; }
-.sat-tr { top: 30px; right: 30px; animation: satFloat2 7s ease-in-out infinite alternate 0.5s; }
-.sat-bl { bottom: 30px; left: 30px; animation: satFloat2 6.5s ease-in-out infinite alternate 1s; }
-.sat-br { bottom: 30px; right: 30px; animation: satFloat1 7.5s ease-in-out infinite alternate 1.5s; }
+/* Posições dos 4 Satélites em Órbita Ampliada */
+.sat-tl {
+  top: 25px;
+  left: 20px;
+  animation: satFloat1 6s ease-in-out infinite alternate;
+}
+
+.sat-tr {
+  top: 25px;
+  right: 20px;
+  animation: satFloat2 7s ease-in-out infinite alternate 0.5s;
+}
+
+.sat-bl {
+  bottom: 25px;
+  left: 20px;
+  animation: satFloat2 6.5s ease-in-out infinite alternate 1s;
+}
+
+.sat-br {
+  bottom: 25px;
+  right: 20px;
+  animation: satFloat1 7.5s ease-in-out infinite alternate 1.5s;
+}
 
 @keyframes satFloat1 {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-6px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-6px);
+  }
 }
 
 @keyframes satFloat2 {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(6px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(6px);
+  }
+}
+
+/* ================================================
+   SLIDE 5 (SLIDE-5) — VOLUME DE DADOS MIGRADOS (DATA MOVEMENT)
+================================================ */
+.data-volume-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  flex: 1;
+  margin-top: 20px;
+  align-items: center;
+  position: relative;
+}
+
+.data-card {
+  position: relative;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #ffffff 0%, #edf5ff 100%);
+  border: 1.5px solid rgba(17, 72, 148, 0.14);
+  box-shadow: 0 12px 32px rgba(11, 46, 99, 0.09);
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
+}
+
+.data-card-messages {
+  animation: floatDataCard 7s ease-in-out infinite alternate;
+}
+
+.data-card-storage {
+  background: linear-gradient(145deg, #0b2e63 0%, #154c9c 100%);
+  color: #ffffff;
+  border-color: rgba(73, 183, 255, 0.35);
+  box-shadow: 0 14px 36px rgba(11, 46, 99, 0.22);
+  animation: floatDataCard 7.5s ease-in-out infinite alternate 1s;
+}
+
+@keyframes floatDataCard {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+.data-card:hover {
+  transform: translateY(-10px) scale(1.025);
+  box-shadow: 0 22px 48px rgba(17, 72, 148, 0.22);
+}
+
+.data-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.data-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.icon-box-cyan {
+  background: linear-gradient(135deg, rgba(73, 183, 255, 0.25), rgba(29, 99, 190, 0.15));
+  color: var(--blue-800);
+}
+
+.icon-box-blue {
+  background: rgba(255, 255, 255, 0.15);
+  color: #00f0ff;
+  backdrop-filter: blur(8px);
+}
+
+.data-card-tag {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: rgba(17, 72, 148, 0.08);
+  color: var(--blue-800);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tag-blue {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.data-num-wrap {
+  z-index: 2;
+}
+
+.data-big-num {
+  font-size: clamp(38px, 3.8vw, 54px);
+  font-weight: 900;
+  color: var(--blue-900);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.data-card-storage .data-big-num {
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(73, 183, 255, 0.5);
+}
+
+.data-card-desc {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-mid);
+  line-height: 1.35;
+  z-index: 2;
+}
+
+.data-card-storage .data-card-desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Gráfico Integrado de Fluxo SVG (Zimbra -> Microsoft) */
+.data-stream-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  margin-top: 4px;
+  z-index: 2;
+}
+
+.data-stream-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Animação dos Envelopes de E-mail em Migração (Zimbra -> Microsoft) */
+.stream-envelope {
+  animation: envelopeMigrate 3.6s linear infinite;
+  transform-origin: center center;
+}
+
+.envelope-1 {
+  animation-delay: 0s;
+}
+
+.envelope-2 {
+  animation-delay: 1.2s;
+}
+
+.envelope-3 {
+  animation-delay: 2.4s;
+}
+
+@keyframes envelopeMigrate {
+  0% {
+    transform: translate(32px, 34px) scale(0.9);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(170px, 18px) scale(1.15);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(308px, 34px) scale(0.9);
+    opacity: 1;
+  }
+}
+
+/* Conector Central de Fluxo */
+.data-flow-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 3;
+}
+
+.flow-icon-hub {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-700), var(--blue-900));
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 8px 20px rgba(11, 46, 99, 0.25);
+}
+
+.flow-hub-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px dashed var(--cyan);
+  animation: hubRingRotate 16s linear infinite;
+}
+
+.flow-speed-badge {
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(17, 72, 148, 0.1);
+  color: var(--blue-800);
+  white-space: nowrap;
+}
+
+/* Visualizador de Capacidade Storage Gauge (Barra de Carregamento Animada) */
+.storage-gauge-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  z-index: 2;
+}
+
+.storage-gauge-track {
+  position: relative;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(73, 183, 255, 0.35);
+  border-radius: 99px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.storage-gauge-fill {
+  position: relative;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #0078d4 0%, #00f0ff 70%, #34d399 100%);
+  border-radius: 99px;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.9);
+}
+
+#slide-5.active .storage-gauge-fill {
+  animation: fillStorageGauge 4.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fillStorageGauge {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+/* Efeito de Brilho / Varredura de Luz (Shimmer) */
+.gauge-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      transparent 100%);
+  background-size: 200% 100%;
+  animation: gaugeShimmer 2.2s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gaugeShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Cabeça de Pulso Energizado na Ponta da Barra */
+.gauge-fill-head {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 100%;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow:
+    0 0 12px #00f0ff,
+    0 0 24px #34d399;
+  animation: headPulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes headPulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+.storage-gauge-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.02em;
+}
+
+.gauge-target {
+  color: #00f0ff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
 }
 
 /* ================================================
@@ -1307,13 +1854,26 @@ p {
   overflow: hidden;
 }
 
-.metric-card-1 { animation: floatMetric 7s ease-in-out infinite alternate; }
-.metric-card-2 { animation: floatMetric 8s ease-in-out infinite alternate 0.8s; }
-.metric-card-3 { animation: floatMetric 7.5s ease-in-out infinite alternate 1.5s; }
+.metric-card-1 {
+  animation: floatMetric 7s ease-in-out infinite alternate;
+}
+
+.metric-card-2 {
+  animation: floatMetric 8s ease-in-out infinite alternate 0.8s;
+}
+
+.metric-card-3 {
+  animation: floatMetric 7.5s ease-in-out infinite alternate 1.5s;
+}
 
 @keyframes floatMetric {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-7px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-7px);
+  }
 }
 
 .metric-animated-card:hover {
@@ -1374,8 +1934,13 @@ p {
 }
 
 @keyframes pulseRingSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .metric-badge {

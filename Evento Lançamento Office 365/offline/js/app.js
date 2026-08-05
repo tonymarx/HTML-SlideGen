@@ -269,6 +269,21 @@ class Presentation {
         if (el) animateCounter(el, 1800, 1600, n => n.toLocaleString('pt-BR'));
       }, 150);
     }
+    // Slide 5 — Volume de Dados Migrados (+12M e ~6 TB)
+    if (idx === 5) {
+      const m = document.getElementById('count-12m');
+      const t = document.getElementById('count-6tb');
+      const g = document.getElementById('gauge-fill-6tb');
+      if (g) {
+        g.style.animation = 'none';
+        void g.offsetWidth; // Force reflow
+        g.style.animation = 'fillStorageGauge 4.5s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+      }
+      setTimeout(() => {
+        if (m) animateCounter(m, 12000000, 4200, '+');
+        if (t) animateCounter(t, 6, 4200, '~', ' TB');
+      }, 80);
+    }
     // Slide 6 (antigo slide 5) — Storage bars
     if (idx === 6) {
       const b = document.getElementById('fill-before');
