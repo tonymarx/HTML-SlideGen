@@ -1,8 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b2e63">
   <title>Lançamento Microsoft 365 — Codevasf</title>
 
   <!-- Fontes locais (offline) -->
@@ -822,6 +823,192 @@
 
     .thumb-num { font-size: 11px; font-weight: 700; color: var(--cyan); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .08em; }
     .thumb-title { font-size: 15px; font-weight: 600; }
+
+    /* ================================================
+       RESPONSIVIDADE — Breakpoints
+    ================================================ */
+
+    /* ── Tablet Landscape / Telas médias (≤ 1200px) ── */
+    @media (max-width: 1200px) {
+      .slide {
+        padding: 36px 44px 36px;
+      }
+      .deck {
+        padding: 12px 14px 64px;
+      }
+      h2 { font-size: clamp(26px, 3vw, 42px); }
+      .lead { font-size: clamp(15px, 1.5vw, 20px); }
+      .stat-hero .big-num { font-size: clamp(60px, 7vw, 96px); }
+      .hero { gap: 32px; }
+      .visual-panel { min-height: 280px; }
+    }
+
+    /* ── Tablet Portrait (≤ 900px) ── */
+    @media (max-width: 900px) {
+      .slide {
+        padding: 28px 28px 28px;
+        width: min(98vw, 900px) !important;
+        height: min(98svh, calc(100vh - 80px)) !important;
+        border-radius: 20px;
+      }
+      .deck { padding: 8px 8px 60px; }
+
+      /* Grids 2-col → 1-col */
+      .hero,
+      [style*="grid-template-columns: 1.1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+
+      /* Visual panel: altura fixa em tablet */
+      .visual-panel { min-height: 200px; height: auto; }
+
+      /* Word cloud menor */
+      .wc-wrapper { height: 220px !important; }
+
+      /* Grids inline (style attr overrides) */
+      [style*="grid-template-columns: 1.1fr 1fr"],
+      [style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+
+      h2 { font-size: clamp(22px, 3.5vw, 36px); }
+      .lead { font-size: clamp(14px, 1.8vw, 18px); }
+      p { font-size: 15px; }
+
+      .stat-hero { padding: 28px 32px; }
+      .stat-hero .big-num { font-size: clamp(52px, 8vw, 80px); }
+
+      /* Timeline horizontal → responsiva */
+      .timeline { flex-wrap: wrap; justify-content: center; gap: 16px; }
+      .timeline::before { display: none; }
+      .tl-step { flex: 0 0 45%; }
+
+      /* Pipeline → scroll horizontal em tablet */
+      .pipeline { overflow-x: auto; gap: 6px; }
+      .pip-step { min-width: 140px; }
+
+      /* Nav bar */
+      .nav-bar { padding: 0 16px; height: 54px; }
+      .nav-logo { height: 22px; }
+      .prog-bar { width: 120px; }
+      .btn-nav { padding: 7px 14px; font-size: 12px; }
+
+      /* Modal */
+      .modal-overlay { padding: 20px; }
+      .thumbs-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+
+      /* Slide top */
+      .slide-top { margin-bottom: 18px; }
+      .slide-logo { height: 28px; }
+      .kicker { font-size: 11px; }
+
+      /* Cards */
+      .card { padding: 16px; }
+      .card h4 { font-size: 15px; }
+      .card p { font-size: 13px; }
+
+      /* Speaker note */
+      .speaker-note { font-size: 12px; padding-top: 10px; }
+
+      /* Stats row */
+      .stats-row { flex-wrap: wrap; gap: 12px; }
+      .stat-chip { min-width: calc(50% - 6px); }
+
+      /* Cover slide hint */
+      #slide-0 [style*="bottom:36px"] { bottom: 20px !important; }
+    }
+
+    /* ── Mobile / Telas Pequenas (≤ 640px) ── */
+    @media (max-width: 640px) {
+      .slide {
+        padding: 18px 16px 18px;
+        border-radius: 16px;
+        width: 99vw !important;
+        height: calc(100svh - 72px) !important;
+      }
+      .deck { padding: 4px 4px 58px; }
+
+      h2 { font-size: clamp(18px, 5vw, 28px); }
+      .lead { font-size: clamp(13px, 3.5vw, 16px); margin-top: 8px; }
+      p { font-size: 13px; }
+
+      /* Todos os grids → 1 coluna */
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 12px; }
+      [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+      [style*="display:grid"] { display: flex !important; flex-direction: column !important; }
+
+      /* Hero number */
+      .stat-hero { padding: 20px 18px; }
+      .stat-hero .big-num { font-size: clamp(42px, 12vw, 64px); }
+      .stat-hero .big-label { font-size: clamp(13px, 3vw, 16px); }
+
+      /* Stat chips */
+      .stats-row { flex-direction: column; }
+      .stat-chip { width: 100%; }
+
+      /* Wc-wrapper menor */
+      .wc-wrapper { height: 160px !important; }
+
+      /* Float chips: ocultar em mobile (muito pequeno) */
+      .float-chip { display: none; }
+
+      /* Slide top */
+      .slide-top { margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+      .slide-logo { height: 22px; }
+      .kicker { font-size: 10px; letter-spacing: .06em; }
+
+      /* Speaker note ocultar em mobile */
+      .speaker-note { display: none; }
+
+      /* Nav bar mobile */
+      .nav-bar {
+        padding: 0 10px;
+        height: 52px;
+      }
+      .nav-logo { display: none; }
+      .prog-bar { width: 80px; }
+      .btn-nav { padding: 6px 10px; font-size: 11px; gap: 4px; }
+      .slide-count { font-size: 11px; }
+
+      /* Modal mobile */
+      .modal-overlay { padding: 12px; }
+      .modal-header h3 { font-size: 16px; }
+      .thumbs-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+      .thumb-card { padding: 12px; }
+      .thumb-title { font-size: 13px; }
+
+      /* Timeline mobile → coluna */
+      .timeline { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .timeline::before { display: none; }
+      .tl-step { flex: 0 0 auto; width: 100%; flex-direction: row; text-align: left; gap: 12px; padding: 0; }
+      .tl-step .tl-dot { margin-bottom: 0; flex-shrink: 0; }
+
+      /* Pipeline mobile */
+      .pipeline { flex-direction: column; }
+      .pip-arrow { transform: rotate(90deg); align-self: center; }
+
+      /* Cards menores */
+      .card { padding: 12px 14px; border-radius: 14px; }
+      .card-icon { width: 38px; height: 38px; font-size: 16px; margin-bottom: 10px; }
+
+      /* App cards */
+      .app-card { padding: 14px; }
+      .app-icon { width: 36px; height: 36px; }
+
+      /* Cover slide hint menor */
+      #slide-0 span { font-size: 11px !important; }
+      #slide-0 i.fa-chevron-right { font-size: 14px !important; }
+    }
+
+    /* ── Muito pequeno (≤ 400px) ── */
+    @media (max-width: 400px) {
+      .slide { padding: 14px 12px; }
+      h2 { font-size: clamp(16px, 5.5vw, 22px); }
+      .stat-hero .big-num { font-size: clamp(38px, 13vw, 54px); }
+    }
   </style>
 </head>
 <body>
@@ -844,9 +1031,70 @@
   <main class="deck" id="deck" aria-live="polite">
 
     <!-- ============================================================
+         SLIDE 0 — Capa do Evento (Fundo de Tela Oficial)
+    ============================================================ -->
+    <section class="slide active slide-cover" id="slide-0" style="padding:0; overflow:hidden;">
+      <!-- Imagem de fundo cobrindo 100% do slide -->
+      <img
+        src="imagens/Lançamento Office_Fundo de tela.png"
+        alt="Lançamento Microsoft 365 — Codevasf"
+        style="
+          position:absolute; inset:0;
+          width:100%; height:100%;
+          object-fit:cover; object-position:center center;
+          display:block;
+          z-index:0;
+        "
+      >
+      <!-- Overlay sutil para garantir leitura se houver texto futuro -->
+      <div style="
+        position:absolute; inset:0; z-index:1;
+        background: linear-gradient(
+          to bottom,
+          rgba(11,46,99,0.08) 0%,
+          rgba(11,46,99,0.04) 60%,
+          rgba(11,46,99,0.18) 100%
+        );
+        pointer-events:none;
+      "></div>
+      <!-- Indicador de clique animado -->
+      <div style="
+        position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+        z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px;
+        animation: pulse-hint 2s ease-in-out infinite;
+      ">
+        <span style="
+          font-family: var(--font);
+          font-size:13px; font-weight:600; letter-spacing:.06em;
+          color:rgba(255,255,255,0.85);
+          text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+          text-transform:uppercase;
+        ">Pressione → para avançar</span>
+        <i class="fa-solid fa-chevron-right" style="
+          font-size:18px; color:rgba(255,255,255,0.7);
+          text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+        "></i>
+      </div>
+      <style>
+        @keyframes pulse-hint {
+          0%, 100% { opacity:.5; transform:translateX(-50%) translateY(0); }
+          50%       { opacity:1;  transform:translateX(-50%) translateY(-5px); }
+        }
+        /* Remove padding e pseudo-elemento decorativo do slide capa */
+        #slide-0 {
+          position: relative;
+          padding: 0 !important;
+        }
+        #slide-0::before {
+          display: none !important;
+        }
+      </style>
+    </section>
+
+    <!-- ============================================================
          SLIDE 1 — Reconhecimento às Equipes
     ============================================================ -->
-    <section class="slide active" id="slide-1">
+    <section class="slide" id="slide-1">
       <div class="slide-content">
         <div class="slide-top">
           <div class="kicker">Implantação &amp; Reconhecimento</div>
@@ -1634,23 +1882,24 @@
       }
 
       triggerAnim(idx) {
-        // Slide 1 — Word Cloud
-        if (idx===0 && !this.wc) {
+        // Slide 0 — Capa (sem animação especial)
+        // Slide 1 (antigo slide 0) — Word Cloud
+        if (idx===1 && !this.wc) {
           setTimeout(() => { this.wc = new WordCloud('wordcloud-canvas'); }, 200);
         }
-        // Slide 3 — Collab Graph
-        if (idx===2 && !this.cg) {
+        // Slide 3 (antigo slide 2) — Collab Graph
+        if (idx===3 && !this.cg) {
           setTimeout(() => { this.cg = new CollabGraph('collab-canvas'); }, 200);
         }
-        // Slide 4 — 1.800 counter
-        if (idx===3) {
+        // Slide 4 (antigo slide 3) — 1.800 counter
+        if (idx===4) {
           setTimeout(() => {
             const el = document.getElementById('count-1800');
             if (el) animateCounter(el, 1800, 1600, n => n.toLocaleString('pt-BR'));
           }, 150);
         }
-        // Slide 6 — Storage bars
-        if (idx===5) {
+        // Slide 6 (antigo slide 5) — Storage bars
+        if (idx===6) {
           const b = document.getElementById('fill-before');
           const a = document.getElementById('fill-after');
           setTimeout(() => { if(b) b.style.width='10%'; if(a) a.style.width='100%'; }, 200);
