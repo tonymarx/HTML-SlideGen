@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CODEVASF | Lançamento do Office 365</title>
+  <style>
+    :root {
+      --blue-900: #0b2e63;
+      --blue-800: #114894;
+      --blue-700: #1d63be;
+      --blue-600: #2f7de6;
+      --blue-100: #eaf3ff;
+      --blue-050: #f5f9ff;
+      --cyan: #49b7ff;
+      --ink: #11233d;
+      --muted: #58708c;
+      --white: #ffffff;
+      --line: rgba(17,72,148,.12);
+      --shadow: 0 28px 80px rgba(14, 52, 106, .18);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(73,183,255,.18), transparent 32%),
+        radial-gradient(circle at 88% 16%, rgba(47,125,230,.16), transparent 30%),
+        linear-gradient(135deg, #edf4ff 0%, #f7fbff 48%, #eaf3ff 100%);
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 3.2vh 3.2vw;
+    }
+
+    .slide {
+      position: absolute;
+      width: min(1420px, 94vw);
+      height: min(800px, 88vh);
+      background: rgba(255,255,255,.90);
+      border: 1px solid rgba(17,72,148,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 58px 68px;
+      opacity: 0;
+      transform: translateX(58px) scale(.985);
+      transition: opacity .58s ease, transform .58s ease;
+      pointer-events: none;
+      isolation: isolate;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    .slide.prev { transform: translateX(-58px) scale(.985); }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(17,72,148,.065), transparent 34%),
+        radial-gradient(circle at 100% 100%, rgba(73,183,255,.12), transparent 30%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      color: var(--blue-800);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 40px;
+      height: 5px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--cyan), var(--blue-700));
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: clamp(52px, 5.8vw, 88px); line-height: .95; letter-spacing: -0.05em; color: var(--blue-900); max-width: 980px; }
+    h2 { font-size: clamp(40px, 4.2vw, 64px); line-height: 1.02; letter-spacing: -0.04em; color: var(--blue-900); max-width: 1120px; }
+    h3 { font-size: 27px; color: var(--ink); margin-bottom: 10px; }
+    p.lead { font-size: clamp(23px, 2.1vw, 34px); line-height: 1.25; color: #273c58; max-width: 980px; margin-top: 24px; }
+    p, li { font-size: 22px; line-height: 1.35; color: #243954; }
+    ul { margin: 0; padding-left: 24px; }
+    li { margin: 10px 0; }
+    strong { color: var(--blue-900); }
+
+    .hero {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 52px;
+    }
+
+    .launch-visual {
+      min-height: 360px;
+      border-radius: 34px;
+      background: linear-gradient(145deg, rgba(11,46,99,.96), rgba(29,99,190,.90));
+      color: white;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 22px 58px rgba(11,59,117,.24);
+    }
+
+    .launch-visual::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(73,183,255,.40), transparent 58%);
+      right: -160px;
+      bottom: -160px;
+      animation: pulse 4.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse { 0%, 100% { transform: scale(.94); opacity:.78; } 50% { transform: scale(1.08); opacity:1; } }
+
+    .launch-core {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      z-index: 1;
+    }
+
+    .core-badge {
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), rgba(255,255,255,.08));
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(8px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      box-shadow: 0 20px 48px rgba(0,0,0,.18);
+    }
+
+    .core-badge b {
+      display: block;
+      font-size: 36px;
+      line-height: 1;
+      letter-spacing: -.03em;
+    }
+
+    .core-badge span {
+      display: block;
+      margin-top: 10px;
+      font-size: 16px;
+      opacity: .92;
+      letter-spacing: .02em;
+    }
+
+    .floating {
+      position: absolute;
+      z-index: 2;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 20px;
+      padding: 14px 18px;
+      min-width: 128px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.12);
+      animation: bob 4.8s ease-in-out infinite;
+    }
+
+    .floating small { display: block; opacity: .78; font-size: 13px; margin-bottom: 4px; }
+    .floating b { font-size: 24px; }
+    .f1 { top: 28px; left: 26px; }
+    .f2 { top: 42px; right: 24px; animation-delay: .6s; }
+    .f3 { bottom: 44px; left: 34px; animation-delay: 1.1s; }
+    .f4 { bottom: 24px; right: 30px; animation-delay: 1.8s; }
+
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 36px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 36px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+
+    .card,
+    .tool,
+    .phase,
+    .mini-card {
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
+    }
+
+    .card {
+      background: rgba(255,255,255,.78);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 16px 44px rgba(11,59,117,.08);
+    }
+
+    .card:hover,
+    .tool:hover,
+    .phase:hover,
+    .mini-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 24px 52px rgba(17,72,148,.16);
+      border-color: rgba(29,99,190,.22);
+      background: rgba(255,255,255,.96);
+    }
+
+    .pillar {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar .icon { font-size: 42px; }
+    .pillar p { font-size: 19px; color: var(--muted); }
+    .pillar::after {
+      content: "";
+      position: absolute;
+      height: 7px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, var(--cyan), var(--blue-700), var(--blue-900));
+    }
+
+    .big-number {
+      font-size: 76px;
+      font-weight: 900;
+      color: rgba(17,72,148,.14);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .tool {
+      background: rgba(255,255,255,.76);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px 18px;
+      min-height: 142px;
+    }
+
+    .tool b { display:block; font-size: 22px; color: var(--blue-900); margin-bottom: 8px; }
+    .tool span { display:block; font-size: 16px; line-height: 1.28; color: #4e5f73; }
+
+    .quote {
+      margin-top: 32px;
+      border-left: 7px solid var(--blue-700);
+      padding: 20px 0 20px 28px;
+      max-width: 1080px;
+    }
+    .quote p { font-size: 32px; color: #19324e; line-height: 1.28; }
+
+    .stamp {
+      position: absolute;
+      right: 54px;
+      top: 48px;
+      color: rgba(17,72,148,.12);
+      font-size: 98px;
+      font-weight: 900;
+      letter-spacing: -.06em;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .mini-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.66));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 12px 32px rgba(11,59,117,.06);
+    }
+
+    .mini-card .mini-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(73,183,255,.18), rgba(29,99,190,.12));
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .mini-card h3 { font-size: 22px; line-height: 1.15; margin-bottom: 10px; }
+    .mini-card p { font-size: 17px; color: var(--muted); line-height: 1.3; }
+
+    .note-box {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(234,243,255,.94), rgba(255,255,255,.90));
+      border: 1px solid rgba(17,72,148,.10);
+      font-size: 18px;
+      color: var(--blue-900);
+      box-shadow: 0 10px 26px rgba(17,72,148,.06);
+    }
+
+    .license-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      margin-top: 34px;
+    }
+
+    .license-card {
+      position: relative;
+      background: rgba(255,255,255,.80);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 28px;
+      box-shadow: 0 14px 36px rgba(11,59,117,.08);
+    }
+
+    .license-card::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 6px;
+      border-radius: 0 0 26px 26px;
+      background: linear-gradient(90deg, var(--cyan), var(--blue-700));
+    }
+
+    .license-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--blue-100);
+      color: var(--blue-900);
+      font-weight: 900;
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+
+    .license-card h3 { font-size: 28px; margin-bottom: 8px; }
+    .license-card ul { padding-left: 20px; }
+    .license-card li { font-size: 18px; color: var(--muted); margin: 8px 0; line-height: 1.25; }
+
+    .use-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .use-card {
+      min-height: 196px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+    }
+
+    .use-card::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--cyan), var(--blue-700));
+      transition: height .28s ease;
+    }
+
+    .use-card:hover::before { height: 10px; }
+
+    .case-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .case-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      background: linear-gradient(135deg, rgba(73,183,255,.18), rgba(29,99,190,.12));
+      color: var(--blue-900);
+      transition: transform .25s ease, background .25s ease;
+      flex: 0 0 auto;
+    }
+
+    .use-card:hover .case-icon {
+      transform: rotate(-6deg) scale(1.08);
+      background: linear-gradient(135deg, rgba(73,183,255,.28), rgba(29,99,190,.20));
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .03em;
+      color: var(--blue-800);
+      background: rgba(73,183,255,.12);
+      border: 1px solid rgba(29,99,190,.12);
+    }
+
+    .use-card h3 { font-size: 23px; line-height: 1.12; margin-bottom: 0; }
+
+    .mini-list {
+      padding-left: 18px;
+      margin-top: 2px;
+    }
+
+    .mini-list li {
+      font-size: 17px;
+      line-height: 1.24;
+      color: var(--muted);
+      margin: 6px 0;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 48px;
+      align-items: stretch;
+    }
+
+    .phase {
+      background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.58));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      position: relative;
+    }
+
+    .phase::before {
+      content: "";
+      position: absolute;
+      top: -18px;
+      left: 22px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--blue-700);
+      border: 7px solid #fff;
+      box-shadow: 0 8px 20px rgba(29,99,190,.22);
+    }
+
+    .phase h3 { font-size: 22px; margin-top: 8px; }
+    .phase p { font-size: 17px; color: var(--muted); }
+
+    .thanks {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: linear-gradient(145deg, rgba(11,46,99,.98), rgba(29,99,190,.90));
+      border-radius: 34px;
+      color: white;
+      padding: 56px;
+      box-shadow: 0 22px 58px rgba(11,59,117,.24);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thanks::before,
+    .thanks::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(73,183,255,.34), transparent 60%);
+    }
+    .thanks::before { width: 340px; height: 340px; top: -120px; right: -80px; }
+    .thanks::after { width: 300px; height: 300px; left: -100px; bottom: -100px; }
+
+    .thanks-box { position: relative; z-index: 1; max-width: 900px; }
+    .thanks-box .eyebrow {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .thanks-box h2 { color: white; font-size: clamp(58px, 7vw, 96px); margin-bottom: 16px; }
+    .thanks-box p { color: rgba(255,255,255,.92); font-size: 26px; }
+    .person {
+      margin-top: 28px;
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+    }
+    .person .name { font-size: 34px; font-weight: 900; color: white; }
+    .person .role { font-size: 22px; color: rgba(255,255,255,.86); }
+    .qr-wrap {
+      margin-top: 14px;
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+    }
+    .qr-box {
+      background: rgba(255,255,255,.98);
+      border-radius: 20px;
+      padding: 14px;
+      box-shadow: 0 14px 32px rgba(0,0,0,.16);
+      border: 1px solid rgba(255,255,255,.30);
+    }
+    .qr-box img {
+      width: 152px;
+      height: 152px;
+      display: block;
+      border-radius: 10px;
+    }
+    .qr-caption {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.20);
+      padding: 12px 18px;
+      border-radius: 999px;
+    }
+    .qr-helper {
+      font-size: 15px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.25;
+    }
+
+    .brand-corner {
+      position: absolute;
+      width: 138px;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .94;
+      filter: saturate(1.03);
+    }
+
+    .brand-corner.top { top: 18px; right: 20px; }
+    .brand-corner.bottom {
+      bottom: 16px;
+      left: 18px;
+      transform: scale(.88);
+      transform-origin: left bottom;
+      opacity: .70;
+    }
+
+    .brand-corner svg { width: 100%; height: auto; display: block; }
+
+    .footer {
+      position: fixed;
+      left: 4vw;
+      right: 4vw;
+      bottom: 2.3vh;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: rgba(16,32,51,.62);
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .controls { pointer-events: auto; display: flex; align-items: center; gap: 10px; }
+    button {
+      border: 0;
+      background: rgba(11,46,99,.92);
+      color: white;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(11,59,117,.16);
+    }
+    button:hover { background: var(--blue-800); }
+    .progress { width: 260px; height: 7px; background: rgba(11,59,117,.13); border-radius: 99px; overflow: hidden; }
+    .progress span { display:block; height: 100%; width: 10%; background: linear-gradient(90deg, var(--cyan), var(--blue-700)); transition: width .35s ease; }
+
+    @media (max-width: 1180px) {
+      .tool-grid { grid-template-columns: repeat(2, 1fr); }
+      .mini-grid { grid-template-columns: repeat(2, 1fr); }
+      .use-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 980px) {
+      .slide { padding: 38px 34px; height: 90vh; overflow-y: auto; }
+      .hero, .grid-2, .grid-3, .grid-4, .mini-grid, .license-grid, .use-grid, .timeline { grid-template-columns: 1fr; }
+      .tool-grid { grid-template-columns: repeat(2, 1fr); }
+      h1 { font-size: 48px; }
+      h2 { font-size: 38px; }
+      .brand-corner.bottom { display: none; }
+      .footer { display: none; }
+    }
+
+    @media print {
+      body { overflow: visible; background: white; }
+      .deck { display: block; padding: 0; height: auto; }
+      .slide {
+        position: relative;
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-after: always;
+        width: 100vw;
+        height: 56.25vw;
+        max-height: 100vh;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .footer { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-live="polite">
+    <section class="slide active" data-title="Abertura">
+      <div class="content hero">
+        <div>
+          <div class="kicker">Evento de lançamento</div>
+          <h1>Lançamento do Office 365</h1>
+          <p class="lead">Uma nova forma de trabalhar na CODEVASF, com comunicação, colaboração, gestão documental e produtividade em um ecossistema único.</p>
+        </div>
+        <div class="launch-visual" aria-hidden="true">
+          <div class="floating f1"><small>Comunicação</small><b>Outlook</b></div>
+          <div class="floating f2"><small>Reuniões e chat</small><b>Teams</b></div>
+          <div class="floating f3"><small>Documentos</small><b>SharePoint</b></div>
+          <div class="floating f4"><small>Arquivos</small><b>OneDrive</b></div>
+          <div class="launch-core">
+            <div class="core-badge">
+              <div>
+                <b>Office 365</b>
+                <span>mudança na forma de trabalhar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Mensagem estratégica">
+      <div class="content">
+        <span class="stamp">O365</span>
+        <div class="kicker">Mensagem para a Diretoria</div>
+        <h2>O Office 365 consolida a base digital do trabalho corporativo</h2>
+        <div class="quote"><p>Comunicação, proteção, gestão documental, reuniões, automação e produtividade no mesmo ambiente.</p></div>
+        <div class="grid-3">
+          <div class="card"><div class="big-number">1</div><h3>Base de comunicação</h3><p>E-mail, calendário, reuniões e chat corporativo em uma plataforma integrada.</p></div>
+          <div class="card"><div class="big-number">2</div><h3>Proteção e gestão</h3><p>Documentos, arquivos e informações com controles, organização e governança essenciais.</p></div>
+          <div class="card"><div class="big-number">3</div><h3>Produtividade conectada</h3><p>Rotinas mais simples, colaboração entre áreas e automações para o dia a dia.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Pilares">
+      <div class="content">
+        <div class="kicker">Pilares do Office 365</div>
+        <h2>Quatro ganhos que sustentam a decisão</h2>
+        <div class="grid-4">
+          <div class="card pillar"><div class="icon">🔐</div><h3>Segurança</h3><p>Proteção de identidade, caixa postal, dispositivos e documentos corporativos.</p></div>
+          <div class="card pillar"><div class="icon">⚖️</div><h3>Conformidade</h3><p>Políticas, auditoria, retenção, eDiscovery e suporte à LGPD.</p></div>
+          <div class="card pillar"><div class="icon">🤝</div><h3>Colaboração</h3><p>Times conectados por chat, reunião, arquivos compartilhados e coautoria.</p></div>
+          <div class="card pillar"><div class="icon">⚡</div><h3>Produtividade</h3><p>Rotinas digitais mais simples, menos retrabalho e mais integração entre áreas.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Proteção e conformidade">
+      <div class="content">
+        <div class="kicker">Segurança e conformidade</div>
+        <h2>Proteção e governança para o ambiente corporativo</h2>
+        <div class="mini-grid">
+          <div class="mini-card"><div class="mini-icon">📧</div><h3>Comunicação protegida</h3><p>E-mail corporativo, disponibilidade do serviço e controles de acesso definidos pela organização.</p></div>
+          <div class="mini-card"><div class="mini-icon">📂</div><h3>Gestão de arquivos</h3><p>Compartilhamento com permissões, versionamento e organização de documentos em SharePoint e OneDrive.</p></div>
+          <div class="mini-card"><div class="mini-icon">🧾</div><h3>Governança essencial</h3><p>Recursos de retenção, auditoria e busca eletrônica conforme as configurações adotadas pela organização.</p></div>
+          <div class="mini-card"><div class="mini-icon">🛡️</div><h3>Uso responsável</h3><p>O lançamento prioriza os recursos centrais do Office 365 e sua aplicação prática no dia a dia.</p></div>
+        </div>
+        <div class="note-box"><strong>Importante:</strong> recursos avançados de segurança e conformidade podem depender de configuração específica e serviços complementares do ambiente.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Perfis de uso">
+      <div class="content">
+        <div class="kicker">Experiências de uso</div>
+        <h2>Recursos para diferentes perfis de trabalho</h2>
+        <div class="license-grid">
+          <div class="license-card">
+            <div class="license-pill">Experiência colaborativa</div>
+            <h3>Trabalho conectado em nuvem</h3>
+            <ul>
+              <li>Exchange Online, Teams, SharePoint e OneDrive.</li>
+              <li>Aplicativos Office disponíveis na web e em dispositivos móveis.</li>
+              <li>Comunicação, reuniões e colaboração no dia a dia.</li>
+              <li>Formulários, tarefas e recursos para trabalho em equipe.</li>
+            </ul>
+          </div>
+          <div class="license-card">
+            <div class="license-pill">Produtividade ampliada</div>
+            <h3>Recursos para rotinas mais intensas</h3>
+            <ul>
+              <li>Aplicativos desktop instaláveis para uso corporativo.</li>
+              <li>Mais flexibilidade para edição, armazenamento e trabalho diário.</li>
+              <li>Recursos ampliados de retenção, auditoria e gestão da informação.</li>
+              <li>Maior aderência a usuários com rotina documental mais intensa.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note-box"><strong>Direcionamento da apresentação:</strong> destacar o valor percebido pelo usuário e pela gestão, com foco nos recursos efetivamente disponibilizados no ambiente.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Colaboração">
+      <div class="content">
+        <div class="kicker">Pilar 3</div>
+        <h2>Colaboração: do e-mail isolado ao trabalho em rede</h2>
+        <div class="grid-3">
+          <div class="card"><h3>Teams</h3><p>Reuniões, chat, canais de área, gravações, atas e acompanhamento de decisões.</p></div>
+          <div class="card"><h3>SharePoint</h3><p>Portais, bibliotecas, documentos oficiais, versionamento e permissões por grupo.</p></div>
+          <div class="card"><h3>OneDrive</h3><p>Arquivos individuais protegidos, sincronizados e compartilhados com controle.</p></div>
+        </div>
+        <div class="quote"><p>O ganho estratégico é reduzir silos: informação certa, para a equipe certa, no momento certo.</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Produtividade">
+      <div class="content">
+        <div class="kicker">Pilar 4</div>
+        <h2>Produtividade: rotina mais simples e integrada</h2>
+        <div class="grid-2">
+          <div class="card"><h3>Ganhos imediatos</h3><ul><li>Agenda, e-mail, reunião e arquivos no mesmo ecossistema.</li><li>Coautoria em Word, Excel e PowerPoint.</li><li>Busca centralizada em mensagens, arquivos e equipes.</li><li>Automação de tarefas repetitivas com fluxos digitais.</li></ul></div>
+          <div class="card"><h3>Benefícios percebidos</h3><ul><li>Mais agilidade na rotina das equipes.</li><li>Melhor integração entre áreas e unidades.</li><li>Maior padronização de documentos e processos.</li><li>Base consistente para evolução digital contínua.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Ferramentas principais">
+      <div class="content">
+        <div class="kicker">Ecossistema principal</div>
+        <h2>Ferramentas do Office 365 que sustentam a operação</h2>
+        <div class="tool-grid">
+          <div class="tool"><b>Outlook / Exchange</b><span>E-mail corporativo, calendário, contatos, grupos e políticas.</span></div>
+          <div class="tool"><b>Teams</b><span>Reuniões, chat, canais, eventos ao vivo e colaboração por área.</span></div>
+          <div class="tool"><b>SharePoint</b><span>Intranet, gestão documental, bibliotecas e portais internos.</span></div>
+          <div class="tool"><b>OneDrive</b><span>Arquivos pessoais corporativos com sincronização e controle.</span></div>
+          <div class="tool"><b>Office Apps</b><span>Word, Excel, PowerPoint e OneNote com edição simultânea.</span></div>
+          <div class="tool"><b>Planner / To Do</b><span>Planos de ação, tarefas, responsáveis e acompanhamento simples.</span></div>
+          <div class="tool"><b>Forms</b><span>Pesquisas, inscrições, formulários internos e coleta estruturada.</span></div>
+          <div class="tool"><b>Power Automate</b><span>Aprovações, alertas, notificações e fluxos automatizados.</span></div>
+          <div class="tool"><b>Power BI</b><span>Painéis executivos, indicadores e acompanhamento gerencial.</span></div>
+          <div class="tool"><b>Microsoft Purview</b><span>Conformidade, retenção, auditoria e governança da informação.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Casos de uso">
+      <div class="content">
+        <div class="kicker">Outras possibilidades de uso</div>
+        <h2>Usos rápidos para gerar valor logo no início</h2>
+        <div class="use-grid">
+          <article class="card use-card">
+            <div class="case-top"><span class="chip">Forms + Power Automate</span><div class="case-icon">📝</div></div>
+            <h3>Solicitações internas</h3>
+            <ul class="mini-list"><li>Abertura padronizada</li><li>Aprovação automática</li><li>Alertas e rastreio</li></ul>
+          </article>
+          <article class="card use-card">
+            <div class="case-top"><span class="chip">Teams + Stream</span><div class="case-icon">📣</div></div>
+            <h3>Comunicação oficial</h3>
+            <ul class="mini-list"><li>Comunicados por canal</li><li>Reuniões gravadas</li><li>Acervo de vídeos</li></ul>
+          </article>
+          <article class="card use-card">
+            <div class="case-top"><span class="chip">Power BI + Teams</span><div class="case-icon">📊</div></div>
+            <h3>Gestão executiva</h3>
+            <ul class="mini-list"><li>Painéis gerenciais</li><li>Indicadores em tempo real</li><li>Ritos de acompanhamento</li></ul>
+          </article>
+          <article class="card use-card">
+            <div class="case-top"><span class="chip">SharePoint</span><div class="case-icon">📚</div></div>
+            <h3>Atendimento interno</h3>
+            <ul class="mini-list"><li>Base de conhecimento</li><li>FAQ institucional</li><li>Triagem de demandas</li></ul>
+          </article>
+          <article class="card use-card">
+            <div class="case-top"><span class="chip">Planner + Teams</span><div class="case-icon">✅</div></div>
+            <h3>Gestão de projetos</h3>
+            <ul class="mini-list"><li>Tarefas e responsáveis</li><li>Cronogramas simples</li><li>Coautoria de relatórios</li></ul>
+          </article>
+          <article class="card use-card">
+            <div class="case-top"><span class="chip">Whiteboard + Loop</span><div class="case-icon">💡</div></div>
+            <h3>Inovação colaborativa</h3>
+            <ul class="mini-list"><li>Oficinas interativas</li><li>Ideias compartilhadas</li><li>Cocriação entre áreas</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Agradecimento">
+      <div class="content">
+        <div class="thanks">
+          <div class="thanks-box">
+            <div class="eyebrow">Encerramento</div>
+            <h2>Obrigado!</h2>
+            <p>Conte comigo para apoiar a adoção do Office 365 e ampliar o valor dessa jornada para a CODEVASF.</p>
+            <div class="person">
+              <div class="name">Raphael Vieira de Oliveira</div>
+              <div class="role">Coordenador de Sucesso do Cliente</div>
+              <div class="qr-wrap">
+                <div class="qr-box">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASgAAAEoAQAAAADDfFG0AAAB80lEQVR4nO2awY7jMAxDHxf5/1/mHiTZ7uwc5hRpsFaBwk0IhCAkmVYq84P48xPQRV3UP/GAYmUQlpEFRt53prJv0QsDKIUT3tLVnanse/RCkV1GwlTGed0Zy75JrwxhedVgSNfF69egjB1yvfXEX4V6gEoka9eg4pq7eE1F4ao6f/MpyFT2Lfm12pSsaPvVxtadqezfR5Xf4tgYY3mKNpV9E8rYBok0X8pcKxFHs38VpcwlAKIeqw7lyDHPZd+zP2pb/GxiAqvUa+E1FfUsm5rieFlVbSWnsu+pR+HqV7vlK+xYSDiVfZ9fzd3QeZAErFzd/nXEA8qKNCj8RdQoodn1E2doea2qvWPPzK5263HHs/v6PjdWapViY9k35Vck0zL6yh1yp9hU9i2oGBLmBMe2Uq1KsS5eU1FpTzO3AFvRz2J3vOehT1T6+XCmRpZwGLAa9gxm/zJqzaOzeekYFebs4vavryhDJNM6GElCrBIdzf5V1DH/0hp81VmSchhT2Xf5iVzWgDX9l9e1qey7/CrUIL+OkcSP/JrKvqff5/BrG66a6Pj6r69xvN/exSnj5ch6eE1FPV8vRO+y6lyE7vzriA+9vE5CUBWqW49nHO+34wSp/dJj/6NpKvse/xUr76nhnun47o+fcfivl554Uf8T6i9zPfpIy7qAOQAAAABJRU5ErkJggg==" alt="QR code para o perfil do LinkedIn de Raphael Vieira de Oliveira" />
+                </div>
+                <a class="qr-caption" href="https://www.linkedin.com/in/raphael-oliveira-20b464b4/" target="_blank" rel="noopener noreferrer">LinkedIn • Escaneie o QR Code</a>
+                <div class="qr-helper">Aponte a câmera do celular para acessar o perfil no LinkedIn.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer">
+    <div>CODEVASF • Lançamento do Office 365</div>
+    <div class="controls">
+      <button type="button" onclick="prevSlide()">← Anterior</button>
+      <div class="progress" aria-label="Progresso da apresentação"><span id="bar"></span></div>
+      <button type="button" onclick="nextSlide()">Próximo →</button>
+      <button type="button" onclick="toggleFullScreen()">Tela cheia</button>
+    </div>
+    <div id="counter">1 / 10</div>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const bar = document.getElementById('bar');
+    const counter = document.getElementById('counter');
+    let current = 0;
+
+    const lanlinkLogo = `
+      <svg viewBox="0 0 220 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lanlink">
+        <defs>
+          <linearGradient id="lanGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#38B6FF"/>
+            <stop offset="100%" stop-color="#0B2E63"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(4,8)">
+          <path d="M28 0C12.54 0 0 12.54 0 28s12.54 28 28 28c8.5 0 16.11-3.79 21.25-9.77l-8.56-7.51A17 17 0 1 1 40.38 16l8.72-7.34A27.9 27.9 0 0 0 28 0Z" fill="url(#lanGrad)"/>
+          <circle cx="18" cy="16" r="5.8" fill="#7AD3FF"/>
+        </g>
+        <text x="66" y="36" fill="#124894" font-size="28" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Lanlink</text>
+      </svg>`;
+
+    slides.forEach(slide => {
+      const top = document.createElement('div');
+      top.className = 'brand-corner top';
+      top.innerHTML = lanlinkLogo;
+      const bottom = document.createElement('div');
+      bottom.className = 'brand-corner bottom';
+      bottom.innerHTML = lanlinkLogo;
+      slide.appendChild(top);
+      slide.appendChild(bottom);
+    });
+
+    function showSlide(index) {
+      current = Math.max(0, Math.min(index, slides.length - 1));
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === current);
+        slide.classList.toggle('prev', i < current);
+      });
+      const pct = ((current + 1) / slides.length) * 100;
+      bar.style.width = pct + '%';
+      counter.textContent = `${current + 1} / ${slides.length}`;
+      document.title = `CODEVASF | ${slides[current].dataset.title}`;
+    }
+
+    function nextSlide() { showSlide(current + 1); }
+    function prevSlide() { showSlide(current - 1); }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); nextSlide(); }
+      if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); prevSlide(); }
+      if (e.key === 'Home') showSlide(0);
+      if (e.key === 'End') showSlide(slides.length - 1);
+      if (e.key.toLowerCase() === 'f') toggleFullScreen();
+    });
+
+    let touchStartX = 0;
+    document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    document.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(dx) > 60) dx < 0 ? nextSlide() : prevSlide();
+    }, { passive: true });
+
+    showSlide(0);
+  </script>
+</body>
+</html>
