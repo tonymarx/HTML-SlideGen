@@ -1031,54 +1031,47 @@
   <main class="deck" id="deck" aria-live="polite">
 
     <!-- ============================================================
-         SLIDE 0 — Capa do Evento (Fundo de Tela Oficial)
+         SLIDE 0 — Capa do Evento (Vídeo em Loop)
     ============================================================ -->
-    <section class="slide active slide-cover" id="slide-0" style="padding:0; overflow:hidden;">
-      <!-- Imagem de fundo cobrindo 100% do slide -->
-      <img
-        src="imagens/Lançamento Office_Fundo de tela.png"
-        alt="Lançamento Microsoft 365 — Codevasf"
+    <section class="slide active slide-cover" id="slide-0" style="padding:0; overflow:hidden; background:#f0f2f5;">
+      <!-- Vídeo em loop infinito — pausa automaticamente ao sair do slide -->
+      <video
+        id="cover-video"
+        src="imagens/video-capa-evento.mp4"
+        autoplay
+        loop
+        muted
+        playsinline
         style="
           position:absolute; inset:0;
           width:100%; height:100%;
-          object-fit:cover; object-position:center center;
+          object-fit:contain; object-position:center center;
           display:block;
           z-index:0;
+          background:#f0f2f5;
         "
-      >
-      <!-- Overlay sutil para garantir leitura se houver texto futuro -->
-      <div style="
-        position:absolute; inset:0; z-index:1;
-        background: linear-gradient(
-          to bottom,
-          rgba(11,46,99,0.08) 0%,
-          rgba(11,46,99,0.04) 60%,
-          rgba(11,46,99,0.18) 100%
-        );
-        pointer-events:none;
-      "></div>
-      <!-- Indicador de clique animado -->
+      ></video>
+      <!-- Indicador de avanço animado (texto escuro para fundo claro) -->
       <div style="
         position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
-        z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px;
+        z-index:2; display:flex; flex-direction:column; align-items:center; gap:6px;
         animation: pulse-hint 2s ease-in-out infinite;
       ">
         <span style="
           font-family: var(--font);
-          font-size:13px; font-weight:600; letter-spacing:.06em;
-          color:rgba(255,255,255,0.85);
-          text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+          font-size:12px; font-weight:700; letter-spacing:.10em;
+          color:rgba(11,46,99,0.65);
           text-transform:uppercase;
+          background: rgba(240,242,245,0.72);
+          padding: 4px 14px;
+          border-radius: 99px;
+          backdrop-filter: blur(6px);
         ">Pressione → para avançar</span>
-        <i class="fa-solid fa-chevron-right" style="
-          font-size:18px; color:rgba(255,255,255,0.7);
-          text-shadow: 0 1px 6px rgba(0,0,0,0.4);
-        "></i>
       </div>
       <style>
         @keyframes pulse-hint {
-          0%, 100% { opacity:.5; transform:translateX(-50%) translateY(0); }
-          50%       { opacity:1;  transform:translateX(-50%) translateY(-5px); }
+          0%, 100% { opacity:.45; transform:translateX(-50%) translateY(0); }
+          50%       { opacity:1;   transform:translateX(-50%) translateY(-5px); }
         }
         /* Remove padding e pseudo-elemento decorativo do slide capa */
         #slide-0 {
@@ -1090,6 +1083,7 @@
         }
       </style>
     </section>
+
 
     <!-- ============================================================
          SLIDE 1 — Reconhecimento às Equipes
@@ -1882,7 +1876,15 @@
       }
 
       triggerAnim(idx) {
-        // Slide 0 — Capa (sem animação especial)
+        // Slide 0 — Vídeo capa: play ao entrar, pause ao sair
+        const vid = document.getElementById('cover-video');
+        if (vid) {
+          if (idx === 0) {
+            vid.play().catch(() => {}); // play (catch para evitar erro de autoplay policy)
+          } else {
+            vid.pause();
+          }
+        }
         // Slide 1 (antigo slide 0) — Word Cloud
         if (idx===1 && !this.wc) {
           setTimeout(() => { this.wc = new WordCloud('wordcloud-canvas'); }, 200);
