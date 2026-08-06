@@ -312,9 +312,9 @@ class Presentation {
         const bu = document.getElementById('bar-users');
         const bdft = document.getElementById('bar-dft');
         const bd = document.getElementById('bar-days');
-        if (u) animateCounter(u, 50, 1400, '', '+');
-        if (dft) animateCounter(dft, 70, 1400, '', '+');
-        if (d) animateCounter(d, 30, 1400, '', '+');
+        if (u) animateCounter(u, 50, 1400, n => '+' + n);
+        if (dft) animateCounter(dft, 70, 1400, n => '+' + n);
+        if (d) animateCounter(d, 30, 1400, n => '+' + n);
         if (bu) bu.style.width = '100%';
         if (bdft) bdft.style.width = '100%';
         if (bd) bd.style.width = '100%';
