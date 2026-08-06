@@ -290,6 +290,19 @@ class Presentation {
       const a = document.getElementById('fill-after');
       setTimeout(() => { if (b) b.style.width = '20%'; if (a) a.style.width = '100%'; }, 200);
     }
+    // Slide 7 — +2 Petabytes em Nuvem Corporativa
+    if (idx === 7) {
+      const pb = document.getElementById('count-pb');
+      const bar = document.getElementById('bar-pb');
+      if (bar) {
+        bar.style.animation = 'none';
+        void bar.offsetWidth; // Force reflow
+        bar.style.animation = 'fillPbBar 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+      }
+      setTimeout(() => {
+        if (pb) animateCounter(pb, 2, 1200, '+');
+      }, 100);
+    }
     // Slide 8 — Testes e Validação: Contadores e Barras Animadas
     if (idx === 8) {
       setTimeout(() => {
