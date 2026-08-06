@@ -10,7 +10,7 @@ class TeamWordCloud {
 
     this.names = [
       'André Luís', 'Caíque Lira', 'Carlos Magno', 'Diogo Bento',
-      'Ivo Portela', 'Leonardo Santos', 'Marcelo Carvalho',
+      'Ivo Portela', 'Leonardo Santos', 'Marcelo Carvalho', 'Marcelo Ferreira',
       'Rafael Pontes', 'Rui Bisneto', 'Stênio Mendes', 'Vinícius Ximenes'
     ];
 
