@@ -294,14 +294,26 @@ class Presentation {
     if (idx === 8) {
       setTimeout(() => {
         const u = document.getElementById('count-users');
+        const dft = document.getElementById('count-dft');
         const d = document.getElementById('count-days');
         const bu = document.getElementById('bar-users');
+        const bdft = document.getElementById('bar-dft');
         const bd = document.getElementById('bar-days');
         if (u) animateCounter(u, 50, 1400, '', '+');
+        if (dft) animateCounter(dft, 70, 1400, '', '+');
         if (d) animateCounter(d, 30, 1400, '', '+');
         if (bu) bu.style.width = '100%';
+        if (bdft) bdft.style.width = '100%';
         if (bd) bd.style.width = '100%';
       }, 150);
+    }
+    // Slide 9 — Vídeo da Suite M365 (Velocidade 0.5x)
+    if (idx === 9) {
+      const v = document.getElementById('suite-365-video');
+      if (v) {
+        v.playbackRate = 0.5;
+        v.play().catch(() => {});
+      }
     }
   }
 
@@ -328,4 +340,13 @@ class Presentation {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => { window.ppt = new Presentation(); });
+document.addEventListener('DOMContentLoaded', () => {
+  window.ppt = new Presentation();
+
+  // Configura playbackRate 0.5x no vídeo da Suite 365 (Slide 9)
+  const suiteVideo = document.getElementById('suite-365-video');
+  if (suiteVideo) {
+    suiteVideo.playbackRate = 0.5;
+    suiteVideo.addEventListener('canplay', () => { suiteVideo.playbackRate = 0.5; });
+  }
+});
