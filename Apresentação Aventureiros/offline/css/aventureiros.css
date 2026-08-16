@@ -1,0 +1,485 @@
+/* ==========================================================================
+   ESTILOS PERSONALIZADOS — CLUBE DE AVENTUREIROS CRUZEIRO DO SUL
+   ========================================================================== */
+
+:root {
+  --cosmic-dark: #071124;
+  --cosmic-navy: #0b1e3f;
+  --cosmic-blue: #123368;
+  --space-accent: #38bdf8;
+  --star-gold: #f59e0b;
+  --star-yellow: #fbbf24;
+  --nature-green: #10b981;
+  --nature-light: #d1fae5;
+  --sunset-orange: #f97316;
+  --camp-red: #ef4444;
+  
+  --glass-bg: rgba(255, 255, 255, 0.94);
+  --glass-card: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(18, 51, 104, 0.12);
+  --shadow-card: 0 10px 30px rgba(11, 30, 63, 0.08);
+  --shadow-card-hover: 0 16px 40px rgba(11, 30, 63, 0.16);
+}
+
+/* Background espacial sutil */
+body {
+  background: 
+    radial-gradient(ellipse 75% 55% at 10% 10%, rgba(56, 189, 248, 0.18), transparent 60%),
+    radial-gradient(ellipse 65% 50% at 90% 15%, rgba(245, 158, 11, 0.12), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 50% 90%, rgba(16, 185, 129, 0.12), transparent 60%),
+    linear-gradient(160deg, #edf6ff 0%, #f7faff 45%, #eff8f4 100%) !important;
+}
+
+/* Logo no header e footer */
+.slide-logo-img {
+  height: 48px;
+  width: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(11, 30, 63, 0.15);
+  border: 2px solid #ffffff;
+}
+
+.nav-logo-img {
+  height: 38px;
+  width: 38px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  margin-right: 12px;
+}
+
+/* Kicker personalizado com estrela */
+.kicker-adv {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cosmic-blue);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 13px;
+  background: rgba(56, 189, 248, 0.15);
+  padding: 6px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.kicker-adv i {
+  color: var(--star-gold);
+}
+
+/* Slide Cover */
+.cover-layout {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 10px 20px;
+}
+
+.cover-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: slideFadeIn 0.8s ease-out;
+}
+
+.cover-badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #1e3a8a, #0284c7);
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 99px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
+  letter-spacing: 0.04em;
+}
+
+.cover-title {
+  font-size: clamp(38px, 4.4vw, 62px);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--cosmic-dark);
+}
+
+.cover-title span {
+  background: linear-gradient(135deg, #0369a1, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cover-subtitle {
+  font-size: 20px;
+  color: #475569;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.cover-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  padding: 10px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(18, 51, 104, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--cosmic-navy);
+}
+
+.cover-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.cover-logo-wrapper {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-logo-glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.4) 0%, rgba(245, 158, 11, 0.2) 50%, transparent 70%);
+  filter: blur(24px);
+  animation: pulseGlow 4s ease-in-out infinite alternate;
+}
+
+.cover-logo-img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 20px 50px rgba(7, 17, 36, 0.3);
+  border: 5px solid #ffffff;
+  transition: transform 0.5s ease;
+}
+
+.cover-logo-img:hover {
+  transform: scale(1.03) rotate(2deg);
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.95); opacity: 0.6; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes slideFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Grid Geral de Cards */
+.adv-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.adv-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.adv-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* Card Padrão */
+.adv-card {
+  background: #ffffff;
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 22px 24px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.adv-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.adv-card.highlight {
+  background: linear-gradient(145deg, #ffffff, #f0f9ff);
+  border: 2px solid #38bdf8;
+}
+
+.adv-card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.icon-blue { background: #e0f2fe; color: #0284c7; }
+.icon-gold { background: #fef3c7; color: #d97706; }
+.icon-green { background: #dcfce7; color: #16a34a; }
+.icon-orange { background: #ffedd5; color: #ea580c; }
+.icon-purple { background: #f3e8ff; color: #9333ea; }
+.icon-red { background: #fee2e2; color: #dc2626; }
+
+/* Galeria de Fotos */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-rows: 160px 160px;
+  gap: 14px;
+  height: 100%;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #000;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-item-featured {
+  grid-row: span 2;
+}
+
+.gallery-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background: rgba(7, 17, 36, 0.75);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Slide Especialidades */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.spec-badge {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(18, 51, 104, 0.1);
+  box-shadow: 0 4px 14px rgba(11, 30, 63, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spec-badge:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(11, 30, 63, 0.12);
+  border-color: #f59e0b;
+}
+
+.spec-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e3a8a, #0284c7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.spec-info h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cosmic-navy);
+  margin-bottom: 2px;
+}
+
+.spec-info span {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Card de Investimento */
+.price-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  border: 2px solid rgba(18, 51, 104, 0.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.price-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+}
+
+.price-card.featured {
+  border-color: #f59e0b;
+  background: linear-gradient(180deg, #ffffff 0%, #fffbeb 100%);
+}
+
+.price-ribbon {
+  position: absolute;
+  top: 14px;
+  right: -30px;
+  background: #f59e0b;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 30px;
+  transform: rotate(45deg);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.price-val {
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--cosmic-dark);
+  margin: 12px 0 6px;
+}
+
+.price-val small {
+  font-size: 18px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Checklist e Listas Visuais */
+.adv-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.adv-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.45;
+}
+
+.adv-checklist li i {
+  color: #059669;
+  font-size: 16px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* Callout Box */
+.adv-callout {
+  padding: 16px 20px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.adv-callout.warning {
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+  border-left: 5px solid #f59e0b;
+  color: #92400e;
+}
+
+.adv-callout.info {
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-left: 5px solid #3b82f6;
+  color: #1e40af;
+}
+
+.adv-callout.success {
+  background: #f0fdf4;
+  border: 1px solid #dcfce7;
+  border-left: 5px solid #10b981;
+  color: #065f46;
+}
+
+/* Inspiração Final */
+.quote-hero {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.quote-hero-text {
+  font-size: clamp(24px, 2.8vw, 38px);
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--cosmic-dark);
+  margin-bottom: 24px;
+}
+
+.quote-hero-text span {
+  color: #d97706;
+}

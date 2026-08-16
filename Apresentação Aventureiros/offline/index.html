@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1e3f">
+  <title>2º Semestre — Clube de Aventureiros Cruzeiro do Sul</title>
+
+  <!-- Fontes locais (offline) -->
+  <link rel="stylesheet" href="fonts/inter/inter.css">
+  <!-- Font Awesome local (offline) -->
+  <link rel="stylesheet" href="fonts/fontawesome/css/all.min.css">
+  <!-- Estilos da Apresentação Base (offline) -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Estilos Temáticos Aventureiros -->
+  <link rel="stylesheet" href="css/aventureiros.css">
+</head>
+
+<body>
+
+  <!-- Onda e constelações de fundo decorativas -->
+  <div class="bg-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+      <defs>
+        <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.5" />
+          <stop offset="60%" stop-color="#123368" stop-opacity="0.15" />
+          <stop offset="100%" stop-color="#071124" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="glow-gold" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.6" />
+          <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.2" />
+          <stop offset="100%" stop-color="#071124" stop-opacity="0" />
+        </radialGradient>
+        <filter id="blur-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="6" />
+        </filter>
+      </defs>
+
+      <!-- Linhas Onduladas Suaves -->
+      <g class="bg-lines-group">
+        <path class="wave-line wave-line-1" d="M -80 340 C 220 180, 520 520, 820 300 S 1220 160, 1520 340"
+          stroke="rgba(56,189,248,.18)" stroke-width="2" />
+        <path class="wave-line wave-line-2" d="M -80 410 C 270 240, 570 580, 870 360 S 1270 210, 1520 410"
+          stroke="rgba(245,158,11,.14)" stroke-width="1.6" />
+        <path class="wave-line wave-line-3" d="M -80 480 C 300 300, 620 620, 920 420 S 1300 270, 1520 480"
+          stroke="rgba(16,185,129,.12)" stroke-width="1.2" />
+      </g>
+
+      <!-- Pontos de Luz Cósmicos -->
+      <g class="bg-lights-group">
+        <g class="light-node light-node-1">
+          <circle class="light-orb" cx="140" cy="150" r="22" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="140" cy="150" r="3.5" fill="#38bdf8" />
+        </g>
+        <g class="light-node light-node-2">
+          <circle class="light-orb" cx="920" cy="220" r="24" fill="url(#glow-gold)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="920" cy="220" r="4" fill="#fbbf24" />
+        </g>
+        <g class="light-node light-node-3">
+          <circle class="light-orb" cx="1260" cy="110" r="20" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="1260" cy="110" r="3" fill="#38bdf8" />
+        </g>
+        <g class="light-node light-node-4">
+          <circle class="light-orb" cx="280" cy="580" r="26" fill="url(#glow-gold)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="280" cy="580" r="3.5" fill="#fbbf24" />
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <!-- DECK DE SLIDES (17 SLIDES) -->
+  <main class="deck" id="deck" aria-live="polite">
+
+    <!-- ============================================================
+         SLIDE 1 — Capa do 2º Semestre
+    ============================================================ -->
+    <section class="slide active" id="slide-0">
+      <div class="slide-content">
+        <div class="cover-layout">
+          <div class="cover-left">
+            <div class="cover-badge">
+              <i class="fa-solid fa-rocket"></i> Planejamento 2º Semestre
+            </div>
+            <h1 class="cover-title">
+              2º Semestre<br>
+              <span>Clube de Aventureiros</span><br>
+              Cruzeiro do Sul
+            </h1>
+            <p class="cover-subtitle">
+              Uma jornada repleta de aventuras, crescimento espiritual, fortalecimento familiar e muitas especialidades!
+            </p>
+            <div class="cover-features">
+              <div class="feature-pill"><i class="fa-solid fa-campground" style="color:var(--star-gold);"></i> Acampamento da Família</div>
+              <div class="feature-pill"><i class="fa-solid fa-award" style="color:var(--space-accent);"></i> Trilha das Maravilhas</div>
+              <div class="feature-pill"><i class="fa-solid fa-heart" style="color:#ef4444;"></i> Momentos Inesquecíveis</div>
+            </div>
+          </div>
+          <div class="cover-right">
+            <div class="cover-logo-wrapper">
+              <div class="cover-logo-glow"></div>
+              <img src="imagens/Logo.jpg" alt="Clube de Aventureiros Cruzeiro do Sul" class="cover-logo-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 2 — Calendário
+    ============================================================ -->
+    <section class="slide" id="slide-1">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-calendar-days"></i> Cronograma do Semestre</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:12px;">
+          <div>
+            <h2>Calendário Oficial</h2>
+            <p class="lead" style="margin-top:4px;">Acompanhe todas as datas de atividades, acampamento, projetos e investidura.</p>
+          </div>
+        </div>
+
+        <div style="flex:1; display:grid; grid-template-columns: 1.25fr 0.75fr; gap:24px; align-items:center; overflow:hidden;">
+          <!-- Imagem do Calendário -->
+          <div style="height:100%; max-height:490px; border-radius:20px; overflow:hidden; box-shadow:0 12px 32px rgba(0,0,0,0.12); border:2px solid rgba(18,51,104,0.12); background:#0b1e3f; display:flex; align-items:center; justify-content:center;">
+            <img src="imagens/image.png" alt="Calendário Aventureiros Cruzeiro do Sul" style="width:100%; height:100%; object-fit:contain;">
+          </div>
+
+          <!-- Resumo em Destaque -->
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="adv-card highlight" style="padding:16px 20px;">
+              <div style="display:flex; align-items:center; gap:10px; font-weight:800; color:var(--cosmic-navy); font-size:16px;">
+                <i class="fa-solid fa-calendar-check" style="color:var(--space-accent);"></i> Principais Marcos
+              </div>
+              <ul class="adv-checklist" style="margin-top:10px; gap:8px; font-size:14px;">
+                <li><i class="fa-solid fa-check"></i> <strong>16/08 & 30/08:</strong> Retorno e Atividades do Clube</li>
+                <li><i class="fa-solid fa-campground" style="color:var(--star-gold);"></i> <strong>12-13/09:</strong> Acampamento da Rede Familiar</li>
+                <li><i class="fa-solid fa-hand-holding-heart" style="color:#ef4444;"></i> <strong>18/10:</strong> Projeto Social do Clube</li>
+                <li><i class="fa-solid fa-fire-extinguisher" style="color:var(--sunset-orange);"></i> <strong>25/10:</strong> Atividade Externa (Bombeiros/Parque)</li>
+                <li><i class="fa-solid fa-trophy" style="color:var(--star-gold);"></i> <strong>21/11:</strong> Grande Investidura (Sábado 16h)</li>
+              </ul>
+            </div>
+
+            <div class="adv-callout info" style="margin-top:0; padding:12px 16px; font-size:13px;">
+              <i class="fa-solid fa-circle-info" style="font-size:18px;"></i>
+              <div><strong>BB:</strong> Bom de Bíblia | <strong>RFA:</strong> Rede Familiar dos Aventureiros</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 3 — Acampamento da Rede Familiar
+    ============================================================ -->
+    <section class="slide" id="slide-2">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-campground"></i> Encontro Especial</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <h2>🏕️ Acampamento da Rede Familiar</h2>
+        <p class="lead">Fortalecendo os laços familiares através da natureza, convivência e amor.</p>
+
+        <div style="flex:1; display:grid; grid-template-columns: 1.1fr 0.9fr; gap:32px; align-items:center; margin-top:16px;">
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <div class="adv-card highlight" style="padding:26px 28px; border-left:6px solid var(--star-gold);">
+              <p style="font-size:20px; font-weight:600; color:var(--cosmic-navy); line-height:1.5;">
+                "Nosso acampamento tem como objetivo aprender sobre o amor de Jesus e proporcionar momentos especiais de convivência e fortalecimento dos vínculos entre pais e filhos."
+              </p>
+            </div>
+
+            <div class="adv-card" style="padding:22px 24px;">
+              <p style="font-size:17px; color:#334155; line-height:1.5;">
+                Programe-se para estar presente e participar de toda a programação junto com seu filho, criando memórias e experiências especiais em família.
+              </p>
+            </div>
+
+            <div style="display:flex; gap:14px; flex-wrap:wrap;">
+              <div class="feature-pill"><i class="fa-solid fa-users" style="color:var(--space-accent);"></i> Convivência Saudável</div>
+              <div class="feature-pill"><i class="fa-solid fa-heart" style="color:#ef4444;"></i> Vínculos Pais & Filhos</div>
+              <div class="feature-pill"><i class="fa-solid fa-sparkles" style="color:var(--star-gold);"></i> Memórias Eternas</div>
+            </div>
+          </div>
+
+          <div style="height:360px; border-radius:24px; overflow:hidden; box-shadow:0 16px 40px rgba(0,0,0,0.14); border:3px solid #ffffff;">
+            <img src="imagens/image copy 6.png" alt="Acampamento da Rede Familiar" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 4 — Data e Horários
+    ============================================================ -->
+    <section class="slide" id="slide-3">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-clock"></i> Programação Oficial</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <h2>Data e Horários</h2>
+        <p class="lead">Reserve este final de semana especial em sua agenda familiar.</p>
+
+        <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:24px;">
+          <!-- Banner Principal da Data -->
+          <div style="background:linear-gradient(135deg, #0b1e3f, #123368); color:#fff; border-radius:22px; padding:24px 36px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 12px 30px rgba(11,30,63,0.2);">
+            <div>
+              <span style="font-size:14px; text-transform:uppercase; letter-spacing:0.1em; color:var(--space-accent); font-weight:700;">Data do Acampamento</span>
+              <h3 style="font-size:38px; font-weight:900; color:#ffffff; margin-top:4px;">12 e 13 de Setembro</h3>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.12); padding:12px 24px; border-radius:16px; backdrop-filter:blur(8px);">
+              <i class="fa-solid fa-calendar-day" style="font-size:32px; color:var(--star-gold);"></i>
+              <div style="font-size:15px; font-weight:700;">Sábado e Domingo</div>
+            </div>
+          </div>
+
+          <!-- Grid dos 3 Momentos Chave -->
+          <div class="adv-grid-3">
+            <div class="adv-card highlight">
+              <div class="adv-card-icon icon-blue">
+                <i class="fa-solid fa-door-open"></i>
+              </div>
+              <span style="font-size:13px; font-weight:700; color:var(--space-accent); text-transform:uppercase;">12/09 — Sexta/Sábado</span>
+              <h4 style="font-size:26px; font-weight:900; color:var(--cosmic-navy); margin:6px 0;">14:00h</h4>
+              <p style="font-size:15px; color:#475569;">Chegada ao local e recepção das famílias.</p>
+            </div>
+
+            <div class="adv-card featured" style="border:2px solid var(--star-gold); background:linear-gradient(180deg, #ffffff, #fffbeb);">
+              <div class="adv-card-icon icon-gold">
+                <i class="fa-solid fa-flag-checkered"></i>
+              </div>
+              <span style="font-size:13px; font-weight:700; color:var(--star-gold); text-transform:uppercase;">12/09 — Abertura Oficial</span>
+              <h4 style="font-size:26px; font-weight:900; color:var(--cosmic-navy); margin:6px 0;">15:00h</h4>
+              <p style="font-size:15px; color:#475569;">Início oficial de toda a programação, devocional e atividades em grupo.</p>
+            </div>
+
+            <div class="adv-card">
+              <div class="adv-card-icon icon-green">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <span style="font-size:13px; font-weight:700; color:var(--nature-green); text-transform:uppercase;">13/09 — Domingo</span>
+              <h4 style="font-size:26px; font-weight:900; color:var(--cosmic-navy); margin:6px 0;">15:00h</h4>
+              <p style="font-size:15px; color:#475569;">Retorno para casa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 5 — Local: CATRE Samambaia DF
+    ============================================================ -->
+    <section class="slide" id="slide-4">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-location-dot"></i> Estrutura do Evento</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:12px;">
+          <div>
+            <h2>Local do Acampamento</h2>
+            <p class="lead" style="margin-top:4px;"><strong>CATRE</strong> – Samambaia, Brasília DF</p>
+          </div>
+          <div class="feature-pill"><i class="fa-solid fa-tree" style="color:var(--nature-green);"></i> Ampla Área Verde & Conforto</div>
+        </div>
+
+        <!-- Galeria Interativa com as 5 fotos da estrutura -->
+        <div style="flex:1; display:grid; grid-template-columns: 1.3fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap:14px; overflow:hidden;">
+          <!-- Foto 1: Refeitório / Sede Principal -->
+          <div class="gallery-item gallery-item-featured">
+            <img src="imagens/image copy 5.png" alt="Sede e Refeitório CATRE">
+            <div class="gallery-tag"><i class="fa-solid fa-utensils"></i> Refeitório & Sede Principal</div>
+          </div>
+
+          <!-- Foto 2: Piscinas e Playground -->
+          <div class="gallery-item">
+            <img src="imagens/image copy 2.png" alt="Piscinas e Playground">
+            <div class="gallery-tag"><i class="fa-solid fa-water-ladder"></i> Piscina & Playground</div>
+          </div>
+
+          <!-- Foto 3: Auditório Interno -->
+          <div class="gallery-item">
+            <img src="imagens/image copy.png" alt="Auditório / Reuniões">
+            <div class="gallery-tag"><i class="fa-solid fa-users"></i> Auditório & Reuniões</div>
+          </div>
+
+          <!-- Foto 4: Campo de Esportes -->
+          <div class="gallery-item">
+            <img src="imagens/image copy 3.png" alt="Campo de Futebol">
+            <div class="gallery-tag"><i class="fa-solid fa-futbol"></i> Campo de Esportes</div>
+          </div>
+
+          <!-- Foto 5: Lago e Paisagem Natural -->
+          <div class="gallery-item">
+            <img src="imagens/image copy 4.png" alt="Lago e Natureza">
+            <div class="gallery-tag"><i class="fa-solid fa-mountain-sun"></i> Lago & Área Verde</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 6 — Barracas
+    ============================================================ -->
+    <section class="slide" id="slide-5">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-tents"></i> Acomodação & Reserva</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <h2>Barracas</h2>
+        <p class="lead">Orientações importantes sobre o empréstimo e reserva de barracas pelo Clube.</p>
+
+        <div style="flex:1; display:grid; grid-template-columns: 1.1fr 0.9fr; gap:32px; align-items:center;">
+          <div style="display:flex; flex-direction:column; gap:18px;">
+            <div class="adv-card highlight" style="padding:24px 26px;">
+              <div class="adv-card-icon icon-blue">
+                <i class="fa-solid fa-campground"></i>
+              </div>
+              <h4 style="font-size:20px; font-weight:800; color:var(--cosmic-navy); margin-bottom:8px;">Disponibilidade Limitada</h4>
+              <p style="font-size:16px; color:#334155; line-height:1.6;">
+                O clube disponibilizará barracas mediante solicitação e disponibilidade. Como não temos quantidade suficiente para atender todas as famílias, as barracas serão reservadas <strong>conforme a ordem de pagamento e solicitação realizada por e-mail</strong>, até que se esgotem.
+              </p>
+            </div>
+
+            <div class="adv-callout warning">
+              <i class="fa-solid fa-triangle-exclamation" style="font-size:24px;"></i>
+              <div>
+                <strong>Atenção!</strong> Solicite sua barraca no momento da inscrição por e-mail e envie o comprovante do 7me para garantir sua reserva.
+              </div>
+            </div>
+          </div>
+
+          <div style="height:360px; border-radius:24px; overflow:hidden; box-shadow:0 16px 40px rgba(0,0,0,0.14); border:3px solid #ffffff;">
+            <img src="imagens/image copy 6.png" alt="Área de Barracas" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 7 — Quem pode participar?
+    ============================================================ -->
+    <section class="slide" id="slide-6">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-user-group"></i> Participação & Família</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <h2>Quem Pode Participar?</h2>
+        <p class="lead">Toda a família reunida para viver momentos únicos com nossos aventureiros.</p>
+
+        <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:24px;">
+          <div class="adv-grid-3">
+            <div class="adv-card highlight">
+              <div class="adv-card-icon icon-gold">
+                <i class="fa-solid fa-people-roof"></i>
+              </div>
+              <h4 style="font-size:20px; font-weight:800; color:var(--cosmic-navy); margin-bottom:8px;">Toda a Família</h4>
+              <p style="font-size:15px; color:#475569; line-height:1.5;">
+                Toda a família é muito bem-vinda! Pais, mães, irmãos e responsáveis são convidados a fazer parte dessa festa.
+              </p>
+            </div>
+
+            <div class="adv-card highlight">
+              <div class="adv-card-icon icon-blue">
+                <i class="fa-solid fa-shield-heart"></i>
+              </div>
+              <h4 style="font-size:20px; font-weight:800; color:var(--cosmic-navy); margin-bottom:8px;">Responsável Presente</h4>
+              <p style="font-size:15px; color:#475569; line-height:1.5;">
+                Cada aventureiro deverá estar acompanhado por, no mínimo, <strong>um responsável</strong> durante todo o evento.
+              </p>
+            </div>
+
+            <div class="adv-card highlight">
+              <div class="adv-card-icon icon-green">
+                <i class="fa-solid fa-tent"></i>
+              </div>
+              <h4 style="font-size:20px; font-weight:800; color:var(--cosmic-navy); margin-bottom:8px;">Sua Própria Barraca</h4>
+              <p style="font-size:15px; color:#475569; line-height:1.5;">
+                Cada família deverá levar sua própria barraca. Caso não possua uma, solicite empréstimo no ato da inscrição.
+              </p>
+            </div>
+          </div>
+
+          <div class="adv-callout info">
+            <i class="fa-solid fa-heart" style="font-size:22px; color:#ef4444;"></i>
+            <div style="font-size:15px;">
+              O objetivo principal é a integração familiar: pais e filhos participando juntos de todas as atividades e devocionais!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 8 — O que levar para o acampamento?
+    ============================================================ -->
+    <section class="slide" id="slide-7">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-list-check"></i> Checklist Completo</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <h2>🏕️ O que levar para o acampamento?</h2>
+        <p class="lead" style="font-size:15px;">Prepare a mochila com carinho para não esquecer de nada!</p>
+
+        <!-- Grid de Categorias -->
+        <div style="flex:1; display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; overflow-y:auto; padding-right:6px; margin-top:8px;">
+          
+          <!-- Card: O que não ocupa espaço -->
+          <div class="adv-card" style="background:linear-gradient(180deg, #fff, #fef2f2); border-color:#fecaca;">
+            <div style="display:flex; align-items:center; gap:8px; font-weight:800; color:#b91c1c; margin-bottom:8px;">
+              <i class="fa-solid fa-heart" style="color:#ef4444;"></i> O Que Faz a Diferença!
+            </div>
+            <ul class="adv-checklist" style="font-size:13px; gap:6px;">
+              <li><i class="fa-solid fa-heart" style="color:#ef4444;"></i> Amor para compartilhar</li>
+              <li><i class="fa-solid fa-face-smile" style="color:#f59e0b;"></i> Alegria para aproveitar</li>
+              <li><i class="fa-solid fa-feather" style="color:#0284c7;"></i> Leveza com imprevistos</li>
+              <li><i class="fa-solid fa-hands-holding" style="color:#10b981;"></i> Paciência para boas histórias 😂</li>
+              <li><i class="fa-solid fa-bolt" style="color:#f59e0b;"></i> Muita disposição! 🏕️✨</li>
+            </ul>
+          </div>
+
+          <!-- Card: Roupas -->
+          <div class="adv-card">
+            <div style="display:flex; align-items:center; gap:8px; font-weight:800; color:var(--cosmic-navy); margin-bottom:8px;">
+              <i class="fa-solid fa-shirt" style="color:var(--space-accent);"></i> Roupas
+            </div>
+            <ul class="adv-checklist" style="font-size:13px; gap:6px;">
+              <li><i class="fa-solid fa-check"></i> Ir com uniforme de atividades</li>
+              <li><i class="fa-solid fa-check"></i> Agasalho para a noite</li>
+              <li><i class="fa-solid fa-check"></i> Camiseta branca (culto domingo)</li>
+              <li><i class="fa-solid fa-check"></i> Roupas que possam sujar (domingo)</li>
+              <li><i class="fa-solid fa-check"></i> Roupa de banho</li>
+              <li><i class="fa-solid fa-check"></i> Toalha, roupa de cama e cobertor</li>
+            </ul>
+          </div>
+
+          <!-- Card: Para Dormir -->
+          <div class="adv-card">
+            <div style="display:flex; align-items:center; gap:8px; font-weight:800; color:var(--cosmic-navy); margin-bottom:8px;">
+              <i class="fa-solid fa-bed" style="color:var(--star-gold);"></i> Para Dormir
+            </div>
+            <ul class="adv-checklist" style="font-size:13px; gap:6px;">
+              <li><i class="fa-solid fa-check"></i> Barraca própria</li>
+              <li><i class="fa-solid fa-check"></i> Colchonete / saco de dormir / isolante</li>
+              <li><i class="fa-solid fa-check"></i> Travesseiro e cobertor</li>
+              <li><i class="fa-solid fa-check"></i> Esteira, lençol ou colcha</li>
+            </ul>
+          </div>
+
+          <!-- Card: Higiene -->
+          <div class="adv-card">
+            <div style="display:flex; align-items:center; gap:8px; font-weight:800; color:var(--cosmic-navy); margin-bottom:8px;">
+              <i class="fa-solid fa-pump-soap" style="color:var(--nature-green);"></i> Higiene & Cuidados
+            </div>
+            <ul class="adv-checklist" style="font-size:13px; gap:6px;">
+              <li><i class="fa-solid fa-check"></i> Garrafinha de água</li>
+              <li><i class="fa-solid fa-check"></i> Repelente e Protetor solar</li>
+              <li><i class="fa-solid fa-check"></i> Papel higiênico e itens pessoais</li>
+              <li><i class="fa-solid fa-check"></i> Lenço umedecido (banho de emergência! 😂)</li>
+              <li><i class="fa-solid fa-check"></i> Sacolinhas para roupas sujas</li>
+            </ul>
+          </div>
+
+          <!-- Card: Outros Itens -->
+          <div class="adv-card">
+            <div style="display:flex; align-items:center; gap:8px; font-weight:800; color:var(--cosmic-navy); margin-bottom:8px;">
+              <i class="fa-solid fa-flashlight" style="color:var(--sunset-orange);"></i> Outros Itens
+            </div>
+            <ul class="adv-checklist" style="font-size:13px; gap:6px;">
+              <li><i class="fa-solid fa-check"></i> Lanterna com pilhas</li>
+              <li><i class="fa-solid fa-check"></i> Cadeira ou banco dobrável (se tiver)</li>
+              <li><i class="fa-solid fa-check"></i> Banquinhos pras crianças levados pelo clube</li>
+            </ul>
+          </div>
+
+          <!-- Card: Atenção -->
+          <div class="adv-card" style="background:#fffbeb; border-color:#fde68a;">
+            <div style="display:flex; align-items:center; gap:8px; font-weight:800; color:#b45309; margin-bottom:8px;">
+              <i class="fa-solid fa-triangle-exclamation" style="color:#d97706;"></i> Atenção!
+            </div>
+            <ul class="adv-checklist" style="font-size:13px; gap:6px;">
+              <li><i class="fa-solid fa-ban" style="color:#dc2626;"></i> <strong>Sem eletrônicos!</strong> Vamos curtir! 📵</li>
+              <li><i class="fa-solid fa-tag" style="color:#d97706;"></i> Identifique uniformes e pertences</li>
+              <li><i class="fa-solid fa-apple-whole" style="color:#16a34a;"></i> Leve lanche extra se achar necessário</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 9 — Trilha das Maravilhas (Especialidades)
+    ============================================================ -->
+    <section class="slide" id="slide-8">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-award"></i> Conquistas & Insígnias</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:8px;">
+          <div>
+            <h2>Especialidades — Trilha das Maravilhas</h2>
+            <p class="lead" style="margin-top:2px; font-size:16px;">Conheça as 9 especialidades que serão desenvolvidas neste semestre!</p>
+          </div>
+        </div>
+
+        <!-- Grade com 9 Especialidades -->
+        <div class="spec-grid" style="flex:1;">
+          <div class="spec-badge">
+            <div class="spec-number">1</div>
+            <div class="spec-info">
+              <h4>Maravilhas da Natureza</h4>
+              <span><i class="fa-solid fa-leaf" style="color:var(--nature-green);"></i> Criação & Meio Ambiente</span>
+            </div>
+          </div>
+
+          <div class="spec-badge">
+            <div class="spec-number">2</div>
+            <div class="spec-info">
+              <h4>Maravilhas do Espaço</h4>
+              <span><i class="fa-solid fa-shuttle-space" style="color:var(--space-accent);"></i> Universo & Planetas</span>
+            </div>
+          </div>
+
+          <div class="spec-badge">
+            <div class="spec-number">3</div>
+            <div class="spec-info">
+              <h4>Astronomia</h4>
+              <span><i class="fa-solid fa-telescope" style="color:var(--sunset-orange);"></i> Observação do Céu</span>
+            </div>
+          </div>
+
+          <div class="spec-badge">
+            <div class="spec-number">4</div>
+            <div class="spec-info">
+              <h4>Estrelas</h4>
+              <span><i class="fa-solid fa-star" style="color:var(--star-gold);"></i> Constelações & Luz</span>
+            </div>
+          </div>
+
+          <div class="spec-badge">
+            <div class="spec-number">5</div>
+            <div class="spec-info">
+              <h4>Acampante</h4>
+              <span><i class="fa-solid fa-campground" style="color:#10b981;"></i> Vida ao Ar Livre</span>
+            </div>
+          </div>
+
+          <div class="spec-badge">
+            <div class="spec-number">6</div>
+            <div class="spec-info">
+              <h4>Natação 1</h4>
+              <span><i class="fa-solid fa-person-swimming" style="color:#0284c7;"></i> Nível Básico</span>
+            </div>
+          </div>
+
+          <div class="spec-badge">
+            <div class="spec-number">7</div>
+            <div class="spec-info">
+              <h4>Natação 2</h4>
+              <span><i class="fa-solid fa-water" style="color:#0369a1;"></i> Nível Intermediário</span>
+            </div>
+          </div>
+
+          <div class="spec-badge">
+            <div class="spec-number">8</div>
+            <div class="spec-info">
+              <h4>Natação 3</h4>
+              <span><i class="fa-solid fa-swatchbook" style="color:#1d4ed8;"></i> Crawl & Costas</span>
+            </div>
+          </div>
+
+          <div class="spec-badge">
+            <div class="spec-number">9</div>
+            <div class="spec-info">
+              <h4>Explorador ao Ar Livre</h4>
+              <span><i class="fa-solid fa-compass" style="color:#b45309;"></i> Trilha com Emoção</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 10 — Especialidade de Acampante
+    ============================================================ -->
+    <section class="slide" id="slide-9">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-campground"></i> Especialidade Prática</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <h2>🏕️ Especialidade de Acampante</h2>
+        <p class="lead">Requisitos práticos para a conquista da especialidade.</p>
+
+        <div style="flex:1; display:grid; grid-template-columns: 1.1fr 0.9fr; gap:28px; align-items:center;">
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div class="adv-card highlight">
+              <h4 style="font-size:17px; font-weight:800; color:var(--cosmic-navy); margin-bottom:12px;">Requisitos a cumprir pelo Aventureiro:</h4>
+              <ul class="adv-checklist">
+                <li><i class="fa-solid fa-circle-check"></i> Participar de <strong>2 acampamentos</strong> de 1 noite.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Ajudar a <strong>montar, desmontar e limpar</strong> a barraca.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Aprender a <strong>identificar os pontos cardeais</strong> pelos corpos celestes (com apoio dos pais).</li>
+              </ul>
+            </div>
+
+            <div class="adv-card" style="background:#fffbeb; border-color:#fde68a;">
+              <div style="display:flex; align-items:center; gap:8px; font-weight:800; color:#b45309; margin-bottom:8px;">
+                <i class="fa-solid fa-thumbtack"></i> 📌 Importante:
+              </div>
+              <ul class="adv-checklist" style="font-size:14px; gap:8px;">
+                <li><i class="fa-solid fa-star" style="color:var(--star-gold);"></i> <strong>Participou no ano passado + deste acampamento:</strong> requisito 100% cumprido!</li>
+                <li><i class="fa-solid fa-house-chimney-user" style="color:var(--space-accent);"></i> <strong>Não participou do anterior:</strong> realizar 1 acampamento de 1 noite em família.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="height:350px; border-radius:22px; overflow:hidden; box-shadow:0 14px 36px rgba(0,0,0,0.12); border:3px solid #fff;">
+            <img src="imagens/image copy 6.png" alt="Barracas no Acampamento" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 11 — Especialidades Espaciais e Natureza
+    ============================================================ -->
+    <section class="slide" id="slide-10">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-stars"></i> Cosmos & Criação</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <h2>Maravilhas da Natureza, Maravilhas do Espaço, Astronomia e Estrelas.</h2>
+        <!--<p class="lead">Maravilhas da Natureza, Maravilhas do Espaço, Astronomia e Estrelas.</p>-->
+
+        <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:22px;">
+          <!-- Grid de 4 Especialidades -->
+          <div class="adv-grid-4">
+            <div class="adv-card highlight" style="text-align:center; align-items:center;">
+              <div class="adv-card-icon icon-green"><i class="fa-solid fa-leaf"></i></div>
+              <h4 style="font-size:16px; font-weight:800; color:var(--cosmic-navy);">Maravilhas da Natureza</h4>
+            </div>
+            <div class="adv-card highlight" style="text-align:center; align-items:center;">
+              <div class="adv-card-icon icon-blue"><i class="fa-solid fa-shuttle-space"></i></div>
+              <h4 style="font-size:16px; font-weight:800; color:var(--cosmic-navy);">Maravilhas do Espaço</h4>
+            </div>
+            <div class="adv-card highlight" style="text-align:center; align-items:center;">
+              <div class="adv-card-icon icon-purple"><i class="fa-solid fa-telescope"></i></div>
+              <h4 style="font-size:16px; font-weight:800; color:var(--cosmic-navy);">Astronomia</h4>
+            </div>
+            <div class="adv-card highlight" style="text-align:center; align-items:center;">
+              <div class="adv-card-icon icon-gold"><i class="fa-solid fa-star"></i></div>
+              <h4 style="font-size:16px; font-weight:800; color:var(--cosmic-navy);">Estrelas</h4>
+            </div>
+          </div>
+
+          <!-- Explicação da Dinâmica -->
+          <div class="adv-card" style="padding:24px 28px; border-left:6px solid var(--space-accent);">
+            <h4 style="font-size:18px; font-weight:800; color:var(--cosmic-navy); margin-bottom:8px;">Dinâmica de Cumprimento</h4>
+            <p style="font-size:16px; color:#334155; line-height:1.6;">
+              As especialidades serão realizadas <strong>durante o sábado à tarde</strong>, com início no devocional de sábado e conclusão no devocional de domingo.
+            </p>
+            <div class="adv-callout info" style="margin-top:12px;">
+              <i class="fa-solid fa-circle-check" style="font-size:20px;"></i>
+              <div>Para o cumprimento das especialidades, é necessário <strong>participar do circuito de atividades e dos dois devocionais</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 12 — Natação 1 e 2
+    ============================================================ -->
+    <section class="slide" id="slide-11">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-person-swimming"></i> Atividades Aquáticas</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <h2>Especialidade de Natação 1 e 2 🏊‍♂️</h2>
+        <p class="lead">Desenvolvendo a confiança, segurança e habilidades na água.</p>
+
+        <div style="flex:1; display:grid; grid-template-columns: 1.1fr 0.9fr; gap:32px; align-items:center;">
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <div class="adv-card highlight" style="padding:24px;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                <div class="adv-card-icon icon-blue" style="margin-bottom:0;"><i class="fa-solid fa-calendar-day"></i></div>
+                <div>
+                  <span style="font-size:13px; font-weight:700; color:var(--space-accent); text-transform:uppercase;">Horário Oficial</span>
+                  <h4 style="font-size:22px; font-weight:800; color:var(--cosmic-navy);">Domingo às 10h30</h4>
+                </div>
+              </div>
+              <p style="font-size:16px; color:#334155; line-height:1.6;">
+                As especialidades de <strong>Natação 1</strong> e <strong>Natação 2</strong> serão realizadas no domingo, às 10h30, destinadas aos Aventureiros que <strong>já sabem nadar e mergulhar</strong>.
+              </p>
+            </div>
+
+            <div class="adv-callout info">
+              <i class="fa-solid fa-water-ladder" style="font-size:24px;"></i>
+              <div>Leve roupa de banho apropriada, toalha e protetor solar para aproveitar a piscina com segurança!</div>
+            </div>
+          </div>
+
+          <div style="height:350px; border-radius:22px; overflow:hidden; box-shadow:0 14px 36px rgba(0,0,0,0.12); border:3px solid #fff;">
+            <img src="imagens/image copy 2.png" alt="Piscina do CATRE" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 13 — Natação 3
+    ============================================================ -->
+    <section class="slide" id="slide-12">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-swatchbook"></i> Nível Avançado</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <h2>Especialidade de Natação 3 🏊‍♂️</h2>
+        <!--<p class="lead">Aperfeiçoamento de técnicas e estilos de nado com autonomia.</p>-->
+
+        <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:24px;">
+          <div class="adv-card highlight" style="padding:28px 32px; border-left:6px solid #1d4ed8;">
+            <div style="display:flex; align-items:center; gap:16px; margin-bottom:14px;">
+              <div class="adv-card-icon icon-blue" style="margin-bottom:0; width:56px; height:56px; font-size:24px;">
+                <i class="fa-solid fa-water"></i>
+              </div>
+              <div>
+                <h4 style="font-size:22px; font-weight:800; color:var(--cosmic-navy);">Requisitos Especiais de Estilo</h4>
+                <span style="font-size:14px; color:#64748b; font-weight:600;">Estilos Crawl e Costas</span>
+              </div>
+            </div>
+            <p style="font-size:18px; color:#334155; line-height:1.6;">
+              A <strong>Natação 3</strong> exige conhecimentos básicos dos estilos <strong>crawl</strong> e <strong>costas</strong>. Por isso, a especialidade será destinada <strong>somente aos Aventureiros que já tenham realizado aulas de natação</strong> e possuam familiaridade com esses estilos.
+            </p>
+          </div>
+
+          <div class="adv-grid-2">
+            <div class="adv-card" style="padding:18px 22px;">
+              <div style="font-weight:700; color:var(--cosmic-navy); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                <i class="fa-solid fa-person-swimming" style="color:#0284c7;"></i> Estilo Crawl
+              </div>
+              <p style="font-size:14px; color:#64748b;">Coordenação de braçadas, respiração lateral e propulsão de pernas.</p>
+            </div>
+            <div class="adv-card" style="padding:18px 22px;">
+              <div style="font-weight:700; color:var(--cosmic-navy); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                <i class="fa-solid fa-water" style="color:#0284c7;"></i> Estilo Costas
+              </div>
+              <p style="font-size:14px; color:#64748b;">Flutuação dorsal, alinhamento corporal e ritmo contínuo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 14 — Explorador ao ar livre (Trilha com emoção)
+    ============================================================ -->
+    <section class="slide" id="slide-13">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-compass"></i> Aventura na Natureza</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <h2>Explorador ao Ar Livre</h2>
+        <p class="lead">Trilha com emoção, superação de desafios e contato direto com a criação!</p>
+
+        <div style="flex:1; display:grid; grid-template-columns: 1fr 1.1fr; gap:32px; align-items:center;">
+          <div style="display:flex; flex-direction:column; gap:18px;">
+            <div class="adv-card highlight" style="border-left:6px solid var(--nature-green);">
+              <h4 style="font-size:22px; font-weight:800; color:var(--cosmic-navy); margin-bottom:8px;">🌿 Trilha com Emoção!</h4>
+              <p style="font-size:16px; color:#334155; line-height:1.6;">
+                Uma caminhada emocionante pelas trilhas ecológicas, com travessia de água, observação da fauna e flora e muita diversão em família.
+              </p>
+            </div>
+
+            <div class="adv-card">
+              <ul class="adv-checklist" style="font-size:15px; gap:10px;">
+                <li><i class="fa-solid fa-shoe-prints" style="color:var(--nature-green);"></i> Use tênis confortável e roupas que possam molhar e sujar</li>
+                <li><i class="fa-solid fa-handshake-angle" style="color:var(--space-accent);"></i> Trabalho em equipe entre pais, mães e filhos</li>
+                <li><i class="fa-solid fa-shield-halved" style="color:var(--star-gold);"></i> Acompanhamento dos responsáveis</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="height:360px; border-radius:24px; overflow:hidden; box-shadow:0 16px 40px rgba(0,0,0,0.14); border:3px solid #fff; display:flex; align-items:center; justify-content:center; background:#0b1e3f;">
+            <img src="imagens/image copy 7.png" alt="Trilha com Emoção Aventureiros" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 15 — Investimento
+    ============================================================ -->
+    <section class="slide" id="slide-14">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-coins"></i> Taxa & Alimentação</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:8px;">
+          <div>
+            <h2>Investimento do Acampamento</h2>
+            <p class="lead" style="margin-top:2px; font-size:16px;">O valor inclui <strong>local, programação completa e 3 refeições</strong> (jantar, café da manhã e almoço).</p>
+          </div>
+        </div>
+
+        <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:16px;">
+          <!-- 3 Cards de Preço -->
+          <div class="adv-grid-3">
+            <div class="price-card">
+              <span style="font-size:14px; font-weight:700; color:#64748b; text-transform:uppercase;">Até 4 anos e 11 meses</span>
+              <div class="price-val" style="color:var(--nature-green);">ISENTAS</div>
+              <p style="font-size:13px; color:#64748b;">Crianças pequenas não pagam taxa de alimentação/evento.</p>
+            </div>
+
+            <div class="price-card">
+              <span style="font-size:14px; font-weight:700; color:#64748b; text-transform:uppercase;">De 5 a 11 anos e 11 meses</span>
+              <div class="price-val"><small>R$</small> 80<small>,00</small></div>
+              <p style="font-size:13px; color:#64748b;">Inclui local, programação e as 3 refeições completas.</p>
+            </div>
+
+            <div class="price-card">
+              <span style="font-size:14px; font-weight:700; color:#64748b; text-transform:uppercase;">A partir de 12 anos (Adultos)</span>
+              <div class="price-val"><small>R$</small> 100<small>,00</small></div>
+              <p style="font-size:13px; color:#64748b;">Pais, responsáveis e acompanhantes com tudo incluso.</p>
+            </div>
+          </div>
+
+          <!-- Destaque Semestre Pago -->
+          <div class="adv-card featured" style="background:linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border:2px solid var(--star-gold); padding:16px 24px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+              <div>
+                <span class="cover-badge" style="background:var(--sunset-orange); font-size:12px; padding:4px 14px; margin-bottom:6px;">
+                  <i class="fa-solid fa-gift"></i> Benefício Exclusivo
+                </span>
+                <h4 style="font-size:17px; font-weight:800; color:#92400e; margin-top:4px;">
+                  O aventureiro que efetuar o pagamento do 2º semestre de 2026 NÃO paga o acampamento!
+                </h4>
+                <p style="font-size:13px; color:#78350f; margin-top:2px;">
+                  Valor do 2º semestre: <strong>R$ 200,00</strong>. A inscrição por e-mail continua sendo obrigatória para organização.
+                </p>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px; background:#ffffff; padding:8px 18px; border-radius:12px; border:1px solid #fcd34d; font-weight:700; font-size:13px; color:var(--cosmic-navy);">
+                <i class="fa-solid fa-mobile-screen-button" style="color:var(--space-accent); font-size:18px;"></i>
+                Pagamento exclusivamente pelo <strong>7me</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 16 — Como realizar a inscrição
+    ============================================================ -->
+    <section class="slide" id="slide-15">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker-adv"><i class="fa-solid fa-envelope-open-text"></i> Passo a Passo</div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="slide-logo-img">
+        </div>
+
+        <h2>Como Realizar a Inscrição</h2>
+        <p class="lead">Envie um e-mail com as informações solicitadas para confirmar sua vaga.</p>
+
+        <div style="flex:1; display:grid; grid-template-columns: 1.1fr 0.9fr; gap:28px; align-items:center;">
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div class="adv-card highlight" style="padding:22px 26px;">
+              <h4 style="font-size:17px; font-weight:800; color:var(--cosmic-navy); margin-bottom:12px;">
+                <i class="fa-solid fa-list-ol" style="color:var(--space-accent);"></i> Informações Obrigatórias no E-mail:
+              </h4>
+              <ul class="adv-checklist" style="font-size:14px; gap:10px;">
+                <li><i class="fa-solid fa-user-tag"></i> <strong>Nome completo do aventureiro</strong> e a classe em que está matriculado;</li>
+                <li><i class="fa-solid fa-users"></i> <strong>Nome completo e idade</strong> de cada acompanhante;</li>
+                <li><i class="fa-solid fa-tent"></i> Informar se haverá <strong>necessidade de barraca emprestada</strong>;</li>
+                <li><i class="fa-solid fa-receipt"></i> Anexar o comprovante de pagamento pelo 7me (referente ao semestre e aos acompanhantes, quando aplicável).</li>
+              </ul>
+            </div>
+
+            <div class="adv-callout success" style="margin-top:0;">
+              <i class="fa-solid fa-circle-check" style="font-size:22px;"></i>
+              <div>Após o envio dessas informações por e-mail, sua inscrição estará oficialmente concluída!</div>
+            </div>
+          </div>
+
+          <!-- Card de Contato / E-mail -->
+          <div class="adv-card" style="text-align:center; padding:32px 24px; background:linear-gradient(135deg, #0b1e3f, #123368); color:#ffffff;">
+            <div style="width:68px; height:68px; border-radius:50%; background:rgba(56,189,248,0.2); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:28px; color:var(--space-accent);">
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <span style="font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--space-accent); font-weight:700;">Envie seu e-mail para</span>
+            <h3 style="font-size:22px; font-weight:800; color:#ffffff; margin:10px 0 16px; word-break:break-all;">avt.cacs@gmail.com</h3>
+            <a href="mailto:avt.cacs@gmail.com" style="display:inline-flex; align-items:center; gap:8px; background:var(--star-gold); color:var(--cosmic-dark); text-decoration:none; padding:10px 22px; border-radius:99px; font-weight:800; font-size:14px; box-shadow:0 6px 16px rgba(245,158,11,0.4);">
+              <i class="fa-solid fa-envelope"></i> Abrir E-mail
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 17 — Encerramento / Mais do que especialidades
+    ============================================================ -->
+    <section class="slide" id="slide-16">
+      <div class="slide-content" style="justify-content:center; align-items:center; text-align:center;">
+        <div class="cover-logo-wrapper" style="width:200px; height:200px; margin-bottom:20px;">
+          <div class="cover-logo-glow"></div>
+          <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="cover-logo-img" style="width:180px; height:180px;">
+        </div>
+
+        <div class="quote-hero">
+          <div class="kicker-adv" style="margin-bottom:16px;">
+            <i class="fa-solid fa-heart" style="color:#ef4444;"></i> Nosso Propósito Maior
+          </div>
+          <h2 class="quote-hero-text">
+            "Mais do que cumprir especialidades, vamos <span>criar memórias</span>, <span>fortalecer vínculos</span> e viver juntos momentos que nos <span>aproximam de Jesus</span>."
+          </h2>
+          <div style="font-size:32px; margin-top:10px;">🏕️❤️✨</div>
+        </div>
+
+        <div style="margin-top:16px;">
+          <span style="font-weight:700; color:var(--cosmic-navy); font-size:16px;">Clube de Aventureiros Cruzeiro do Sul — 2º Semestre</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BARRA DE NAVEGAÇÃO FIXA INFERIOR -->
+  <nav class="nav-bar">
+    <div style="display:flex; align-items:center;">
+      <img src="imagens/Logo.jpg" alt="Cruzeiro do Sul" class="nav-logo-img">
+      <span style="font-weight:800; font-size:13px; color:var(--cosmic-navy); display:inline-block; max-width:200px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Cruzeiro do Sul</span>
+    </div>
+    <div class="nav-center">
+      <div class="prog-bar"><span id="prog-fill"></span></div>
+      <div class="slide-count"><strong id="cur-slide">1</strong> / <span id="total-slides">17</span></div>
+    </div>
+    <div class="nav-btns">
+      <button class="btn-nav" id="btn-grid"><i class="fa-solid fa-border-all"></i> Slides</button>
+      <button class="btn-nav" id="btn-prev"><i class="fa-solid fa-chevron-left"></i> Anterior</button>
+      <button class="btn-nav" id="btn-next">Próximo <i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </nav>
+
+  <!-- MODAL DE MINIATURAS DA APRESENTAÇÃO -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-header">
+      <h3 style="color:var(--cosmic-navy); font-weight:800;">Visão Geral dos Slides</h3>
+      <button class="btn-close" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="thumbs-grid" id="thumbs-grid"></div>
+  </div>
+
+  <!-- Scripts da Apresentação (offline) -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
