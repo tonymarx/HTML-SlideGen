@@ -30,23 +30,21 @@ body {
     linear-gradient(160deg, #edf6ff 0%, #f7faff 45%, #eff8f4 100%) !important;
 }
 
-/* Logo no header e footer */
+/* Logo no header (canto superior direito de cada slide) */
 .slide-logo-img {
-  height: 48px;
-  width: 48px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(11, 30, 63, 0.15);
-  border: 2px solid #ffffff;
+  height: 52px;
+  width: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(11, 30, 63, 0.18));
 }
 
+/* Logo na barra de navegação (rodapé) */
 .nav-logo-img {
-  height: 38px;
-  width: 38px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  margin-right: 12px;
+  height: 42px;
+  width: 42px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 4px rgba(11, 30, 63, 0.14));
+  margin-right: 10px;
 }
 
 /* Kicker personalizado com estrela */
