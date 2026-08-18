@@ -1,0 +1,140 @@
+    <!-- ============================================================
+         SLIDE 5 — Volume de Dados Migrados
+    ============================================================ -->
+    <section class="slide" id="slide-5">
+      <div class="slide-content">
+        <div class="slide-top">
+          <div class="kicker">Grandiosidade Técnica da Operação</div>
+          <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
+        </div>
+
+        <h2>Volume de Dados Migrados</h2>
+        <p class="lead">Transferência segura e íntegra de milhões de mensagens para a nuvem Microsoft.</p>
+
+        <!-- Container Animado de Volume de Dados (Grandiosidade Técnica) -->
+        <div class="data-volume-container">
+
+          <!-- Card 1: 12+ Milhões de Mensagens -->
+          <div class="data-card data-card-messages">
+            <div class="data-card-bg-glow"></div>
+            <div class="data-card-header">
+              <div class="data-icon-box icon-box-cyan">
+                <i class="fa-solid fa-envelopes-bulk"></i>
+              </div>
+              <span class="data-card-tag">Mensagens Migradas</span>
+            </div>
+
+            <div class="data-num-wrap">
+              <span class="data-big-num" id="count-12m">+12.000.000</span>
+            </div>
+
+            <div class="data-card-desc">
+              Mensagens de e-mail transferidas com integridade total
+            </div>
+
+            <!-- Gráfico Integrado de Fluxo de Cartas / E-mails (Zimbra -> Microsoft 365) -->
+            <div class="data-stream-wrapper">
+              <svg class="data-stream-svg" viewBox="0 0 340 88" fill="none">
+
+                <!-- 1. Trajetória Pontilhada do Fluxo (Do centro exato Zimbra ao centro exato Microsoft) -->
+                <path d="M 32 34 Q 170 10, 308 34" stroke="rgba(73, 183, 255, 0.55)" stroke-width="2.5"
+                  stroke-dasharray="6 6" />
+
+                <!-- 2. Envelopes de E-mail em Migração -->
+                <g class="stream-envelope envelope-1">
+                  <rect x="-10" y="-7" width="20" height="13" rx="2.5" fill="#0078d4" />
+                  <path d="M -10 -7 L 0 0 L 10 -7" stroke="#ffffff" stroke-width="1.2" fill="none" />
+                  <path d="M -10 6 L -3 0 M 10 6 L 3 0" stroke="rgba(255,255,255,0.4)" stroke-width="1" />
+                </g>
+
+                <g class="stream-envelope envelope-2">
+                  <rect x="-10" y="-7" width="20" height="13" rx="2.5" fill="#00f0ff" />
+                  <path d="M -10 -7 L 0 0 L 10 -7" stroke="#003865" stroke-width="1.2" fill="none" />
+                  <path d="M -10 6 L -3 0 M 10 6 L 3 0" stroke="rgba(0,56,101,0.4)" stroke-width="1" />
+                </g>
+
+                <g class="stream-envelope envelope-3">
+                  <rect x="-10" y="-7" width="20" height="13" rx="2.5" fill="#3a8df5" />
+                  <path d="M -10 -7 L 0 0 L 10 -7" stroke="#ffffff" stroke-width="1.2" fill="none" />
+                  <path d="M -10 6 L -3 0 M 10 6 L 3 0" stroke="rgba(255,255,255,0.4)" stroke-width="1" />
+                </g>
+
+                <!-- 3. Círculo de Origem Ampliado com Moldura (Zimbra Local) -->
+                <g class="stream-node-start">
+                  <circle cx="32" cy="34" r="28" fill="#ffffff" stroke="#d9381e" stroke-width="3" />
+                  <image href="imagens/logo-zimbra.png" x="15" y="17" width="34" height="34"
+                    onerror="this.style.display='none'; document.getElementById('zimbra-svg-fallback').style.display='block';" />
+                  <!-- Fallback ícone de servidor caso logo-zimbra.png não exista -->
+                  <g id="zimbra-svg-fallback" style="display:none;">
+                    <rect x="20" y="23" width="24" height="22" rx="3" fill="#d9381e" />
+                    <line x1="24" y1="28" x2="40" y2="28" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" />
+                    <line x1="24" y1="34" x2="40" y2="34" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" />
+                    <circle cx="27" cy="39" r="1.3" fill="#ffffff" />
+                  </g>
+                  <text x="32" y="78" fill="#c02b12" font-size="11.5" font-weight="800"
+                    text-anchor="middle">Zimbra</text>
+                </g>
+
+                <!-- 4. Círculo de Destino Ampliado com Moldura (Microsoft 365 Nuvem) -->
+                <g class="stream-node-end">
+                  <circle cx="308" cy="34" r="28" fill="#ffffff" stroke="#0078d4" stroke-width="3" />
+                  <image href="imagens/logo-microsoft.png" x="291" y="17" width="34" height="34" />
+                  <text x="308" y="78" fill="#0078d4" font-size="11.5" font-weight="800"
+                    text-anchor="middle">M365</text>
+                </g>
+
+              </svg>
+            </div>
+          </div>
+
+          <!-- Conector de Ingestão de Dados com Animação Central -->
+          <div class="data-flow-connector">
+            <div class="flow-icon-hub">
+              <div class="flow-hub-pulse"></div>
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+            </div>
+            <span class="flow-speed-badge"><i class="fa-solid fa-bolt"></i> Nuvem M365</span>
+          </div>
+
+          <!-- Card 2: ~6 Terabytes de Dados -->
+          <div class="data-card data-card-storage">
+            <div class="data-card-bg-glow glow-blue"></div>
+            <div class="data-card-header">
+              <div class="data-icon-box icon-box-blue">
+                <i class="fa-solid fa-database"></i>
+              </div>
+              <span class="data-card-tag tag-blue">Volume Total</span>
+            </div>
+
+            <div class="data-num-wrap">
+              <span class="data-big-num" id="count-6tb">~6 TB</span>
+            </div>
+
+            <div class="data-card-desc">
+              Quase 6 Terabytes de informações carregadas na nuvem
+            </div>
+
+            <!-- Visualizador da Barra de Capacidade do Servidor Animada -->
+            <div class="storage-gauge-wrap">
+              <div class="storage-gauge-track">
+                <div class="storage-gauge-fill" id="gauge-fill-6tb">
+                  <div class="gauge-shimmer"></div>
+                  <div class="gauge-fill-head"></div>
+                </div>
+              </div>
+              <div class="storage-gauge-labels">
+                <span>0 TB</span>
+                <span class="gauge-target"><i class="fa-solid fa-cloud-arrow-up"></i> ~6 TB Migrados</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="speaker-note">
+          <i class="fa-solid fa-quote-left"></i>
+          "Transferimos mais de 12 milhões de mensagens, totalizando quase 6 terabytes de informações para a nuvem da
+          Microsoft."
+        </div>
+      </div>
+    </section>

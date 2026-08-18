@@ -1,0 +1,752 @@
+/* ==========================================================================
+   SLIDES COMPONENT STYLES & DYNAMIC ANIMATIONS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   SLIDE 1 — RECONHECIMENTO ÀS EQUIPES ENVOLVIDAS
+   -------------------------------------------------------------------------- */
+.team-slide-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.wordcloud-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: rgba(15, 27, 51, 0.4);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#wordcloud-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.teams-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.unit-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.unit-card:hover {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: var(--m365-cyan);
+  transform: translateX(8px);
+}
+
+.unit-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--codevasf-primary), var(--m365-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3);
+}
+
+.unit-info h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: white;
+}
+
+.unit-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   SLIDE 2 — INÍCIO DOS ESTUDOS E AVALIAÇÃO DAS SOLUÇÕES
+   -------------------------------------------------------------------------- */
+.eval-slide-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  justify-content: center;
+}
+
+.timeline-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  width: 90%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.timeline-progress {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--codevasf-accent), var(--m365-blue));
+  box-shadow: 0 0 12px var(--m365-blue);
+}
+
+.timeline-step {
+  position: relative;
+  z-index: 2;
+  background: var(--bg-dark);
+  border: 2px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 16px;
+  width: 220px;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.timeline-step.active {
+  border-color: var(--m365-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+  transform: translateY(-6px);
+}
+
+.step-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px auto;
+  border-radius: 50%;
+  background: rgba(0, 120, 212, 0.15);
+  border: 1px solid var(--m365-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--m365-cyan);
+}
+
+.step-year {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--codevasf-accent);
+  letter-spacing: 1px;
+}
+
+.step-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 4px;
+}
+
+.vendors-comparison {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+.vendor-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 30px;
+  width: 380px;
+  background: rgba(15, 27, 51, 0.6);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.vendor-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.vendor-card.microsoft {
+  border-color: rgba(0, 120, 212, 0.4);
+}
+
+.vendor-card.microsoft .vendor-badge {
+  background: linear-gradient(135deg, #0078d4, #00d2ff);
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 120, 212, 0.4);
+}
+
+.vendor-card.google .vendor-badge {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ea4335;
+}
+
+.vendor-details h4 {
+  font-size: 1.15rem;
+  color: white;
+}
+
+.vendor-details p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   SLIDE 3 — CONSTRUÇÃO COLABORATIVA DA SOLUÇÃO
+   -------------------------------------------------------------------------- */
+.collab-slide-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.collab-nodes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.node-card {
+  padding: 20px;
+  background: rgba(15, 27, 51, 0.6);
+  border: 1px solid var(--border-glass);
+  border-radius: 14px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.node-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--codevasf-accent), var(--m365-blue));
+}
+
+.node-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--m365-cyan);
+  box-shadow: 0 10px 25px rgba(0, 240, 255, 0.15);
+}
+
+.node-icon {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: var(--m365-cyan);
+}
+
+.node-card h4 {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.node-card p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.collab-canvas-box {
+  width: 100%;
+  height: 380px;
+  background: rgba(15, 27, 51, 0.4);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#collab-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   SLIDE 4 — MIGRAÇÃO DAS CONTAS DE E-MAIL
+   -------------------------------------------------------------------------- */
+.hero-metric-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.hero-number-box {
+  background: rgba(15, 27, 51, 0.7);
+  border: 1px solid var(--border-glow);
+  border-radius: 30px;
+  padding: 40px 80px;
+  box-shadow: 0 0 50px rgba(0, 120, 212, 0.25);
+  backdrop-filter: blur(20px);
+  position: relative;
+}
+
+.hero-number {
+  font-family: var(--font-heading);
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 0%, var(--m365-cyan) 60%, var(--m365-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -2px;
+}
+
+.hero-label {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.metrics-features-row {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.feature-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  border-radius: 30px;
+  font-size: 1rem;
+  color: var(--text-main);
+}
+
+.feature-pill i {
+  color: var(--codevasf-accent);
+}
+
+/* --------------------------------------------------------------------------
+   SLIDE 5 — VOLUME DE DADOS MIGRADOS
+   -------------------------------------------------------------------------- */
+.data-volume-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+  align-items: center;
+}
+
+.stat-card-large {
+  background: rgba(15, 27, 51, 0.7);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+}
+
+.stat-card-large:hover {
+  border-color: var(--m365-cyan);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
+}
+
+.stat-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--codevasf-primary), var(--m365-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 120, 212, 0.4);
+}
+
+.stat-val {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+
+.stat-desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   SLIDE 6 — NOVO ESPAÇO DE ARMAZENAMENTO DE E-MAIL
+   -------------------------------------------------------------------------- */
+.storage-slide-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  width: 100%;
+  align-items: center;
+}
+
+.gauge-comparison-card {
+  background: rgba(15, 27, 51, 0.7);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.storage-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.bar-track {
+  width: 100%;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 3px;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fill-before {
+  width: 10%;
+  background: #64748b;
+}
+
+.fill-after {
+  width: 100%;
+  background: linear-gradient(90deg, var(--codevasf-accent), var(--m365-cyan));
+  box-shadow: 0 0 15px var(--m365-cyan);
+}
+
+.multiplier-badge {
+  align-self: center;
+  background: linear-gradient(135deg, var(--m365-blue), var(--m365-cyan));
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+  margin-top: 10px;
+}
+
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  padding: 18px 24px;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.benefit-item i {
+  font-size: 1.4rem;
+  color: var(--codevasf-accent);
+}
+
+/* --------------------------------------------------------------------------
+   SLIDE 7 — ESCALA DE ARMAZENAMENTO EM NUVEM
+   -------------------------------------------------------------------------- */
+.cloud-scale-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.petabyte-hero {
+  background: rgba(15, 27, 51, 0.8);
+  border: 2px solid var(--m365-cyan);
+  border-radius: 28px;
+  padding: 40px 70px;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(0, 240, 255, 0.2);
+  backdrop-filter: blur(20px);
+}
+
+.petabyte-title {
+  font-family: var(--font-heading);
+  font-size: 4.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 30%, var(--m365-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.petabyte-sub {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.user-onedrive-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 40px;
+  background: rgba(0, 120, 212, 0.12);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.onedrive-icon {
+  font-size: 2.2rem;
+  color: var(--m365-blue);
+}
+
+/* --------------------------------------------------------------------------
+   SLIDE 8 — TESTES E VALIDAÇÃO DA PLATAFORMA
+   -------------------------------------------------------------------------- */
+.validation-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.val-pipeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.val-step-card {
+  background: rgba(15, 27, 51, 0.6);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 20px 30px;
+  text-align: center;
+  width: 220px;
+}
+
+.val-step-card.approved {
+  border-color: var(--m365-green);
+  background: rgba(16, 124, 65, 0.15);
+}
+
+.val-step-card i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--m365-cyan);
+}
+
+.val-arrow {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+
+.val-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.val-stat-box {
+  background: rgba(15, 27, 51, 0.7);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+}
+
+.val-stat-box h3 {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  color: var(--m365-cyan);
+}
+
+.val-stat-box p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   SLIDE 9 — MUITO ALÉM DO E-MAIL
+   -------------------------------------------------------------------------- */
+.m365-ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.app-card {
+  background: rgba(15, 27, 51, 0.7);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.3s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--m365-cyan);
+  box-shadow: 0 15px 35px rgba(0, 240, 255, 0.15);
+}
+
+.app-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.icon-teams { background: linear-gradient(135deg, #6264a7, #8764b8); }
+.icon-onedrive { background: linear-gradient(135deg, #0078d4, #00d2ff); }
+.icon-sharepoint { background: linear-gradient(135deg, #008272, #00b7ac); }
+.icon-webapps { background: linear-gradient(135deg, #d83b01, #ea4335); }
+.icon-security { background: linear-gradient(135deg, #107c41, #27b973); }
+.icon-collab { background: linear-gradient(135deg, #0078d4, #6264a7); }
+
+.app-card-header h4 {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.app-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   SLIDE 10 — TRANSFORMAÇÃO DIGITAL DA CODEVASF
+   -------------------------------------------------------------------------- */
+.closing-slide-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.closing-banner-card {
+  background: rgba(15, 27, 51, 0.8);
+  border: 1px solid var(--border-glow);
+  border-radius: 24px;
+  padding: 40px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 50px rgba(0, 120, 212, 0.2);
+}
+
+.closing-quote {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.4;
+  background: linear-gradient(135deg, #ffffff 0%, var(--m365-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+}
+
+.event-image-showcase {
+  width: 100%;
+  height: 380px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.event-image-showcase img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.event-image-showcase:hover img {
+  transform: scale(1.05);
+}
