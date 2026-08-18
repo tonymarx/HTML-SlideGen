@@ -1,79 +1,59 @@
-# 📊 PPTS — Apresentações Interativas Codevasf
+# 📊 PPTS — Apresentações Interativas e Dinâmicas
 
-Repositório com apresentações interativas desenvolvidas para eventos institucionais da **Codevasf**, construídas com HTML5, CSS3 e JavaScript puro — **100% offline**, sem dependência de servidores ou instalação de módulos.
+Este repositório tem como objetivo principal armazenar e fornecer **modelos de apresentações (slides) modernos, dinâmicos e interativos**. 
+
+Utilizando tecnologias web nativas como **HTML5, CSS3, JavaScript** e outras linguagens modernas, o projeto substitui apresentações estáticas tradicionais por experiências ricas, fluídas e de alto impacto visual. As apresentações são construídas para funcionar de forma **100% offline**, garantindo segurança e disponibilidade em qualquer ambiente corporativo, sem a necessidade de servidores, dependências complexas ou acesso à internet.
 
 ---
 
 ## 📁 Estrutura do Repositório
 
-```
+O repositório está organizado por pastas temáticas para cada evento ou necessidade institucional. Cada pasta contém seu próprio ecossistema autossuficiente.
+
+```text
 PPTS/
 ├── .gitignore
 ├── README.md
-└── Evento Lançamento Office 365/          ← Apresentação do lançamento M365
-    ├── offline/                             ← ✅ Pasta da apresentação (abrir aqui)
-    │   ├── index.html                       ← Abrir no navegador (duplo clique)
-    │   ├── css/
-    │   │   ├── main.css
-    │   │   └── animations.css
-    │   ├── js/
-    │   │   ├── app.js
-    │   │   ├── animations.js
-    │   │   └── wordcloud.js
-    │   ├── fonts/
-    │   │   ├── inter/                       ← Fonte Inter (local, offline)
-    │   │   └── fontawesome/                 ← Font Awesome 6.5.1 (local, offline)
-    │   └── imagens/                         ← Logo + imagens do evento
-    ├── Imagens do Evento/                   ← Materiais de divulgação originais
-    └── docs/                                ← Documentação e referências
-        ├── Discurso Lançamento office 365 - V2.pdf
-        ├── Proposta de Roteiro - Evento Microsoft 365.pdf
-        └── codevasf_o365_lancamento_v5.html
+├── Evento Lançamento Office 365/          ← Apresentação original M365 (executável)
+├── Infraestrutura de TI Codevasf/         ← Apresentação de Infraestrutura de TI (executável)
+└── ... (novos modelos e eventos)
 ```
 
 ---
 
-## 🚀 Como usar
+## 🚀 Como usar os Modelos
 
-### ✅ Modo Offline (recomendado)
+### ✅ Modo Offline (Recomendado)
 
-Nenhuma instalação necessária. Basta:
+As apresentações são projetadas para rodar localmente, com máxima performance e nenhuma dependência externa (todas as fontes e ícones já vêm inclusos).
 
-1. Copiar a pasta `offline/` para qualquer computador
-2. Abrir o arquivo `offline/index.html` no navegador (Google Chrome recomendado)
-3. A apresentação carrega completamente sem internet ou Node.js
+1. Navegue até a pasta do evento desejado (ex: `Infraestrutura de TI Codevasf/`).
+2. Copie a pasta inteira do evento para o computador que será utilizado na apresentação.
+3. Abra o arquivo `index.html` em qualquer navegador moderno (Google Chrome, Edge, Firefox, etc.).
+4. A apresentação carregará instantaneamente com todas as animações e interatividades ativas.
 
-> **Compatível com:** Chrome, Edge, Firefox — **sem necessidade de servidor ou internet**
+> **Dica:** Utilize a tecla `F11` para colocar o navegador em tela cheia e ter a experiência completa de uma apresentação imersiva.
 
 ---
 
-## 🎯 Evento Lançamento Office 365
+## 💡 Por que utilizar este formato?
 
-Apresentação interativa desenvolvida para o evento de lançamento do **Microsoft 365** na Codevasf.
+- **Interatividade:** Transições suaves, elementos animados e navegação dinâmica.
+- **Portabilidade:** Roda em qualquer navegador moderno, independentemente do sistema operacional.
+- **Personalização Profunda:** Qualquer elemento visual ou lógica pode ser customizado via CSS e JavaScript para se adequar perfeitamente ao tema do evento.
+- **Independência:** Não requer instalação de licenças ou softwares específicos de apresentação na máquina.
 
-**Características:**
-- 🎨 Design institucional com identidade visual Codevasf / Microsoft 365
-- 📊 10 slides navegáveis com animações suaves
-- 🔤 Fonte Inter local (sem internet)
-- 🎭 Ícones Font Awesome locais (sem internet)
-- 💯 Zero dependências externas
+---
 
-**Tecnologias:**
+## 🛠️ Tecnologias Utilizadas
 
-| Tecnologia | Uso |
+| Tecnologia | Finalidade |
 |---|---|
-| HTML5 | Estrutura da apresentação |
-| CSS3 | Estilos, animações e transições |
-| JavaScript ES6+ | Lógica de navegação e interatividade |
-| Font Awesome 6.5.1 | Ícones (offline) |
-| Inter (Google Fonts) | Tipografia (offline, TTF local) |
+| **HTML5** | Estruturação semântica dos slides |
+| **CSS3** | Estilização avançada, responsividade, animações e efeitos visuais |
+| **JavaScript (ES6+)** | Lógica de navegação, interações e controle de eventos |
+| **Fontes & Ícones** | Tipografias modernas (ex: Inter) e bibliotecas como Font Awesome (executadas localmente) |
 
 ---
 
-## 🏢 Sobre
-
-Desenvolvido para a **Companhia de Desenvolvimento dos Vales do São Francisco e do Parnaíba — Codevasf**.
-
----
-
-*Repositório mantido pela equipe de TI / Inovação — Codevasf.*
+*Repositório de modelos de apresentação mantido para impulsionar a inovação digital.*
