@@ -44,7 +44,7 @@ function build() {
   }
   const shell = fs.readFileSync(SHELL_FILE, 'utf-8');
 
-  // 2. Ler e concatenar slides
+  // 2. Ler e concatenar slides (extraindo conteúdo entre marcadores %%SLIDE_START%% e %%SLIDE_END%%)
   let slidesHtml = '';
   for (const file of SLIDE_FILES) {
     const filePath = path.join(SLIDES_DIR, file);
@@ -52,12 +52,26 @@ function build() {
       console.warn(`⚠️  Slide não encontrado (ignorado): ${file}`);
       continue;
     }
-    const content = fs.readFileSync(filePath, 'utf-8');
-    slidesHtml += '\n' + content + '\n';
+    let content = fs.readFileSync(filePath, 'utf-8');
+
+    // Extrair apenas o conteúdo entre os marcadores (slides são HTML completos para preview)
+    const startMarker = '<!-- %%SLIDE_START%% -->';
+    const endMarker = '<!-- %%SLIDE_END%% -->';
+    const startIdx = content.indexOf(startMarker);
+    const endIdx = content.indexOf(endMarker);
+    if (startIdx !== -1 && endIdx !== -1) {
+      content = content.substring(startIdx + startMarker.length, endIdx);
+    }
+
+    slidesHtml += '\n' + content.trim() + '\n';
     console.log(`  ✅ ${file}`);
   }
 
-  // 3. Injetar slides no placeholder do shell
+  // 3. Normalizar caminhos relativos dos slides (../imagens/ → imagens/) para o build final
+  slidesHtml = slidesHtml.replace(/src="\.\.\/imagens\//g, 'src="imagens/');
+  slidesHtml = slidesHtml.replace(/href="\.\.\/imagens\//g, 'href="imagens/');
+
+  // 4. Injetar slides no placeholder do shell
   const finalHtml = shell.replace('<!-- %%SLIDES%% -->', slidesHtml);
 
   // 4. Atualizar contagem total de slides no HTML

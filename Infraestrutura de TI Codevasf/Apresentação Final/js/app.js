@@ -184,7 +184,12 @@ class Presentation {
     if (this.totalEl) this.totalEl.textContent = this.total;
     this.buildThumbs();
     this.bind();
-    this.update(0);
+    
+    if (this.total > 0) {
+      this.slides[this.cur].classList.add('active');
+      this.update(this.cur);
+      this.triggerAnim(this.cur);
+    }
   }
 
   bind() {
@@ -237,10 +242,13 @@ class Presentation {
   }
 
   triggerAnim(idx) {
+    if (!this.slides[idx]) return;
+    const slideId = this.slides[idx].id;
+    
     // Slide 0 — Vídeo capa: play ao entrar, pause ao sair
     const vid = document.getElementById('cover-video');
     if (vid) {
-      if (idx === 0) {
+      if (slideId === 'slide-0') {
         vid.playbackRate = 0.5;
         vid.play().catch(() => { });
       } else {
@@ -248,7 +256,7 @@ class Presentation {
       }
     }
     // Slide 1 — Painel de Equipe: reinicia animação de entrada a cada visita
-    if (idx === 1) {
+    if (slideId === 'slide-1') {
       setTimeout(() => {
         const cards = document.querySelectorAll('#slide-1 .member-card');
         cards.forEach(card => {
@@ -259,18 +267,18 @@ class Presentation {
       }, 80);
     }
     // Slide 3 (antigo slide 2) — Collab Graph
-    if (idx === 3 && !this.cg) {
+    if (slideId === 'slide-3' && !this.cg) {
       setTimeout(() => { this.cg = new CollabGraph('collab-canvas'); }, 200);
     }
     // Slide 4 (antigo slide 3) — 1.800 counter
-    if (idx === 4) {
+    if (slideId === 'slide-4') {
       setTimeout(() => {
         const el = document.getElementById('count-1800');
         if (el) animateCounter(el, 1800, 1600, n => n.toLocaleString('pt-BR'));
       }, 150);
     }
     // Slide 5 — Volume de Dados Migrados (+12M e ~6 TB)
-    if (idx === 5) {
+    if (slideId === 'slide-5') {
       const m = document.getElementById('count-12m');
       const t = document.getElementById('count-6tb');
       const g = document.getElementById('gauge-fill-6tb');
@@ -285,13 +293,13 @@ class Presentation {
       }, 80);
     }
     // Slide 6 (antigo slide 5) — Storage bars
-    if (idx === 6) {
+    if (slideId === 'slide-6') {
       const b = document.getElementById('fill-before');
       const a = document.getElementById('fill-after');
       setTimeout(() => { if (b) b.style.width = '20%'; if (a) a.style.width = '100%'; }, 200);
     }
     // Slide 7 — +2 Petabytes em Nuvem Corporativa
-    if (idx === 7) {
+    if (slideId === 'slide-7') {
       const pb = document.getElementById('count-pb');
       const bar = document.getElementById('bar-pb');
       if (bar) {
@@ -304,7 +312,7 @@ class Presentation {
       }, 100);
     }
     // Slide 8 — Testes e Validação: Contadores e Barras Animadas
-    if (idx === 8) {
+    if (slideId === 'slide-8') {
       setTimeout(() => {
         const u = document.getElementById('count-users');
         const dft = document.getElementById('count-dft');
@@ -321,7 +329,7 @@ class Presentation {
       }, 150);
     }
     // Slide 9 — Vídeo da Suite M365 (Velocidade 0.5x)
-    if (idx === 9) {
+    if (slideId === 'slide-9') {
       const v = document.getElementById('suite-365-video');
       if (v) {
         v.playbackRate = 0.5;

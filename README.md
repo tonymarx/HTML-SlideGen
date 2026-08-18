@@ -42,11 +42,28 @@ PPTS/
 
 > **Dica:** Utilize `F11` para tela cheia e ter a experiência imersiva completa.
 
-### ✏️ Para Editar
+### ✏️ Para Editar e Compilar (Modo Desenvolvedor)
 
-1. Navegue até a subpasta **`Edição/`** do evento desejado
-2. Edite os arquivos de slides individuais (em `slides/`) ou o `index.html` diretamente
-3. Para apresentações modularizadas, execute `node build.js` dentro da pasta `Edição/` para gerar a versão final consolidada em `Apresentação Final/`
+A edição das apresentações adota uma arquitetura **modular** para facilitar a manutenção e diminuir drasticamente o número de linhas de código que um desenvolvedor (ou uma IA) precisa analisar de uma só vez. 
+
+1. Navegue até a subpasta **`Edição/`** da apresentação desejada.
+2. Dentro dela, há a pasta **`slides/`**, onde cada slide é um arquivo `.html` independente e totalmente funcional.
+3. Para **editar**, basta abrir o arquivo do slide desejado (ex: `slide-05-volume-dados.html`) no seu editor de código.
+   - **Preview Automático:** Você pode dar um duplo-clique no arquivo do slide e abri-lo no navegador. Ele carregará **sozinho**, mas exibirá toda a estética visual, layout, menu e animações exatamente iguais aos da apresentação final, garantindo um preview fiel e imersivo do seu trabalho.
+4. O arquivo `shell.html` na raiz da pasta de edição serve como um "esqueleto" e design global da apresentação (onde ficam os painéis fixos, backgrounds e modais).
+5. Após concluir e validar suas edições nos slides modulares, é preciso "compilar" (buildar) a apresentação para gerar o arquivo offline unificado.
+
+#### 🏗️ Como Buildar a Versão Final
+
+O processo de build junta o esqueleto (`shell.html`), injeta todos os slides individuais em ordem e reorganiza/processa todos os caminhos relativos de recursos. O resultado é a pasta **`Apresentação Final/`** completamente otimizada.
+
+Para compilar, abra o seu terminal/prompt de comando (navegando até a pasta **`Edição/`** do evento desejado) e execute o script Node.js:
+
+```bash
+node build.js
+```
+
+Ao rodar o comando, o terminal confirmará os slides consolidados e a nova versão otimizada estará disponível em `Apresentação Final/index.html`.
 
 ---
 
