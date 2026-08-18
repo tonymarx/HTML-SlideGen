@@ -22,7 +22,12 @@ class Presentation {
     if (this.totalEl) this.totalEl.textContent = this.total;
     this.buildThumbs();
     this.bind();
-    this.update(0);
+    
+    if (this.total > 0) {
+      this.slides[this.cur].classList.add('active');
+      this.update(this.cur);
+      this.triggerAnim(this.cur);
+    }
   }
 
   bind() {
