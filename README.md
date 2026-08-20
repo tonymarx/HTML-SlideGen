@@ -1,4 +1,4 @@
-# 📊 PPTS — Apresentações Interativas e Dinâmicas
+# 📊 HTML-SlideGen — Apresentações Interativas e Dinâmicas
 
 Este repositório tem como objetivo principal armazenar e fornecer **modelos de apresentações (slides) modernos, dinâmicos e interativos**. 
 
@@ -14,7 +14,7 @@ O repositório está organizado por pastas temáticas. Cada apresentação segue
 - **`Apresentação Final/`** — Contém a versão consolidada pronta para apresentar offline
 
 ```text
-PPTS/
+HTML-SlideGen/
 ├── .gitignore
 ├── README.md
 ├── Evento Lançamento Office 365/
