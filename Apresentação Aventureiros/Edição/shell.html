@@ -76,6 +76,84 @@
     <!-- ============================================================
          SLIDE 1 — Capa do 2º Semestre
     ============================================================ -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1e3f">
+  <title>2º Semestre — Clube de Aventureiros Cruzeiro do Sul</title>
+
+  <!-- Fontes locais (offline) -->
+  <link rel="stylesheet" href="fonts/inter/inter.css">
+  <!-- Font Awesome local (offline) -->
+  <link rel="stylesheet" href="fonts/fontawesome/css/all.min.css">
+  <!-- Estilos da Apresentação Base (offline) -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Estilos Temáticos Aventureiros -->
+  <link rel="stylesheet" href="css/aventureiros.css">
+</head>
+
+<body>
+
+  <!-- Onda e constelações de fundo decorativas -->
+  <div class="bg-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+      <defs>
+        <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.5" />
+          <stop offset="60%" stop-color="#123368" stop-opacity="0.15" />
+          <stop offset="100%" stop-color="#071124" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="glow-gold" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.6" />
+          <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.2" />
+          <stop offset="100%" stop-color="#071124" stop-opacity="0" />
+        </radialGradient>
+        <filter id="blur-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="6" />
+        </filter>
+      </defs>
+
+      <!-- Linhas Onduladas Suaves -->
+      <g class="bg-lines-group">
+        <path class="wave-line wave-line-1" d="M -80 340 C 220 180, 520 520, 820 300 S 1220 160, 1520 340"
+          stroke="rgba(56,189,248,.18)" stroke-width="2" />
+        <path class="wave-line wave-line-2" d="M -80 410 C 270 240, 570 580, 870 360 S 1270 210, 1520 410"
+          stroke="rgba(245,158,11,.14)" stroke-width="1.6" />
+        <path class="wave-line wave-line-3" d="M -80 480 C 300 300, 620 620, 920 420 S 1300 270, 1520 480"
+          stroke="rgba(16,185,129,.12)" stroke-width="1.2" />
+      </g>
+
+      <!-- Pontos de Luz Cósmicos -->
+      <g class="bg-lights-group">
+        <g class="light-node light-node-1">
+          <circle class="light-orb" cx="140" cy="150" r="22" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="140" cy="150" r="3.5" fill="#38bdf8" />
+        </g>
+        <g class="light-node light-node-2">
+          <circle class="light-orb" cx="920" cy="220" r="24" fill="url(#glow-gold)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="920" cy="220" r="4" fill="#fbbf24" />
+        </g>
+        <g class="light-node light-node-3">
+          <circle class="light-orb" cx="1260" cy="110" r="20" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="1260" cy="110" r="3" fill="#38bdf8" />
+        </g>
+        <g class="light-node light-node-4">
+          <circle class="light-orb" cx="280" cy="580" r="26" fill="url(#glow-gold)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="280" cy="580" r="3.5" fill="#fbbf24" />
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <!-- DECK DE SLIDES (17 SLIDES) -->
+  <main class="deck" id="deck" aria-live="polite">
+
+    <!-- ============================================================
+         SLIDE 1 — Capa do 2º Semestre
+    ============================================================ -->
     
     <!-- %%SLIDES%% -->
 

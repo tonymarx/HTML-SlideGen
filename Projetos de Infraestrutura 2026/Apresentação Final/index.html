@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0b2e63">
-  <title>Infraestrutura de TI Codevasf</title>
+  <title>Projetos de Infraestrutura 2026</title>
 
   <!-- Fontes locais (offline) -->
   <link rel="stylesheet" href="fonts/inter/inter.css">
@@ -100,28 +100,55 @@
 
     
 <!-- ============================================================
-         SLIDE 0 — Capa do Evento (Vídeo em Loop)
+         SLIDE 0 — Capa do Evento
     ============================================================ -->
-    <section class="slide active slide-cover" id="slide-0" style="padding:0; overflow:hidden;">
-      <!-- Vídeo em loop infinito, velocidade 0.5x, preenchendo todo o slide -->
-      <video id="cover-video" src="imagens/video-capa-evento.mp4" autoplay loop muted playsinline
-        onloadedmetadata="this.playbackRate=0.7" style="
-          position:absolute; inset:0;
-          width:100%; height:100%;
-          object-fit:cover; object-position:center center;
-          display:block;
-          z-index:0;
-          filter: brightness(1.2) contrast(1.05);
-        "></video>
+    <section class="slide active" id="slide-0">
+
+      <div class="slide-content"
+        style="background-color: #ffffff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%;">
+        <h1 style="font-size: 4.5rem; color: #0b2e63; font-weight: 800; margin-bottom: 1rem;">
+          Projetos de Infraestrutura de TI
+        </h1>
+        <p style="font-size: 1.8rem; color: #1d63be; font-weight: 500;">
+          AA/GTI/UIT - 2026
+        </p>
+
+        <!-- Ícones Animados de Infraestrutura -->
+        <div class="infra-icons" style="display: flex; gap: 40px; margin-top: 110px; color: #49b7ff; font-size: 3rem;">
+          <i class="fa-solid fa-server infra-icon" style="--delay: 0s;"></i>
+          <i class="fa-solid fa-network-wired infra-icon" style="--delay: 0.2s;"></i>
+          <i class="fa-solid fa-cloud infra-icon" style="--delay: 0.4s;"></i>
+          <i class="fa-solid fa-database infra-icon" style="--delay: 0.6s;"></i>
+          <i class="fa-solid fa-shield-halved infra-icon" style="--delay: 0.8s;"></i>
+        </div>
+      </div>
 
       <style>
-        #slide-0 {
-          position: relative;
-          padding: 0 !important;
+        .infra-icon {
+          animation: floatIcon 3s ease-in-out infinite alternate;
+          animation-delay: var(--delay);
+          filter: drop-shadow(0 8px 16px rgba(73, 183, 255, 0.3));
+          transition: transform 0.3s ease, color 0.3s ease;
+          background: -webkit-linear-gradient(45deg, #1d63be, #49b7ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
 
-        #slide-0::before {
-          display: none !important;
+        .infra-icon:hover {
+          background: -webkit-linear-gradient(45deg, #0b2e63, #1d63be);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          transform: scale(1.2) translateY(-5px) !important;
+        }
+
+        @keyframes floatIcon {
+          0% {
+            transform: translateY(0);
+          }
+
+          100% {
+            transform: translateY(-12px);
+          }
         }
       </style>
     </section>
@@ -130,170 +157,209 @@
          SLIDE 1 — Reconhecimento às Equipes
     ============================================================ -->
     <section class="slide" id="slide-1">
-      <div class="slide-content">
-        <div class="slide-top">
-          <div class="kicker">Implantação &amp; Reconhecimento</div>
+      <div class="slide-content" style="height: 100%; display: flex; flex-direction: column;">
+        <div class="slide-top" style="flex-shrink: 0;">
+          <div class="kicker">Projetos 2026</div>
           <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
         </div>
 
-        <h2>Reconhecimento às Equipes Envolvidas</h2>
-        <p class="lead">A força técnica e o comprometimento que tornaram este projeto realidade na Codevasf.</p>
+        <h2 style="margin-bottom: 5px;">Lista de Projetos</h2>
+        <p class="lead" style="margin-bottom: 15px; font-size: 1.1rem;">Projetos em execução na Unidade de
+          Infraestrutura (UIT)</p>
 
-        <div class="team-recognition-layout">
+        <style>
+          .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(11, 46, 99, 0.1);
+          }
 
-          <!-- Painel de Membros: fundo claro, foto redonda com fallback em iniciais -->
-          <div class="team-panel" id="team-panel">
-            <div class="team-panel-grid">
+          .project-table th {
+            background: #1d63be;
+            color: #fff;
+            padding: 8px 16px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+          }
 
-              <div class="member-card" style="--delay:0.04s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/andre.png" alt="André Luís"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">AL</div>
-                </div>
-                <div class="member-name">André Luís</div>
-              </div>
+          .project-table td {
+            padding: 6px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #334155;
+          }
 
-              <div class="member-card" style="--delay:0.08s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/caique.png" alt="Caíque Lira"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">CL</div>
-                </div>
-                <div class="member-name">Caíque Lira</div>
-              </div>
+          .project-table tbody tr:nth-child(even) td {
+            background-color: #f8fafc;
+          }
 
-              <div class="member-card" style="--delay:0.12s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/carlos.png" alt="Carlos Magno"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">CM</div>
-                </div>
-                <div class="member-name">Carlos Magno</div>
-              </div>
+          .project-table tbody tr:hover td {
+            background-color: #f1f5f9;
+          }
 
-              <div class="member-card" style="--delay:0.16s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/diogo.png" alt="Diogo Bento"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">DB</div>
-                </div>
-                <div class="member-name">Diogo Bento</div>
-              </div>
+          .proj-num { font-weight: 800; color: #1d63be; text-align: center; }
+          .proj-id {
+            font-weight: 700;
+            color: #94a3b8;
+          }
 
-              <div class="member-card" style="--delay:0.20s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/ivo.png" alt="Ivo Portela"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">IP</div>
-                </div>
-                <div class="member-name">Ivo Portela</div>
-              </div>
+          .proj-desc {
+            font-weight: 600;
+            color: #0f172a;
+          }
 
-              <div class="member-card" style="--delay:0.24s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/leonardo.png" alt="Leonardo Santos"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">LS</div>
-                </div>
-                <div class="member-name">Leonardo Santos</div>
-              </div>
+          .proj-proc {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: #0b2e63;
+            font-size: 0.8rem;
+          }
+        </style>
 
-              <div class="member-card" style="--delay:0.28s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/marcelo.png" alt="Marcelo Carvalho"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">MC</div>
-                </div>
-                <div class="member-name">Marcelo Carvalho</div>
-              </div>
-
-              <div class="member-card" style="--delay:0.32s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/marcelo-ferreira.png" alt="Marcelo Ferreira"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">MF</div>
-                </div>
-                <div class="member-name">Marcelo Ferreira</div>
-              </div>
-
-              <div class="member-card" style="--delay:0.36s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/rafael.png" alt="Rafael Pontes"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">RP</div>
-                </div>
-                <div class="member-name">Rafael Pontes</div>
-              </div>
-
-              <div class="member-card" style="--delay:0.40s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/rui.png" alt="Rui Bisneto"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">RB</div>
-                </div>
-                <div class="member-name">Rui Bisneto</div>
-              </div>
-
-              <div class="member-card" style="--delay:0.44s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/stenio.png" alt="Stênio Mendes"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">SM</div>
-                </div>
-                <div class="member-name">Stênio Mendes</div>
-              </div>
-
-              <div class="member-card" style="--delay:0.48s">
-                <div class="member-photo-wrap">
-                  <img class="member-photo" src="imagens/equipe/vinicius.png" alt="Vinícius Ximenes"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="member-initials">VX</div>
-                </div>
-                <div class="member-name">Vinícius Ximenes</div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Coluna Direita: Unidades -->
-          <div class="units-column">
-            <div class="card unit-card-row">
-              <div class="card-icon"><i class="fa-solid fa-server"></i></div>
-              <div>
-                <div class="unit-title">Unidade de Infraestrutura</div>
-                <div class="unit-desc">Liderança técnica e sustentação de rede</div>
-              </div>
-            </div>
-            <div class="card unit-card-row">
-              <div class="card-icon"><i class="fa-solid fa-code"></i></div>
-              <div>
-                <div class="unit-title">Unidade de Sistemas</div>
-                <div class="unit-desc">Integração de serviços e ecossistemas</div>
-              </div>
-            </div>
-            <div class="card unit-card-row">
-              <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-              <div>
-                <div class="unit-title">Unidade de Seg. Cibernética</div>
-                <div class="unit-desc">Proteção de dados e conformidade</div>
-              </div>
-            </div>
-            <div class="card unit-card-row">
-              <div class="card-icon"><i class="fa-solid fa-people-group"></i></div>
-              <div>
-                <div class="unit-title">Equipe Terceirizada</div>
-                <div class="unit-desc">Apoio operacional e execução em campo</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="speaker-note">
-          <i class="fa-solid fa-quote-left"></i>
-          "Existe um grupo que merece um reconhecimento muito especial: a equipe da Unidade de Infraestrutura,
-          juntamente com os colegas da Unidade de Sistemas, da Unidade de Segurança Cibernética e nossa equipe
-          terceirizada."
+        <div style="flex-grow: 1; overflow: hidden; display: flex; align-items: flex-start;">
+          <table class="project-table">
+            <thead>
+              <tr>
+                <th style="width: 5%; text-align: center;">#</th>
+                <th style="width: 10%;">Projeto</th>
+                <th style="width: 55%;">Descrição</th>
+                <th style="width: 30%;">Processo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="proj-num">1</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de Suporte para Monitor</td>
+                <td class="proj-proc">59500.000120/2026-66-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">2</td>
+                <td class="proj-id">2.2.13</td>
+                <td class="proj-desc">Aquisição de Licenciamento Adobe Creative Cloud</td>
+                <td class="proj-proc">59500.001583/2026-45-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">3</td>
+                <td class="proj-id">2.2.15</td>
+                <td class="proj-desc">Aquisição de Certificados digitais A1 e A3</td>
+                <td class="proj-proc">59500.000602/2026-16-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">4</td>
+                <td class="proj-id">2.2.07</td>
+                <td class="proj-desc">Aquisição de Solução de Wi-Fi para Superintendências</td>
+                <td class="proj-proc">59500.000604/2026-13-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">5</td>
+                <td class="proj-id">2.2.12</td>
+                <td class="proj-desc">Aquisição de solução de VOIP</td>
+                <td class="proj-proc">59500.000272/2025-88-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">6</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de telefones VOIP</td>
+                <td class="proj-proc">59500.001391/2026-39-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">7</td>
+                <td class="proj-id">2.2.07</td>
+                <td class="proj-desc">Aquisição de Switches de rede</td>
+                <td class="proj-proc">59500.000601/2026-71-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">8</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de Serviço para acervo de imagens</td>
+                <td class="proj-proc">59500.004307/2025-58-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">9</td>
+                <td class="proj-id">2.2.23</td>
+                <td class="proj-desc">Renovação dos links de internet</td>
+                <td class="proj-proc">59500.003486/2023-44-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">10</td>
+                <td class="proj-id">4.3.68</td>
+                <td class="proj-desc">Renovação do Outsorsing de Impressão (Simpress)</td>
+                <td class="proj-proc">59500.000554/2021-51-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">11</td>
+                <td class="proj-id">2.2.05</td>
+                <td class="proj-desc">Contratação de Serviços de Outsourcing de impressão</td>
+                <td class="proj-proc">59500.001996/2025-49-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">12</td>
+                <td class="proj-id">2.1.12</td>
+                <td class="proj-desc">Serviços de mensagens SMS/Whatsapp</td>
+                <td class="proj-proc">59500.000605/2026-50-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">13</td>
+                <td class="proj-id">2.2.26</td>
+                <td class="proj-desc">Renovação Serviço de Monitoramento da Sala Cofre</td>
+                <td class="proj-proc">59500.000285/2020-42-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">14</td>
+                <td class="proj-id">2.2.26</td>
+                <td class="proj-desc">Serviço de Monitoramento da Sala Cofre</td>
+                <td class="proj-proc">59500.001392/2025-01-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">15</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Licenciamento Microsoft - Datacenter</td>
+                <td class="proj-proc">59500.000606/2026-02-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">16</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de Arcgis</td>
+                <td class="proj-proc">-</td>
+              </tr>
+              <tr>
+                <td class="proj-num">17</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de Cabo de Rede</td>
+                <td class="proj-proc">59500.000583/2026-28-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">18</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de No-Break</td>
+                <td class="proj-proc">59500.002082/2026-86-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">19</td>
+                <td class="proj-id">2.1.10</td>
+                <td class="proj-desc">Aquisição de Power-BI Embedded</td>
+                <td class="proj-proc">59500.002106/2026-05-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">20</td>
+                <td class="proj-id">2.1.04</td>
+                <td class="proj-desc">Contratação de Inteligência Artificial (Claude IA)</td>
+                <td class="proj-proc">59500.003678/2025-12-e</td>
+              </tr>
+              <tr>
+                <td class="proj-num">21</td>
+                <td class="proj-id">2.2.33</td>
+                <td class="proj-desc">Aquisição de Equipamentos de Apoio Institucional - 2026</td>
+                <td class="proj-proc">59500.002321/2026-06-e</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
