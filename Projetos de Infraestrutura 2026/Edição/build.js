@@ -22,8 +22,8 @@ const OUTPUT_FILE = path.join(OUTPUT_DIR, 'index.html');
 // Ordem dos slides (deve corresponder aos arquivos na pasta slides/)
 const SLIDE_FILES = [
   'slide-00-capa.html',
-  'slide-01-reconhecimento.html',
-  'slide-02-estudos.html',
+  'slide-01-lista-de-Projetos.html',
+  'slide-02-time-line.html',
   'slide-03-colaborativa.html',
   'slide-04-contas-migradas.html',
   'slide-05-volume-dados.html',
