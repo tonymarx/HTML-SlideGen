@@ -112,8 +112,10 @@
         </div>
 
         <h2 style="margin-bottom: 5px;">Visão Geral — Timeline de Execução</h2>
-        <p class="lead" style="margin-bottom: 15px; font-size: 1.1rem;">Acompanhamento dos marcos evolutivos dos
-          projetos (0% a 100%)</p>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <p class="lead" style="margin-bottom: 0; font-size: 1.1rem;">Acompanhamento dos marcos evolutivos dos projetos (0% a 100%)</p>
+          <button id="btn-toggle-completed" style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.05); z-index: 10;"><i class="fa-solid fa-filter"></i> Ocultar Concluídos</button>
+        </div>
 
         <style>
           .timeline-wrapper {
@@ -341,7 +343,8 @@
                 </div>
               </div>
             </div>
-            <div class="timeline-row">
+            <div class="timeline-row"
+              data-observacao="Houve um atraso significativo na etapa de levantamento das necessidades, uma vez que foi necessário solicitar e analisar as plantas de todas as localidades da Codevasf. Essa etapa foi fundamental para permitir o correto dimensionamento do projeto, especialmente para definir, de forma técnica e adequada, a quantidade necessária de Access Points (APs) para atender às diferentes áreas e ambientes.">
               <div class="timeline-proj-name">4. Wi-Fi Superintendências<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
@@ -352,15 +355,17 @@
             <div class="timeline-row">
               <div class="timeline-proj-name">5. Solução VOIP</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 85%;">
-                  <span class="timeline-percent">85%</span>
+                <div class="timeline-fill" style="--target-width: 95%;">
+                  <span class="timeline-percent">95%</span>
                 </div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">6. Telefones VOIP</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 50%;"><span class="timeline-percent">50%</span></div>
+                <div class="timeline-fill" style="--target-width: 60%;">
+                  <span class="timeline-percent">60%</span>
+                </div>
               </div>
             </div>
             <div class="timeline-row">
@@ -415,7 +420,7 @@
                 </div>
               </div>
             </div>
-            <div class="timeline-row">
+            <div class="timeline-row" data-observacao="Serviço essencial, relatar o atraso do fornecedor...">
               <div class="timeline-proj-name">14. Serviço Monit. Sala Cofre<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
@@ -457,7 +462,8 @@
                 <div class="timeline-fill" style="--target-width: 80%;"><span class="timeline-percent">80%</span></div>
               </div>
             </div>
-            <div class="timeline-row">
+            <div class="timeline-row"
+              data-observacao="Projeto inovador, relatar pendência de aprovação de segurança...">
               <div class="timeline-proj-name">20. IA (Claude IA)<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
@@ -516,6 +522,39 @@
             }
 
             backdrop.addEventListener('click', closeFocus);
+            
+            // Botão de filtro para ocultar/mostrar 100% concluídos
+            const btnToggle = slide2.querySelector('#btn-toggle-completed');
+            let isHidden = false;
+            if (btnToggle) {
+              btnToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                isHidden = !isHidden;
+                
+                if (isHidden) {
+                  btnToggle.style.background = '#1d63be';
+                  btnToggle.style.color = '#fff';
+                  btnToggle.style.borderColor = '#1d63be';
+                  btnToggle.innerHTML = '<i class="fa-solid fa-eye"></i> Mostrar Concluídos';
+                  
+                  rows.forEach(row => {
+                    const percentSpan = row.querySelector('.timeline-percent');
+                    if (percentSpan && percentSpan.textContent.trim() === '100%') {
+                      row.style.display = 'none';
+                    }
+                  });
+                } else {
+                  btnToggle.style.background = '#f1f5f9';
+                  btnToggle.style.color = '#334155';
+                  btnToggle.style.borderColor = '#cbd5e1';
+                  btnToggle.innerHTML = '<i class="fa-solid fa-filter"></i> Ocultar Concluídos';
+                  
+                  rows.forEach(row => {
+                    row.style.display = 'flex'; // Restaura o display original da linha
+                  });
+                }
+              });
+            }
 
             rows.forEach(row => {
               row.addEventListener('click', (e) => {
@@ -552,11 +591,13 @@
 
                 // Aumentar tag de atenção se houver
                 const tag = projNameClone.querySelector('.attention-tag');
+                let hasAttention = false;
                 if (tag) {
                   tag.style.fontSize = '1.2rem';
                   tag.style.padding = '5px 15px';
                   tag.style.marginLeft = '20px';
                   tag.style.transform = 'translateY(-5px)';
+                  hasAttention = true;
                 }
                 currentModal.appendChild(projNameClone);
 
@@ -606,6 +647,47 @@
                 innerContainer.appendChild(trackClone);
 
                 currentModal.appendChild(innerContainer);
+
+                // Se tiver tag de atenção, adiciona o campo de observação
+                if (hasAttention) {
+                  const obsContainer = document.createElement('div');
+                  obsContainer.style.marginTop = '30px';
+                  obsContainer.style.width = '100%';
+
+                  const obsLabel = document.createElement('div');
+                  obsLabel.textContent = 'OBSERVAÇÃO / MOTIVO DA ATENÇÃO:';
+                  obsLabel.style.fontSize = '1.1rem';
+                  obsLabel.style.fontWeight = '800';
+                  obsLabel.style.color = '#b45309';
+                  obsLabel.style.marginBottom = '10px';
+
+                  const obsInput = document.createElement('textarea');
+                  obsInput.style.width = '100%';
+                  obsInput.style.height = '100px';
+                  obsInput.style.padding = '15px';
+                  obsInput.style.borderRadius = '10px';
+                  obsInput.style.border = '2px solid #fde68a';
+                  obsInput.style.backgroundColor = '#fffbeb';
+                  obsInput.style.color = '#1e293b';
+                  obsInput.style.fontSize = '1.2rem';
+                  obsInput.style.fontFamily = 'inherit';
+                  obsInput.style.resize = 'none';
+                  obsInput.style.outline = 'none';
+                  obsInput.style.boxShadow = 'inset 0 2px 4px rgba(0,0,0,0.05)';
+                  obsInput.placeholder = 'Digite aqui os entraves, riscos ou detalhes sobre este projeto...';
+                  obsInput.value = row.getAttribute('data-observacao') || '';
+
+                  // Impede que clicar no textarea feche o modal
+                  obsInput.addEventListener('click', (ev) => ev.stopPropagation());
+                  // Impede que digitar as setas ou barra de espaço avance o slide
+                  obsInput.addEventListener('keydown', (ev) => ev.stopPropagation());
+
+                  obsContainer.appendChild(obsLabel);
+                  obsContainer.appendChild(obsInput);
+
+                  currentModal.appendChild(obsContainer);
+                }
+
                 document.body.appendChild(currentModal);
 
                 // Aplicar animação

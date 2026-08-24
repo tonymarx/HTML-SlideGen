@@ -460,8 +460,10 @@
         </div>
 
         <h2 style="margin-bottom: 5px;">Visão Geral — Timeline de Execução</h2>
-        <p class="lead" style="margin-bottom: 15px; font-size: 1.1rem;">Acompanhamento dos marcos evolutivos dos
-          projetos (0% a 100%)</p>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <p class="lead" style="margin-bottom: 0; font-size: 1.1rem;">Acompanhamento dos marcos evolutivos dos projetos (0% a 100%)</p>
+          <button id="btn-toggle-completed" style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.05); z-index: 10;"><i class="fa-solid fa-filter"></i> Ocultar Concluídos</button>
+        </div>
 
         <style>
           .timeline-wrapper {
@@ -630,6 +632,7 @@
             transition: background 0.2s ease;
             border-radius: 6px;
           }
+
           .timeline-row:hover {
             background: rgba(29, 99, 190, 0.05);
           }
@@ -655,7 +658,8 @@
               <div class="timeline-grid-line" style="left: 12.5%;"></div>
               <div class="timeline-grid-line" style="left: 25%;"></div>
               <div class="timeline-grid-line" style="left: 37.5%;"></div>
-              <div class="timeline-grid-line" style="left: 50%; width: 2px; background: rgba(148, 163, 184, 0.8);"></div>
+              <div class="timeline-grid-line" style="left: 50%; width: 2px; background: rgba(148, 163, 184, 0.8);">
+              </div>
               <div class="timeline-grid-line" style="left: 60%;"></div>
               <div class="timeline-grid-line" style="left: 70%;"></div>
               <div class="timeline-grid-line" style="left: 80%;"></div>
@@ -674,8 +678,8 @@
             <div class="timeline-row">
               <div class="timeline-proj-name">2. Licenc. Adobe CC</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill " style="--target-width: 25%;">
-                  <span class="timeline-percent">25%</span>
+                <div class="timeline-fill " style="--target-width: 30%;">
+                  <span class="timeline-percent">30%</span>
                 </div>
               </div>
             </div>
@@ -687,41 +691,43 @@
                 </div>
               </div>
             </div>
-            <div class="timeline-row">
+            <div class="timeline-row"
+              data-observacao="Houve um atraso significativo na etapa de levantamento das necessidades, uma vez que foi necessário solicitar e analisar as plantas de todas as localidades da Codevasf. Essa etapa foi fundamental para permitir o correto dimensionamento do projeto, especialmente para definir, de forma técnica e adequada, a quantidade necessária de Access Points (APs) para atender às diferentes áreas e ambientes.">
               <div class="timeline-proj-name">4. Wi-Fi Superintendências<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-warning" style="--target-width: 45%;"><span
-                    class="timeline-percent">45%</span></div>
+                <div class="timeline-fill fill-warning" style="--target-width: 55%;"><span
+                    class="timeline-percent">55%</span></div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">5. Solução VOIP</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 85%;">
-                  <span class="timeline-percent">85%</span>
+                <div class="timeline-fill" style="--target-width: 95%;">
+                  <span class="timeline-percent">95%</span>
                 </div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">6. Telefones VOIP</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 50%;"><span class="timeline-percent">50%</span></div>
+                <div class="timeline-fill" style="--target-width: 60%;">
+                  <span class="timeline-percent">60%</span>
+                </div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">7. Switches de rede</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 35%;">
-                  <span class="timeline-percent">35%</span>
+                <div class="timeline-fill" style="--target-width: 45%;">
+                  <span class="timeline-percent">45%</span>
                 </div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">8. Acervo de imagens</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-danger" style="--target-width: 25%;"><span
-                    class="timeline-percent">25%</span></div>
+                <div class="timeline-fill" style="--target-width: 90%;"><span class="timeline-percent">90%</span></div>
               </div>
             </div>
             <div class="timeline-row">
@@ -736,8 +742,8 @@
               <div class="timeline-proj-name">10. Renovação Impressão (Simpress)
               </div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-success" style="--target-width: 100%;"><span
-                    class="timeline-percent">100%</span>
+                <div class="timeline-fill fill-success" style="--target-width: 80%;"><span class="timeline-percent">
+                    80%</span>
                 </div>
               </div>
             </div>
@@ -762,7 +768,7 @@
                 </div>
               </div>
             </div>
-            <div class="timeline-row">
+            <div class="timeline-row" data-observacao="Serviço essencial, relatar o atraso do fornecedor...">
               <div class="timeline-proj-name">14. Serviço Monit. Sala Cofre<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
@@ -804,7 +810,8 @@
                 <div class="timeline-fill" style="--target-width: 80%;"><span class="timeline-percent">80%</span></div>
               </div>
             </div>
-            <div class="timeline-row">
+            <div class="timeline-row"
+              data-observacao="Projeto inovador, relatar pendência de aprovação de segurança...">
               <div class="timeline-proj-name">20. IA (Claude IA)<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
@@ -824,12 +831,12 @@
 
         <script>
           // Script com abordagem de Clonagem para Modal Tela Cheia (Com Marcos Temporais)
-          (function() {
+          (function () {
             const slide2 = document.getElementById('slide-2');
             if (!slide2) return;
-            
+
             const rows = slide2.querySelectorAll('.timeline-row');
-            
+
             // Criar o fundo (backdrop)
             const backdrop = document.createElement('div');
             backdrop.style.position = 'fixed';
@@ -844,7 +851,7 @@
             backdrop.style.transition = 'opacity 0.4s ease';
             backdrop.style.pointerEvents = 'none';
             document.body.appendChild(backdrop);
-            
+
             let currentModal = null;
 
             function closeFocus() {
@@ -864,31 +871,64 @@
 
             backdrop.addEventListener('click', closeFocus);
             
+            // Botão de filtro para ocultar/mostrar 100% concluídos
+            const btnToggle = slide2.querySelector('#btn-toggle-completed');
+            let isHidden = false;
+            if (btnToggle) {
+              btnToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                isHidden = !isHidden;
+                
+                if (isHidden) {
+                  btnToggle.style.background = '#1d63be';
+                  btnToggle.style.color = '#fff';
+                  btnToggle.style.borderColor = '#1d63be';
+                  btnToggle.innerHTML = '<i class="fa-solid fa-eye"></i> Mostrar Concluídos';
+                  
+                  rows.forEach(row => {
+                    const percentSpan = row.querySelector('.timeline-percent');
+                    if (percentSpan && percentSpan.textContent.trim() === '100%') {
+                      row.style.display = 'none';
+                    }
+                  });
+                } else {
+                  btnToggle.style.background = '#f1f5f9';
+                  btnToggle.style.color = '#334155';
+                  btnToggle.style.borderColor = '#cbd5e1';
+                  btnToggle.innerHTML = '<i class="fa-solid fa-filter"></i> Ocultar Concluídos';
+                  
+                  rows.forEach(row => {
+                    row.style.display = 'flex'; // Restaura o display original da linha
+                  });
+                }
+              });
+            }
+
             rows.forEach(row => {
               row.addEventListener('click', (e) => {
                 e.stopPropagation();
-                
+
                 if (currentModal) closeFocus();
-                
+
                 // Criação do Modal principal
                 currentModal = document.createElement('div');
                 currentModal.style.position = 'fixed';
                 currentModal.style.top = '50%';
                 currentModal.style.left = '50%';
-                currentModal.style.width = '85vw'; 
+                currentModal.style.width = '85vw';
                 currentModal.style.background = '#fff';
                 currentModal.style.padding = '40px 50px';
                 currentModal.style.borderRadius = '20px';
                 currentModal.style.boxShadow = '0 25px 80px rgba(11, 46, 99, 0.2)';
-                currentModal.style.zIndex = '99999'; 
+                currentModal.style.zIndex = '99999';
                 currentModal.style.display = 'flex';
                 currentModal.style.flexDirection = 'column';
-                
+
                 // Animação inicial
                 currentModal.style.transform = 'translate(-50%, -50%) scale(0.9)';
                 currentModal.style.opacity = '0';
                 currentModal.style.transition = 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)';
-                
+
                 // 1. Título do Projeto (Clonado da linha)
                 const projNameClone = row.querySelector('.timeline-proj-name').cloneNode(true);
                 projNameClone.style.fontSize = '2.2rem';
@@ -896,41 +936,43 @@
                 projNameClone.style.textAlign = 'center';
                 projNameClone.style.marginBottom = '40px';
                 projNameClone.style.paddingRight = '0';
-                
+
                 // Aumentar tag de atenção se houver
                 const tag = projNameClone.querySelector('.attention-tag');
+                let hasAttention = false;
                 if (tag) {
-                    tag.style.fontSize = '1.2rem';
-                    tag.style.padding = '5px 15px';
-                    tag.style.marginLeft = '20px';
-                    tag.style.transform = 'translateY(-5px)';
+                  tag.style.fontSize = '1.2rem';
+                  tag.style.padding = '5px 15px';
+                  tag.style.marginLeft = '20px';
+                  tag.style.transform = 'translateY(-5px)';
+                  hasAttention = true;
                 }
                 currentModal.appendChild(projNameClone);
-                
+
                 // 2. Container interno para alinhar Grid, Header e Track
                 const innerContainer = document.createElement('div');
                 innerContainer.style.position = 'relative';
                 innerContainer.style.width = '100%';
-                
+
                 // 3. Header (Clonado do slide principal)
                 const headerClone = slide2.querySelector('.timeline-header').cloneNode(true);
                 headerClone.style.marginLeft = '0'; // Tira o recuo da tabela original
                 headerClone.style.width = '100%';
                 headerClone.style.marginBottom = '15px';
                 headerClone.querySelectorAll('.timeline-milestone').forEach(m => {
-                    m.style.fontSize = '1.1rem';
+                  m.style.fontSize = '1.1rem';
                 });
                 innerContainer.appendChild(headerClone);
-                
+
                 // 4. Grid de linhas de fundo (Clonado)
                 const gridClone = slide2.querySelector('.timeline-grid').cloneNode(true);
                 gridClone.style.left = '0';
                 gridClone.style.width = '100%';
                 // Grid deve cobrir até o final da barra
-                gridClone.style.height = '120px'; 
-                gridClone.style.top = '30px'; 
+                gridClone.style.height = '120px';
+                gridClone.style.top = '30px';
                 innerContainer.appendChild(gridClone);
-                
+
                 // 5. Barra de progresso (Clonada da linha clicada)
                 const trackClone = row.querySelector('.timeline-track-container').cloneNode(true);
                 trackClone.style.width = '100%';
@@ -940,21 +982,62 @@
                 trackClone.style.marginBottom = '20px';
                 trackClone.style.position = 'relative'; // garante o z-index correto
                 trackClone.style.zIndex = '5';
-                
+
                 const fill = trackClone.querySelector('.timeline-fill');
                 if (fill) fill.style.borderRadius = '30px';
-                
+
                 const percent = trackClone.querySelector('.timeline-percent');
                 if (percent) {
-                    percent.style.fontSize = '1.8rem';
-                    percent.style.right = '20px';
-                    percent.style.top = '12px';
+                  percent.style.fontSize = '1.8rem';
+                  percent.style.right = '20px';
+                  percent.style.top = '12px';
                 }
                 innerContainer.appendChild(trackClone);
-                
+
                 currentModal.appendChild(innerContainer);
+
+                // Se tiver tag de atenção, adiciona o campo de observação
+                if (hasAttention) {
+                  const obsContainer = document.createElement('div');
+                  obsContainer.style.marginTop = '30px';
+                  obsContainer.style.width = '100%';
+
+                  const obsLabel = document.createElement('div');
+                  obsLabel.textContent = 'OBSERVAÇÃO / MOTIVO DA ATENÇÃO:';
+                  obsLabel.style.fontSize = '1.1rem';
+                  obsLabel.style.fontWeight = '800';
+                  obsLabel.style.color = '#b45309';
+                  obsLabel.style.marginBottom = '10px';
+
+                  const obsInput = document.createElement('textarea');
+                  obsInput.style.width = '100%';
+                  obsInput.style.height = '100px';
+                  obsInput.style.padding = '15px';
+                  obsInput.style.borderRadius = '10px';
+                  obsInput.style.border = '2px solid #fde68a';
+                  obsInput.style.backgroundColor = '#fffbeb';
+                  obsInput.style.color = '#1e293b';
+                  obsInput.style.fontSize = '1.2rem';
+                  obsInput.style.fontFamily = 'inherit';
+                  obsInput.style.resize = 'none';
+                  obsInput.style.outline = 'none';
+                  obsInput.style.boxShadow = 'inset 0 2px 4px rgba(0,0,0,0.05)';
+                  obsInput.placeholder = 'Digite aqui os entraves, riscos ou detalhes sobre este projeto...';
+                  obsInput.value = row.getAttribute('data-observacao') || '';
+
+                  // Impede que clicar no textarea feche o modal
+                  obsInput.addEventListener('click', (ev) => ev.stopPropagation());
+                  // Impede que digitar as setas ou barra de espaço avance o slide
+                  obsInput.addEventListener('keydown', (ev) => ev.stopPropagation());
+
+                  obsContainer.appendChild(obsLabel);
+                  obsContainer.appendChild(obsInput);
+
+                  currentModal.appendChild(obsContainer);
+                }
+
                 document.body.appendChild(currentModal);
-                
+
                 // Aplicar animação
                 requestAnimationFrame(() => {
                   backdrop.style.pointerEvents = 'auto';
@@ -962,7 +1045,7 @@
                   currentModal.style.opacity = '1';
                   currentModal.style.transform = 'translate(-50%, -50%) scale(1)';
                 });
-                
+
                 currentModal.addEventListener('click', closeFocus);
               });
             });
