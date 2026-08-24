@@ -489,13 +489,14 @@
           }
 
           .timeline-milestone {
+            position: absolute;
             font-size: 0.75rem;
             font-weight: 700;
             color: #0b2e63;
             text-transform: uppercase;
-            width: 10%;
             text-align: center;
             line-height: 1.1;
+            white-space: nowrap;
           }
 
           .timeline-body {
@@ -639,30 +640,30 @@
 
         <div class="timeline-wrapper">
           <div class="timeline-header">
-            <div class="timeline-milestone">DOD</div>
-            <div class="timeline-milestone">TAP</div>
-            <div class="timeline-milestone">PGP</div>
-            <div class="timeline-milestone">Parecer<br>Custos</div>
-            <div class="timeline-milestone">ETP</div>
-            <div class="timeline-milestone">TR<br>Aprov.</div>
-            <div class="timeline-milestone">TR<br>Publicado</div>
-            <div class="timeline-milestone">Edital<br>Homol.</div>
-            <div class="timeline-milestone">Contrato<br>Assinado</div>
-            <div class="timeline-milestone" style="text-align: right;">Publ.<br>D.O.U</div>
+            <div class="timeline-milestone" style="left: 0; text-align: left;">DOD</div>
+            <div class="timeline-milestone" style="left: 12.5%; transform: translateX(-50%);">TAP</div>
+            <div class="timeline-milestone" style="left: 25%; transform: translateX(-50%);">PGP</div>
+            <div class="timeline-milestone" style="left: 37.5%; transform: translateX(-50%);">Parecer<br>Custos</div>
+            <div class="timeline-milestone" style="left: 50%; transform: translateX(-50%);">ETP</div>
+            <div class="timeline-milestone" style="left: 60%; transform: translateX(-50%);">TR<br>Aprov.</div>
+            <div class="timeline-milestone" style="left: 70%; transform: translateX(-50%);">TR<br>Publicado</div>
+            <div class="timeline-milestone" style="left: 80%; transform: translateX(-50%);">Edital<br>Homol.</div>
+            <div class="timeline-milestone" style="left: 90%; transform: translateX(-50%);">Contrato<br>Assinado</div>
+            <div class="timeline-milestone" style="right: 0; text-align: right;">Publ.<br>D.O.U</div>
           </div>
 
           <div class="timeline-body">
             <div class="timeline-grid">
-              <div class="timeline-grid-line"></div>
-              <div class="timeline-grid-line"></div>
-              <div class="timeline-grid-line"></div>
-              <div class="timeline-grid-line"></div>
-              <div class="timeline-grid-line"></div>
-              <div class="timeline-grid-line"></div>
-              <div class="timeline-grid-line"></div>
-              <div class="timeline-grid-line"></div>
-              <div class="timeline-grid-line"></div>
-              <div class="timeline-grid-line"></div>
+              <div class="timeline-grid-line" style="left: 0;"></div>
+              <div class="timeline-grid-line" style="left: 12.5%;"></div>
+              <div class="timeline-grid-line" style="left: 25%;"></div>
+              <div class="timeline-grid-line" style="left: 37.5%;"></div>
+              <div class="timeline-grid-line" style="left: 50%; width: 2px; background: rgba(148, 163, 184, 0.8);"></div>
+              <div class="timeline-grid-line" style="left: 60%;"></div>
+              <div class="timeline-grid-line" style="left: 70%;"></div>
+              <div class="timeline-grid-line" style="left: 80%;"></div>
+              <div class="timeline-grid-line" style="left: 90%;"></div>
+              <div class="timeline-grid-line" style="right: 0;"></div>
             </div>
 
             <div class="timeline-row">
@@ -825,14 +826,14 @@
         </div>
 
         <script>
-          // Script com abordagem de Clonagem para Modal Tela Cheia (Sobrepondo qualquer overflow)
+          // Script com abordagem de Clonagem para Modal Tela Cheia (Com Marcos Temporais)
           (function() {
             const slide2 = document.getElementById('slide-2');
             if (!slide2) return;
             
             const rows = slide2.querySelectorAll('.timeline-row');
             
-            // Criar o fundo (backdrop) que cobrirá a tela inteira
+            // Criar o fundo (backdrop)
             const backdrop = document.createElement('div');
             backdrop.style.position = 'fixed';
             backdrop.style.top = '0';
@@ -847,17 +848,17 @@
             backdrop.style.pointerEvents = 'none';
             document.body.appendChild(backdrop);
             
-            let currentClone = null;
+            let currentModal = null;
 
             function closeFocus() {
-              if (currentClone) {
-                currentClone.style.opacity = '0';
-                currentClone.style.transform = 'translate(-50%, -50%) scale(0.9)';
+              if (currentModal) {
+                currentModal.style.opacity = '0';
+                currentModal.style.transform = 'translate(-50%, -50%) scale(0.9)';
                 setTimeout(() => {
-                  if (currentClone && currentClone.parentNode) {
-                    currentClone.parentNode.removeChild(currentClone);
+                  if (currentModal && currentModal.parentNode) {
+                    currentModal.parentNode.removeChild(currentModal);
                   }
-                  currentClone = null;
+                  currentModal = null;
                 }, 400);
               }
               backdrop.style.opacity = '0';
@@ -870,76 +871,102 @@
               row.addEventListener('click', (e) => {
                 e.stopPropagation();
                 
-                if (currentClone) closeFocus();
+                if (currentModal) closeFocus();
                 
-                // Clonamos a linha para ela não ficar presa no container pai (e evitar o corte overflow:hidden)
-                currentClone = row.cloneNode(true);
+                // Criação do Modal principal
+                currentModal = document.createElement('div');
+                currentModal.style.position = 'fixed';
+                currentModal.style.top = '50%';
+                currentModal.style.left = '50%';
+                currentModal.style.width = '85vw'; 
+                currentModal.style.background = '#fff';
+                currentModal.style.padding = '40px 50px';
+                currentModal.style.borderRadius = '20px';
+                currentModal.style.boxShadow = '0 25px 80px rgba(11, 46, 99, 0.2)';
+                currentModal.style.zIndex = '99999'; 
+                currentModal.style.display = 'flex';
+                currentModal.style.flexDirection = 'column';
                 
-                // Reset e estilos para o modal grande
-                currentClone.style.position = 'fixed';
-                currentClone.style.top = '50%';
-                currentClone.style.left = '50%';
-                currentClone.style.width = '70vw'; // Ocupa a tela
-                currentClone.style.background = '#fff';
-                currentClone.style.padding = '50px';
-                currentClone.style.borderRadius = '20px';
-                currentClone.style.boxShadow = '0 25px 80px rgba(11, 46, 99, 0.2)';
-                currentClone.style.zIndex = '99999'; // Acima de tudo
+                // Animação inicial
+                currentModal.style.transform = 'translate(-50%, -50%) scale(0.9)';
+                currentModal.style.opacity = '0';
+                currentModal.style.transition = 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)';
                 
-                currentClone.style.display = 'flex';
-                currentClone.style.flexDirection = 'column';
-                currentClone.style.alignItems = 'center';
-                currentClone.style.justifyContent = 'center';
+                // 1. Título do Projeto (Clonado da linha)
+                const projNameClone = row.querySelector('.timeline-proj-name').cloneNode(true);
+                projNameClone.style.fontSize = '2.2rem';
+                projNameClone.style.width = '100%';
+                projNameClone.style.textAlign = 'center';
+                projNameClone.style.marginBottom = '40px';
+                projNameClone.style.paddingRight = '0';
                 
-                // Animação de entrada
-                currentClone.style.transform = 'translate(-50%, -50%) scale(0.9)';
-                currentClone.style.opacity = '0';
-                currentClone.style.transition = 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)';
-                
-                // Aumentando tamanhos internos do clone
-                const projName = currentClone.querySelector('.timeline-proj-name');
-                if (projName) {
-                    projName.style.fontSize = '2.5rem';
-                    projName.style.width = '100%';
-                    projName.style.textAlign = 'center';
-                    projName.style.marginBottom = '30px';
-                    projName.style.paddingRight = '0';
-                }
-                const trackContainer = currentClone.querySelector('.timeline-track-container');
-                if (trackContainer) {
-                    trackContainer.style.width = '100%';
-                    trackContainer.style.height = '60px'; // barra gigante
-                    trackContainer.style.borderRadius = '30px';
-                }
-                const fill = currentClone.querySelector('.timeline-fill');
-                if (fill) {
-                    fill.style.borderRadius = '30px';
-                }
-                const percent = currentClone.querySelector('.timeline-percent');
-                if (percent) {
-                    percent.style.fontSize = '2rem';
-                    percent.style.right = '25px';
-                    percent.style.top = '10px';
-                }
-                const tag = currentClone.querySelector('.attention-tag');
+                // Aumentar tag de atenção se houver
+                const tag = projNameClone.querySelector('.attention-tag');
                 if (tag) {
                     tag.style.fontSize = '1.2rem';
                     tag.style.padding = '5px 15px';
-                    tag.style.marginLeft = '15px';
+                    tag.style.marginLeft = '20px';
                     tag.style.transform = 'translateY(-5px)';
                 }
+                currentModal.appendChild(projNameClone);
                 
-                document.body.appendChild(currentClone);
+                // 2. Container interno para alinhar Grid, Header e Track
+                const innerContainer = document.createElement('div');
+                innerContainer.style.position = 'relative';
+                innerContainer.style.width = '100%';
                 
-                // Play na animação visual
+                // 3. Header (Clonado do slide principal)
+                const headerClone = slide2.querySelector('.timeline-header').cloneNode(true);
+                headerClone.style.marginLeft = '0'; // Tira o recuo da tabela original
+                headerClone.style.width = '100%';
+                headerClone.style.marginBottom = '15px';
+                headerClone.querySelectorAll('.timeline-milestone').forEach(m => {
+                    m.style.fontSize = '1.1rem';
+                });
+                innerContainer.appendChild(headerClone);
+                
+                // 4. Grid de linhas de fundo (Clonado)
+                const gridClone = slide2.querySelector('.timeline-grid').cloneNode(true);
+                gridClone.style.left = '0';
+                gridClone.style.width = '100%';
+                // Grid deve cobrir até o final da barra
+                gridClone.style.height = '120px'; 
+                gridClone.style.top = '30px'; 
+                innerContainer.appendChild(gridClone);
+                
+                // 5. Barra de progresso (Clonada da linha clicada)
+                const trackClone = row.querySelector('.timeline-track-container').cloneNode(true);
+                trackClone.style.width = '100%';
+                trackClone.style.height = '60px'; // Mais grossa no modal
+                trackClone.style.borderRadius = '30px';
+                trackClone.style.marginTop = '20px';
+                trackClone.style.marginBottom = '20px';
+                trackClone.style.position = 'relative'; // garante o z-index correto
+                trackClone.style.zIndex = '5';
+                
+                const fill = trackClone.querySelector('.timeline-fill');
+                if (fill) fill.style.borderRadius = '30px';
+                
+                const percent = trackClone.querySelector('.timeline-percent');
+                if (percent) {
+                    percent.style.fontSize = '1.8rem';
+                    percent.style.right = '20px';
+                    percent.style.top = '12px';
+                }
+                innerContainer.appendChild(trackClone);
+                
+                currentModal.appendChild(innerContainer);
+                document.body.appendChild(currentModal);
+                
+                // Aplicar animação
                 requestAnimationFrame(() => {
                   backdrop.style.pointerEvents = 'auto';
                   backdrop.style.opacity = '1';
-                  currentClone.style.opacity = '1';
-                  currentClone.style.transform = 'translate(-50%, -50%) scale(1)';
+                  currentModal.style.opacity = '1';
+                  currentModal.style.transform = 'translate(-50%, -50%) scale(1)';
                 });
                 
-                currentClone.addEventListener('click', closeFocus);
+                currentModal.addEventListener('click', closeFocus);
               });
             });
           })();
