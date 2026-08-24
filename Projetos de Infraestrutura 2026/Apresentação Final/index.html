@@ -346,110 +346,7 @@
       </div>
     </section>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0b2e63">
-  <title>Infraestrutura de TI Codevasf</title>
-
-  <!-- Fontes locais (offline) -->
-  <link rel="stylesheet" href="../fonts/inter/inter.css">
-  <!-- Font Awesome local (offline) -->
-  <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
-  <!-- Estilos da Apresentação (offline) -->
-  <link rel="stylesheet" href="../css/main.css">
-
-</head>
-
-<body>
-
-  <!-- Onda de fundo decorativa animada com pontos de luz sutis -->
-  <div class="bg-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
-      <defs>
-        <!-- Gradientes de luz discretos -->
-        <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#49b7ff" stop-opacity="0.6" />
-          <stop offset="60%" stop-color="#1d63be" stop-opacity="0.2" />
-          <stop offset="100%" stop-color="#0b2e63" stop-opacity="0" />
-        </radialGradient>
-        <radialGradient id="glow-blue" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#2f7de6" stop-opacity="0.5" />
-          <stop offset="100%" stop-color="#114894" stop-opacity="0" />
-        </radialGradient>
-        <filter id="blur-glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="6" />
-        </filter>
-      </defs>
-
-      <!-- Linhas Onduladas Animadas -->
-      <g class="bg-lines-group">
-        <path class="wave-line wave-line-1" d="M -80 340 C 220 180, 520 520, 820 300 S 1220 160, 1520 340"
-          stroke="rgba(73,183,255,.22)" stroke-width="2.2" />
-        <path class="wave-line wave-line-2" d="M -80 410 C 270 240, 570 580, 870 360 S 1270 210, 1520 410"
-          stroke="rgba(29,99,190,.16)" stroke-width="1.8" />
-        <path class="wave-line wave-line-3" d="M -80 480 C 300 300, 620 620, 920 420 S 1300 270, 1520 480"
-          stroke="rgba(73,183,255,.12)" stroke-width="1.2" />
-        <path class="wave-line wave-line-4" d="M -80 260 C 180 380, 480 140, 780 240 S 1180 390, 1520 220"
-          stroke="rgba(123,94,167,.10)" stroke-width="1" stroke-dasharray="8 12" />
-      </g>
-
-      <!-- Pontos de Luz Discretos Animados (Light Nodes com Flutuação 2D) -->
-      <g class="bg-lights-group">
-        <!-- Ponto 1: Superior Esquerdo -->
-        <g class="light-node light-node-1">
-          <circle class="light-orb" cx="140" cy="150" r="22" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
-          <circle class="light-core" cx="140" cy="150" r="3.5" fill="#49b7ff" />
-        </g>
-
-        <!-- Ponto 2: Centro Superior -->
-        <g class="light-node light-node-2">
-          <circle class="light-orb" cx="520" cy="100" r="18" fill="url(#glow-blue)" filter="url(#blur-glow)" />
-          <circle class="light-core" cx="520" cy="100" r="2.5" fill="#a0d4f5" />
-        </g>
-
-        <!-- Ponto 3: Centro Direito -->
-        <g class="light-node light-node-3">
-          <circle class="light-orb" cx="920" cy="220" r="24" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
-          <circle class="light-core" cx="920" cy="220" r="4" fill="#ffffff" />
-        </g>
-
-        <!-- Ponto 4: Superior Direito -->
-        <g class="light-node light-node-4">
-          <circle class="light-orb" cx="1260" cy="110" r="20" fill="url(#glow-blue)" filter="url(#blur-glow)" />
-          <circle class="light-core" cx="1260" cy="110" r="3" fill="#49b7ff" />
-        </g>
-
-        <!-- Ponto 5: Inferior Esquerdo -->
-        <g class="light-node light-node-5">
-          <circle class="light-orb" cx="280" cy="580" r="26" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
-          <circle class="light-core" cx="280" cy="580" r="3.5" fill="#38bdf8" />
-        </g>
-
-        <!-- Ponto 6: Inferior Direito -->
-        <g class="light-node light-node-6">
-          <circle class="light-orb" cx="1380" cy="520" r="22" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
-          <circle class="light-core" cx="1380" cy="520" r="3" fill="#ffffff" />
-        </g>
-
-        <!-- Ponto 7: Centro Inferior -->
-        <g class="light-node light-node-7">
-          <circle class="light-orb" cx="720" cy="650" r="20" fill="url(#glow-blue)" filter="url(#blur-glow)" />
-          <circle class="light-core" cx="720" cy="650" r="3" fill="#a0d4f5" />
-        </g>
-      </g>
-    </svg>
-  </div>
-
-  <!-- DECK de Slides -->
-  <main class="deck" id="deck" aria-live="polite">
-
-
-    <!-- %%SLIDE_START%% -->
-    <!-- ============================================================
+<!-- ============================================================
          SLIDE 2 — Timeline de Projetos
     ============================================================ -->
     <section class="slide" id="slide-2">
@@ -461,8 +358,11 @@
 
         <h2 style="margin-bottom: 5px;">Visão Geral — Timeline de Execução</h2>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-          <p class="lead" style="margin-bottom: 0; font-size: 1.1rem;">Acompanhamento dos marcos evolutivos dos projetos (0% a 100%)</p>
-          <button id="btn-toggle-completed" style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.05); z-index: 10;"><i class="fa-solid fa-filter"></i> Ocultar Concluídos</button>
+          <p class="lead" style="margin-bottom: 0; font-size: 1.1rem;">Acompanhamento dos marcos evolutivos dos projetos
+            (0% a 100%)</p>
+          <button id="btn-toggle-completed"
+            style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.05); z-index: 10;"><i
+              class="fa-solid fa-filter"></i> Ocultar Concluídos</button>
         </div>
 
         <style>
@@ -742,21 +642,27 @@
               <div class="timeline-proj-name">10. Renovação Impressão (Simpress)
               </div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-success" style="--target-width: 80%;"><span class="timeline-percent">
-                    80%</span>
+                <div class="timeline-fill" style="--target-width: 80%;">
+                  <span class="timeline-percent"> 80%</span>
                 </div>
               </div>
             </div>
-            <div class="timeline-row">
-              <div class="timeline-proj-name">11. Outsourcing de impressão</div>
+            <div class="timeline-row"
+              data-observacao="Priorizamos a renovação do contrato atual, o que nos proporcionará mais 12 meses de vigência para concluir o desenvolvimento e a implantação do projeto de forma adequada, garantindo o tempo necessário para finalizar as etapas de planejamento, dimensionamento e execução.">
+              <div class="timeline-proj-name">11. Outsourcing de impressão<span class="attention-tag"><i
+                    class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 50%;"><span class="timeline-percent">50%</span></div>
+                <div class="timeline-fill fill-warning" style="--target-width: 15%;"><span
+                    class="timeline-percent">15%</span></div>
               </div>
             </div>
-            <div class="timeline-row">
-              <div class="timeline-proj-name">12. Serviços SMS/Whatsapp</div>
+            <div class="timeline-row"
+              data-observacao="Estamos em tratativas com o SERPRO para viabilizar a contratação por dispensa de licitação. Contudo, até o momento, não recebemos uma proposta comercial formal por parte da empresa. Caso não seja possível concluir a contratação por essa modalidade, daremos prosseguimento à abertura de processo para realização de dispensa eletrônica, visando garantir a continuidade e o atendimento da demanda.">
+              <div class="timeline-proj-name">12. Serviços SMS/Whatsapp<span class="attention-tag"><i
+                    class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 70%;"><span class="timeline-percent">70%</span></div>
+                <div class="timeline-fill fill-warning" style="--target-width: 30%;"><span
+                    class="timeline-percent">30%</span></div>
               </div>
             </div>
             <div class="timeline-row">
@@ -768,25 +674,27 @@
                 </div>
               </div>
             </div>
-            <div class="timeline-row" data-observacao="Serviço essencial, relatar o atraso do fornecedor...">
+            <div class="timeline-row" data-observacao="Contrato Emergencial vence em 24/10/2026">
               <div class="timeline-proj-name">14. Serviço Monit. Sala Cofre<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-warning" style="--target-width: 45%;"><span
-                    class="timeline-percent">45%</span></div>
+                <div class="timeline-fill fill-warning" style="--target-width: 78%;"><span
+                    class="timeline-percent">78%</span></div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">15. Licenc. MS Datacenter</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 85%;"><span class="timeline-percent">85%</span></div>
+                <div class="timeline-fill" style="--target-width: 55%;">
+                  <span class="timeline-percent">55%</span>
+                </div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">16. Aquisição de Arcgis</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-danger" style="--target-width: 15%;"><span
-                    class="timeline-percent">15%</span></div>
+                <div class="timeline-fill fill-danger" style="--target-width: 0%;"><span
+                    class="timeline-percent">0%</span></div>
               </div>
             </div>
             <div class="timeline-row">
@@ -800,30 +708,32 @@
             <div class="timeline-row">
               <div class="timeline-proj-name">18. No-Break</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-danger" style="--target-width: 25%;"><span
-                    class="timeline-percent">25%</span></div>
-              </div>
-            </div>
-            <div class="timeline-row">
-              <div class="timeline-proj-name">19. Power-BI Embedded</div>
-              <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 80%;"><span class="timeline-percent">80%</span></div>
+                <div class="timeline-fill" style="--target-width: 50%;"><span class="timeline-percent">50%</span></div>
               </div>
             </div>
             <div class="timeline-row"
-              data-observacao="Projeto inovador, relatar pendência de aprovação de segurança...">
-              <div class="timeline-proj-name">20. IA (Claude IA)<span class="attention-tag"><i
+              data-observacao="Ao iniciarmos o estudo de viabilidade identificadmos que a contratação do Licenciamento SQL Server supre essa necessidade">
+              <div class="timeline-proj-name">19. Power-BI Embedded<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-warning" style="--target-width: 50%;"><span
-                    class="timeline-percent">50%</span></div>
+                <div class="timeline-fill fill-warning" style="--target-width: 15%;"><span
+                    class="timeline-percent">15%</span></div>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <div class="timeline-proj-name">20. IA (Claude IA)</div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill" style="--target-width: 65%;">
+                  <span class="timeline-percent">65%</span>
+                </div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">21. Equipamentos Apoio Inst.</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-danger" style="--target-width: 10%;"><span
-                    class="timeline-percent">10%</span></div>
+                <div class="timeline-fill" style="--target-width: 35%;">
+                  <span class="timeline-percent">35%</span>
+                </div>
               </div>
             </div>
           </div>
@@ -870,7 +780,7 @@
             }
 
             backdrop.addEventListener('click', closeFocus);
-            
+
             // Botão de filtro para ocultar/mostrar 100% concluídos
             const btnToggle = slide2.querySelector('#btn-toggle-completed');
             let isHidden = false;
@@ -878,13 +788,13 @@
               btnToggle.addEventListener('click', (e) => {
                 e.stopPropagation();
                 isHidden = !isHidden;
-                
+
                 if (isHidden) {
                   btnToggle.style.background = '#1d63be';
                   btnToggle.style.color = '#fff';
                   btnToggle.style.borderColor = '#1d63be';
                   btnToggle.innerHTML = '<i class="fa-solid fa-eye"></i> Mostrar Concluídos';
-                  
+
                   rows.forEach(row => {
                     const percentSpan = row.querySelector('.timeline-percent');
                     if (percentSpan && percentSpan.textContent.trim() === '100%') {
@@ -896,7 +806,7 @@
                   btnToggle.style.color = '#334155';
                   btnToggle.style.borderColor = '#cbd5e1';
                   btnToggle.innerHTML = '<i class="fa-solid fa-filter"></i> Ocultar Concluídos';
-                  
+
                   rows.forEach(row => {
                     row.style.display = 'flex'; // Restaura o display original da linha
                   });
@@ -1055,7 +965,6 @@
     </section>
 
 
-
   </main>
 
   <!-- BARRA DE NAVEGAÇÃO FIXA INFERIOR -->
@@ -1063,666 +972,7 @@
     <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="nav-logo">
     <div class="nav-center">
       <div class="prog-bar"><span id="prog-fill"></span></div>
-      <div class="slide-count"><strong id="cur-slide">1</strong> / <span id="total-slides">11</span></div>
-    </div>
-    <div class="nav-btns">
-      <button class="btn-nav" id="btn-grid"><i class="fa-solid fa-border-all"></i> Slides</button>
-      <button class="btn-nav" id="btn-prev"><i class="fa-solid fa-chevron-left"></i> Anterior</button>
-      <button class="btn-nav" id="btn-next">Próximo <i class="fa-solid fa-chevron-right"></i></button>
-    </div>
-  </nav>
-
-  <!-- MODAL DE MINIATURAS DA APRESENTAÇÃO -->
-  <div class="modal-overlay" id="modal-overlay">
-    <div class="modal-header">
-      <h3>Visão Geral dos Slides</h3>
-      <button class="btn-close" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div class="thumbs-grid" id="thumbs-grid"></div>
-  </div>
-
-  <!-- Scripts da Apresentação (offline) -->
-  <script src="../js/app.js"></script>
-</body>
-
-</html>
-
-<!-- ============================================================
-         SLIDE 3 — Construção Colaborativa
-    ============================================================ -->
-    <section class="slide" id="slide-3">
-      <div class="slide-content">
-        <div class="slide-top">
-          <div class="kicker">Governança &amp; Engajamento Institucional</div>
-          <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
-        </div>
-
-        <h2>Construção Colaborativa da Solução</h2>
-        <p class="lead">Uma decisão construída com a participação de todas as áreas da Companhia.</p>
-
-        <!-- Elemento Animado Centralizado de Governança &amp; Colaboração M365 (Dimensionamento Ampliado) -->
-        <div style="flex:1; display:flex; align-items:center; justify-content:center; margin-top:10px; width:100%;">
-          <div class="collab-hub-container" style="max-width:860px; height:460px;">
-
-            <!-- Linhas Conectoras Energizadas e Órbitas (SVG Animado Ampliado) -->
-            <svg class="collab-hub-svg" viewBox="0 0 700 420" fill="none">
-              <!-- Linhas conectoras do Hub Central aos 4 Satélites -->
-              <path class="energy-line" d="M 350 210 L 150 85" />
-              <path class="energy-line" d="M 350 210 L 550 85" />
-              <path class="energy-line" d="M 350 210 L 150 335" />
-              <path class="energy-line" d="M 350 210 L 550 335" />
-
-              <!-- Anéis de Órbita Animados em Torno do Eixo Central -->
-              <circle class="orbit-ring-outer" cx="350" cy="210" r="185" stroke="rgba(73, 183, 255, 0.24)"
-                stroke-width="1.8" stroke-dasharray="8 10" />
-              <circle class="orbit-ring-inner" cx="350" cy="210" r="120" stroke="rgba(29, 99, 190, 0.3)"
-                stroke-width="1.2" stroke-dasharray="5 7" />
-            </svg>
-
-            <!-- Hub Central: Logo Microsoft Ampliada -->
-            <div class="hub-center">
-              <div class="hub-center-glow"></div>
-              <div class="hub-center-ring"></div>
-              <div class="hub-logo-box">
-                <img src="imagens/logo-microsoft.png" alt="Microsoft 365" class="hub-microsoft-logo">
-              </div>
-              <span class="hub-center-badge">M365 Hub</span>
-            </div>
-
-            <!-- Satélite 1: Superior Esquerdo (Diretoria Executiva) -->
-            <div class="hub-sat sat-tl">
-              <div class="sat-icon"><i class="fa-solid fa-building-user"></i></div>
-              <div class="sat-text">
-                <span class="sat-title">Diretoria Executiva</span>
-                <span class="sat-sub">Visão estratégica &amp; recursos</span>
-              </div>
-            </div>
-
-            <!-- Satélite 2: Superior Direito (Gerências) -->
-            <div class="hub-sat sat-tr">
-              <div class="sat-icon"><i class="fa-solid fa-users-gear"></i></div>
-              <div class="sat-text">
-                <span class="sat-title">Gerências</span>
-                <span class="sat-sub">Gestão &amp; acompanhamento</span>
-              </div>
-            </div>
-
-            <!-- Satélite 3: Inferior Esquerdo (Equipes Técnicas) -->
-            <div class="hub-sat sat-bl">
-              <div class="sat-icon"><i class="fa-solid fa-laptop-code"></i></div>
-              <div class="sat-text">
-                <span class="sat-title">Equipes Técnicas</span>
-                <span class="sat-sub">Arquitetura em nuvem</span>
-              </div>
-            </div>
-
-            <!-- Satélite 4: Inferior Direito (Usuários & Regionais) -->
-            <div class="hub-sat sat-br">
-              <div class="sat-icon"><i class="fa-solid fa-user-group"></i></div>
-              <div class="sat-text">
-                <span class="sat-title">Usuários &amp; Regionais</span>
-                <span class="sat-sub">Usabilidade &amp; rotina</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="speaker-note">
-          <i class="fa-solid fa-quote-left"></i>
-          "Foram diversas reuniões envolvendo diretorias, gerências e equipes técnicas, sempre buscando a melhor solução
-          para a Companhia."
-        </div>
-      </div>
-    </section>
-
-<!-- ============================================================
-         SLIDE 4 — 1.800 Contas Migradas
-    ============================================================ -->
-    <section class="slide" id="slide-4">
-      <div class="slide-content">
-        <div class="slide-top">
-          <div class="kicker">Dimensão da Implantação</div>
-          <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
-        </div>
-
-        <h2>Migração das Contas de E-mail</h2>
-        <p class="lead">Transição massiva executada com total transparência e estabilidade para toda a Codevasf.</p>
-
-        <div
-          style="flex:1; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:28px; margin-top:16px;">
-          <div class="stat-hero" style="width:100%; max-width:680px;">
-            <div class="big-num" id="count-1800">1.800</div>
-            <div class="big-label">Contas de E-mail Migradas com Sucesso</div>
-          </div>
-
-          <div class="stats-row" style="width:100%; max-width:680px;">
-            <div class="stat-chip">
-              <div class="val"><i class="fa-solid fa-envelope" style="font-size:22px; color:var(--blue-700);"></i></div>
-              <div class="desc" style="margin-top:8px;">Caixa de e-mail integrada à nuvem</div>
-            </div>
-            <div class="stat-chip">
-              <div class="val"><i class="fa-solid fa-cloud-arrow-up" style="font-size:22px; color:var(--blue-700);"></i>
-              </div>
-              <div class="desc" style="margin-top:8px;">Migração para a infraestrutura Microsoft</div>
-            </div>
-            <div class="stat-chip">
-              <div class="val"><i class="fa-solid fa-network-wired" style="font-size:22px; color:var(--blue-700);"></i>
-              </div>
-              <div class="desc" style="margin-top:8px;">Sede e todas as Superintendências Regionais</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="speaker-note">
-          <i class="fa-solid fa-quote-left"></i>
-          "Na fase de implantação, migramos aproximadamente 1.800 contas de e-mail."
-        </div>
-      </div>
-    </section>
-
-<!-- ============================================================
-         SLIDE 5 — Volume de Dados Migrados
-    ============================================================ -->
-    <section class="slide" id="slide-5">
-      <div class="slide-content">
-        <div class="slide-top">
-          <div class="kicker">Grandiosidade Técnica da Operação</div>
-          <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
-        </div>
-
-        <h2>Volume de Dados Migrados</h2>
-        <p class="lead">Transferência segura e íntegra de milhões de mensagens para a nuvem Microsoft.</p>
-
-        <!-- Container Animado de Volume de Dados (Grandiosidade Técnica) -->
-        <div class="data-volume-container">
-
-          <!-- Card 1: 12+ Milhões de Mensagens -->
-          <div class="data-card data-card-messages">
-            <div class="data-card-bg-glow"></div>
-            <div class="data-card-header">
-              <div class="data-icon-box icon-box-cyan">
-                <i class="fa-solid fa-envelopes-bulk"></i>
-              </div>
-              <span class="data-card-tag">Mensagens Migradas</span>
-            </div>
-
-            <div class="data-num-wrap">
-              <span class="data-big-num" id="count-12m">+12.000.000</span>
-            </div>
-
-            <div class="data-card-desc">
-              Mensagens de e-mail transferidas com integridade total
-            </div>
-
-            <!-- Gráfico Integrado de Fluxo de Cartas / E-mails (Zimbra -> Microsoft 365) -->
-            <div class="data-stream-wrapper">
-              <svg class="data-stream-svg" viewBox="0 0 340 88" fill="none">
-
-                <!-- 1. Trajetória Pontilhada do Fluxo (Do centro exato Zimbra ao centro exato Microsoft) -->
-                <path d="M 32 34 Q 170 10, 308 34" stroke="rgba(73, 183, 255, 0.55)" stroke-width="2.5"
-                  stroke-dasharray="6 6" />
-
-                <!-- 2. Envelopes de E-mail em Migração -->
-                <g class="stream-envelope envelope-1">
-                  <rect x="-10" y="-7" width="20" height="13" rx="2.5" fill="#0078d4" />
-                  <path d="M -10 -7 L 0 0 L 10 -7" stroke="#ffffff" stroke-width="1.2" fill="none" />
-                  <path d="M -10 6 L -3 0 M 10 6 L 3 0" stroke="rgba(255,255,255,0.4)" stroke-width="1" />
-                </g>
-
-                <g class="stream-envelope envelope-2">
-                  <rect x="-10" y="-7" width="20" height="13" rx="2.5" fill="#00f0ff" />
-                  <path d="M -10 -7 L 0 0 L 10 -7" stroke="#003865" stroke-width="1.2" fill="none" />
-                  <path d="M -10 6 L -3 0 M 10 6 L 3 0" stroke="rgba(0,56,101,0.4)" stroke-width="1" />
-                </g>
-
-                <g class="stream-envelope envelope-3">
-                  <rect x="-10" y="-7" width="20" height="13" rx="2.5" fill="#3a8df5" />
-                  <path d="M -10 -7 L 0 0 L 10 -7" stroke="#ffffff" stroke-width="1.2" fill="none" />
-                  <path d="M -10 6 L -3 0 M 10 6 L 3 0" stroke="rgba(255,255,255,0.4)" stroke-width="1" />
-                </g>
-
-                <!-- 3. Círculo de Origem Ampliado com Moldura (Zimbra Local) -->
-                <g class="stream-node-start">
-                  <circle cx="32" cy="34" r="28" fill="#ffffff" stroke="#d9381e" stroke-width="3" />
-                  <image href="imagens/logo-zimbra.png" x="15" y="17" width="34" height="34"
-                    onerror="this.style.display='none'; document.getElementById('zimbra-svg-fallback').style.display='block';" />
-                  <!-- Fallback ícone de servidor caso logo-zimbra.png não exista -->
-                  <g id="zimbra-svg-fallback" style="display:none;">
-                    <rect x="20" y="23" width="24" height="22" rx="3" fill="#d9381e" />
-                    <line x1="24" y1="28" x2="40" y2="28" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" />
-                    <line x1="24" y1="34" x2="40" y2="34" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" />
-                    <circle cx="27" cy="39" r="1.3" fill="#ffffff" />
-                  </g>
-                  <text x="32" y="78" fill="#c02b12" font-size="11.5" font-weight="800"
-                    text-anchor="middle">Zimbra</text>
-                </g>
-
-                <!-- 4. Círculo de Destino Ampliado com Moldura (Microsoft 365 Nuvem) -->
-                <g class="stream-node-end">
-                  <circle cx="308" cy="34" r="28" fill="#ffffff" stroke="#0078d4" stroke-width="3" />
-                  <image href="imagens/logo-microsoft.png" x="291" y="17" width="34" height="34" />
-                  <text x="308" y="78" fill="#0078d4" font-size="11.5" font-weight="800"
-                    text-anchor="middle">M365</text>
-                </g>
-
-              </svg>
-            </div>
-          </div>
-
-          <!-- Conector de Ingestão de Dados com Animação Central -->
-          <div class="data-flow-connector">
-            <div class="flow-icon-hub">
-              <div class="flow-hub-pulse"></div>
-              <i class="fa-solid fa-cloud-arrow-up"></i>
-            </div>
-            <span class="flow-speed-badge"><i class="fa-solid fa-bolt"></i> Nuvem M365</span>
-          </div>
-
-          <!-- Card 2: ~6 Terabytes de Dados -->
-          <div class="data-card data-card-storage">
-            <div class="data-card-bg-glow glow-blue"></div>
-            <div class="data-card-header">
-              <div class="data-icon-box icon-box-blue">
-                <i class="fa-solid fa-database"></i>
-              </div>
-              <span class="data-card-tag tag-blue">Volume Total</span>
-            </div>
-
-            <div class="data-num-wrap">
-              <span class="data-big-num" id="count-6tb">~6 TB</span>
-            </div>
-
-            <div class="data-card-desc">
-              Quase 6 Terabytes de informações carregadas na nuvem
-            </div>
-
-            <!-- Visualizador da Barra de Capacidade do Servidor Animada -->
-            <div class="storage-gauge-wrap">
-              <div class="storage-gauge-track">
-                <div class="storage-gauge-fill" id="gauge-fill-6tb">
-                  <div class="gauge-shimmer"></div>
-                  <div class="gauge-fill-head"></div>
-                </div>
-              </div>
-              <div class="storage-gauge-labels">
-                <span>0 TB</span>
-                <span class="gauge-target"><i class="fa-solid fa-cloud-arrow-up"></i> ~6 TB Migrados</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="speaker-note">
-          <i class="fa-solid fa-quote-left"></i>
-          "Transferimos mais de 12 milhões de mensagens, totalizando quase 6 terabytes de informações para a nuvem da
-          Microsoft."
-        </div>
-      </div>
-    </section>
-
-<!-- ============================================================
-         SLIDE 6 — 50 GB de E-mail
-    ============================================================ -->
-    <section class="slide" id="slide-6">
-      <div class="slide-content">
-        <div class="slide-top">
-          <div class="kicker">Benefício Direto ao Empregado</div>
-          <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
-        </div>
-
-        <h2>Novo Espaço de Armazenamento de E-mail</h2>
-        <p class="lead">A partir de segunda-feira, todos começarão a perceber a diferença no dia a dia.</p>
-
-        <div class="grid-2" style="flex:1; margin-top:24px; gap:32px; align-items:center;">
-
-          <!-- Comparativo visual -->
-          <div style="display:flex; flex-direction:column; gap:8px;">
-            <div class="compare-label">
-              <span>📭 Caixa atual</span>
-              <span class="val" style="color:var(--muted);">10 GB</span>
-            </div>
-
-            <div class="bar-track">
-              <div class="bar-fill fill-before" id="fill-before"></div>
-            </div>
-
-            <div class="compare-label" style="margin-top:12px;">
-              <span>📬 Nova caixa — Microsoft 365</span>
-              <span class="val" style="color:var(--blue-700);">50 GB</span>
-            </div>
-            <div class="bar-track">
-              <div class="bar-fill fill-after" id="fill-after"></div>
-            </div>
-
-            <div style="margin-top:16px; display:flex; align-items:center; gap:12px;">
-              <div class="mult-badge">⚡ 5× MAIS ESPAÇO</div>
-            </div>
-          </div>
-
-          <!-- Benefícios -->
-          <div style="display:flex; flex-direction:column; gap:14px;">
-            <div class="card" style="display:flex; align-items:center; gap:14px; border-left:4px solid var(--cyan);">
-              <div style="font-size:26px;">✅</div>
-              <div style="font-size:15px; color:var(--ink-mid);">Menos preocupação em apagar mensagens antigas</div>
-            </div>
-            <div class="card"
-              style="display:flex; align-items:center; gap:14px; border-left:4px solid var(--blue-700);">
-              <div style="font-size:26px;">✅</div>
-              <div style="font-size:15px; color:var(--ink-mid);">Mais tranquilidade para gerenciar anexos pesados</div>
-            </div>
-            <div class="card"
-              style="display:flex; align-items:center; gap:14px; border-left:4px solid var(--blue-900);">
-              <div style="font-size:26px;">✅</div>
-              <div style="font-size:15px; color:var(--ink-mid);">Mais agilidade e produtividade no fluxo de trabalho
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="speaker-note">
-          <i class="fa-solid fa-quote-left"></i>
-          "Cada usuário passa a contar com uma caixa de e-mail de 50 GB — isso significa 5x mais espaço do que temos
-          hoje."
-        </div>
-      </div>
-    </section>
-
-<!-- ============================================================
-         SLIDE 7 — +2 Petabytes em Nuvem
-    ============================================================ -->
-    <section class="slide" id="slide-7">
-      <div class="slide-content">
-        <div class="slide-top">
-          <div class="kicker">Infraestrutura em Nuvem Corporativa</div>
-          <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
-        </div>
-
-        <h2>Escala de Armazenamento em Nuvem</h2>
-        <p class="lead">Uma revolução de capacidade digital que prepara a Codevasf para os próximos anos.</p>
-
-        <div class="pb-volumetric-container">
-
-          <!-- Card 1: Volumetria +2 Petabytes com Movimento -->
-          <div class="pb-hero-card">
-            <div class="pb-bg-glow"></div>
-
-            <div class="pb-header-row">
-              <span class="pb-tag"><i class="fa-solid fa-cloud-bolt"></i> Capacidade Total M365</span>
-              <span class="pb-calc-badge"><i class="fa-solid fa-calculator"></i> 1.800 × 1 TB</span>
-            </div>
-
-            <div class="pb-num-wrap">
-              <span class="pb-big-val" id="count-pb">+2</span>
-              <span class="pb-unit">Petabytes</span>
-            </div>
-
-            <div class="pb-sublabel">Disponibilizados em nuvem corporativa para toda a Codevasf</div>
-
-            <!-- Barra Animada de Carregamento da Volumetria -->
-            <div class="pb-bar-container">
-              <div class="pb-bar-track">
-                <div class="pb-bar-fill" id="bar-pb">
-                  <div class="pb-bar-shimmer"></div>
-                </div>
-              </div>
-              <div class="pb-bar-labels">
-                <span>0 TB</span>
-                <span class="pb-target-label">⚡ 2.000+ TB (+2 PB)</span>
-              </div>
-            </div>
-
-            <!-- Chips de Escala -->
-            <div class="pb-scale-chips">
-              <div class="pb-chip"><i class="fa-solid fa-database"></i> +2.000.000 GB</div>
-              <div class="pb-chip"><i class="fa-solid fa-shield-halved"></i> 100% Nuvem M365</div>
-            </div>
-          </div>
-
-          <!-- Card 2: OneDrive 1 TB (Proporcional lado a lado) -->
-          <div class="onedrive-feature-card">
-            <div class="onedrive-card-header">
-              <div class="onedrive-logo-wrap">
-                <img src="imagens/logo-onedrive.png" alt="Microsoft OneDrive" class="onedrive-logo-img">
-              </div>
-              <span class="onedrive-badge"><i class="fa-solid fa-users"></i> × 1.800 usuários</span>
-            </div>
-
-            <div class="onedrive-card-info">
-              <div class="onedrive-card-title">
-                1 TB (1.000 GB) no OneDrive para cada empregado
-              </div>
-              <div class="onedrive-card-desc">
-                Espaço corporativo individual na nuvem Microsoft para armazenamento e compartilhamento seguro.
-              </div>
-            </div>
-
-            <div class="onedrive-benefits-list">
-              <div class="onedrive-benefit-item">
-                <i class="fa-solid fa-circle-check"></i> Sincronização contínua de arquivos
-              </div>
-              <div class="onedrive-benefit-item">
-                <i class="fa-solid fa-circle-check"></i> Trabalho colaborativo em tempo real
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="speaker-note">
-          <i class="fa-solid fa-quote-left"></i>
-          "Um volume que demonstra o tamanho desse investimento e prepara nossa infraestrutura para os próximos anos"
-        </div>
-      </div>
-    </section>
-
-<!-- ============================================================
-         SLIDE 8 — Testes e Validação
-    ============================================================ -->
-    <section class="slide" id="slide-8">
-      <div class="slide-content">
-        <div class="slide-top">
-          <div class="kicker">Qualidade &amp; Confiabilidade</div>
-          <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
-        </div>
-
-        <h2>Testes e Validação da Plataforma</h2>
-        <p class="lead">Fase piloto rigorosa antes da disponibilização para toda a Companhia.</p>
-
-        <!-- Pipeline -->
-        <div class="pipeline" style="margin-top:28px;">
-          <div class="pip-step done">
-            <div class="pip-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
-            <h4>Testes Piloto</h4>
-          </div>
-          <div class="pip-arrow"><i class="fa-solid fa-chevron-right"></i></div>
-          <div class="pip-step done">
-            <div class="pip-icon"><i class="fa-solid fa-chart-line"></i></div>
-            <h4>Validação Técnica</h4>
-          </div>
-          <div class="pip-arrow"><i class="fa-solid fa-chevron-right"></i></div>
-          <div class="pip-step done">
-            <div class="pip-icon" style="color:#1a7a4a;"><i class="fa-solid fa-circle-check"></i></div>
-            <h4>Aprovação</h4>
-          </div>
-          <div class="pip-arrow"><i class="fa-solid fa-chevron-right"></i></div>
-          <div class="pip-step done">
-            <div class="pip-icon"><i class="fa-solid fa-rocket"></i></div>
-            <h4>Lançamento</h4>
-          </div>
-        </div>
-
-        <!-- Métricas de Validação Animadas -->
-        <div class="metrics-animated-grid">
-
-          <!-- Card 1: 50+ Usuários testadores -->
-          <div class="metric-animated-card metric-card-1">
-            <div class="metric-card-header">
-              <div class="metric-icon-wrap icon-cyan">
-                <div class="metric-pulse-ring"></div>
-                <i class="fa-solid fa-users-gear"></i>
-              </div>
-              <span class="metric-badge">Piloto Homologado</span>
-            </div>
-            <div class="metric-val" id="count-users">50+</div>
-            <div class="metric-desc">Usuários testadores no período piloto</div>
-            <div class="metric-bar-track">
-              <div class="metric-bar-fill bar-fill-1" id="bar-users"></div>
-            </div>
-          </div>
-
-          <!-- Card 2: 70+ Usuários do Grupo DFT -->
-          <div class="metric-animated-card metric-card-dft">
-            <div class="metric-card-header">
-              <div class="metric-icon-wrap icon-purple">
-                <div class="metric-pulse-ring ring-purple"></div>
-                <i class="fa-solid fa-people-group"></i>
-              </div>
-              <span class="metric-badge badge-purple">Grupo DFT</span>
-            </div>
-            <div class="metric-val val-purple" id="count-dft">70+</div>
-            <div class="metric-desc">Usuários do Grupo DFT utilizando ferramentas M365</div>
-            <div class="metric-bar-track">
-              <div class="metric-bar-fill bar-fill-dft" id="bar-dft"></div>
-            </div>
-          </div>
-
-          <!-- Card 3: 30+ Dias de validação contínua -->
-          <div class="metric-animated-card metric-card-2">
-            <div class="metric-card-header">
-              <div class="metric-icon-wrap icon-blue">
-                <div class="metric-pulse-ring"></div>
-                <i class="fa-solid fa-calendar-check"></i>
-              </div>
-              <span class="metric-badge">Ambiente Real</span>
-            </div>
-            <div class="metric-val" id="count-days">30+</div>
-            <div class="metric-desc">Dias de validação contínua em ambiente real</div>
-            <div class="metric-bar-track">
-              <div class="metric-bar-fill bar-fill-2" id="bar-days"></div>
-            </div>
-          </div>
-
-          <!-- Card 4: 0 Falhas significativas -->
-          <div class="metric-animated-card metric-card-3">
-            <div class="metric-card-header">
-              <div class="metric-icon-wrap icon-green">
-                <div class="metric-pulse-ring ring-green"></div>
-                <i class="fa-solid fa-shield-check"></i>
-              </div>
-              <span class="metric-badge badge-green"><i class="fa-solid fa-circle-check"></i> 100% Estável</span>
-            </div>
-            <div class="metric-val val-green" id="count-bugs">0</div>
-            <div class="metric-desc">Falhas significativas registradas no período</div>
-            <div class="metric-bar-track">
-              <div class="metric-bar-fill bar-fill-green"></div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="speaker-note">
-          <i class="fa-solid fa-quote-left"></i>
-          "Na fase de testes e validações, além do piloto com 50+ usuários, o Grupo de Dimensionamento da Força de
-          Trabalho (DFT) já conta com mais de 70 usuários utilizando ativamente as ferramentas do M365."
-        </div>
-      </div>
-    </section>
-
-<!-- ============================================================
-         SLIDE 9 — Ecossistema M365
-    ============================================================ -->
-    <section class="slide" id="slide-9">
-      <div class="slide-content">
-        <div class="slide-top">
-          <div class="kicker">Plataforma Completa de Colaboração</div>
-          <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
-        </div>
-
-        <h2>Muito Além do E-mail</h2>
-        <p class="lead">Uma suíte integrada de ferramentas que transforma a forma de trabalhar na Codevasf.</p>
-
-        <!-- Vídeo Centralizado: Suíte Microsoft 365 -->
-        <div class="suite-video-wrap">
-          <video class="suite-video" src="imagens/icones-365.mp4" autoplay loop muted playsinline id="suite-365-video">
-          </video>
-        </div>
-
-        <div class="speaker-note">
-          <i class="fa-solid fa-quote-left"></i>
-          "Esse projeto vai muito além do e-mail. Estamos entregando uma plataforma completa de colaboração."
-        </div>
-      </div>
-    </section>
-
-<!-- ============================================================
-         SLIDE 10 — Transformação Digital da Codevasf
-    ============================================================ -->
-    <section class="slide" id="slide-10">
-      <div class="slide-content">
-        <div class="slide-top">
-          <div class="kicker">Visão de Futuro — Transformação Digital</div>
-          <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
-        </div>
-
-        <div style="flex:1; display:grid; grid-template-columns: 1fr 1.1fr; gap:36px; align-items:center;">
-
-          <div style="display:flex; flex-direction:column; gap:22px;">
-            <h2>Transformação Digital da Codevasf</h2>
-            <p style="font-size:16px; color:var(--muted); line-height:1.6;">
-              Criando novas formas de trabalhar, colaborar e compartilhar conhecimento entre a Sede e todas as
-              Superintendências Regionais.
-            </p>
-
-            <div
-              style="padding:22px 24px; background:var(--blue-050); border:1px solid var(--border-mid); border-radius:var(--radius-md); border-left:5px solid var(--blue-700);">
-              <p style="font-size:17px; color:var(--blue-900); font-weight:600; line-height:1.4;">
-                "Transformação digital para conectar pessoas e fortalecer a missão da Codevasf."
-              </p>
-            </div>
-
-            <div style="display:flex; flex-wrap:wrap; gap:10px;">
-              <span
-                style="padding:8px 16px; background:var(--blue-100); color:var(--blue-900); border-radius:99px; font-weight:700; font-size:13px;">☁️
-                Nuvem Microsoft</span>
-              <span
-                style="padding:8px 16px; background:var(--blue-100); color:var(--blue-900); border-radius:99px; font-weight:700; font-size:13px;">🤝
-                Colaboração</span>
-              <span
-                style="padding:8px 16px; background:var(--blue-100); color:var(--blue-900); border-radius:99px; font-weight:700; font-size:13px;">🔒
-                Segurança</span>
-              <span
-                style="padding:8px 16px; background:var(--blue-100); color:var(--blue-900); border-radius:99px; font-weight:700; font-size:13px;">🚀
-                Inovação</span>
-            </div>
-          </div>
-
-          <!-- Imagem real do evento -->
-          <div
-            style="border-radius:24px; overflow:hidden; box-shadow:var(--shadow-md); border:1px solid var(--border);">
-            <img src="imagens/Lançamento Office_Fundo de tela.png" alt="Microsoft 365 na Codevasf"
-              style="width:100%; display:block; object-fit:cover; max-height:380px;">
-          </div>
-        </div>
-
-        <div class="speaker-note">
-          <i class="fa-solid fa-quote-left"></i>
-          "Espero que todos aproveitem essa nova plataforma e que ela torne o trabalho de cada um mais simples, mais
-          produtivo e mais colaborativo. Muito obrigado!"
-        </div>
-      </div>
-    </section>
-
-
-  </main>
-
-  <!-- BARRA DE NAVEGAÇÃO FIXA INFERIOR -->
-  <nav class="nav-bar">
-    <img src="imagens/logo-codevasf.svg" alt="Codevasf" class="nav-logo">
-    <div class="nav-center">
-      <div class="prog-bar"><span id="prog-fill"></span></div>
-      <div class="slide-count"><strong id="cur-slide">1</strong> / <span id="total-slides">11</span></div>
+      <div class="slide-count"><strong id="cur-slide">1</strong> / <span id="total-slides">3</span></div>
     </div>
     <div class="nav-btns">
       <button class="btn-nav" id="btn-grid"><i class="fa-solid fa-border-all"></i> Slides</button>

@@ -75,7 +75,8 @@ function build() {
   const finalHtml = shell.replace('<!-- %%SLIDES%% -->', slidesHtml);
 
   // 4. Atualizar contagem total de slides no HTML
-  const totalSlides = SLIDE_FILES.length;
+  // Conta quantos slides realmente existem no sistema de arquivos
+  const totalSlides = SLIDE_FILES.filter(file => fs.existsSync(path.join(SLIDES_DIR, file))).length;
   const finalOutput = finalHtml.replace(
     /<span id="total-slides">\d+<\/span>/,
     `<span id="total-slides">${totalSlides}</span>`
