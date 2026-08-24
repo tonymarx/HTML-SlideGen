@@ -625,6 +625,16 @@
             vertical-align: middle;
             border: 1px solid #fde68a;
           }
+
+
+          .timeline-row {
+            cursor: pointer;
+            transition: background 0.2s ease;
+            border-radius: 6px;
+          }
+          .timeline-row:hover {
+            background: rgba(29, 99, 190, 0.05);
+          }
         </style>
 
         <div class="timeline-wrapper">
@@ -635,8 +645,8 @@
             <div class="timeline-milestone">Parecer<br>Custos</div>
             <div class="timeline-milestone">ETP</div>
             <div class="timeline-milestone">TR<br>Aprov.</div>
+            <div class="timeline-milestone">TR<br>Publicado</div>
             <div class="timeline-milestone">Edital<br>Homol.</div>
-            <div class="timeline-milestone">Contrato<br>Emitido</div>
             <div class="timeline-milestone">Contrato<br>Assinado</div>
             <div class="timeline-milestone" style="text-align: right;">Publ.<br>D.O.U</div>
           </div>
@@ -666,8 +676,8 @@
             <div class="timeline-row">
               <div class="timeline-proj-name">2. Licenc. Adobe CC</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill " style="--target-width: 50%;">
-                  <span class="timeline-percent">50%</span>
+                <div class="timeline-fill " style="--target-width: 25%;">
+                  <span class="timeline-percent">25%</span>
                 </div>
               </div>
             </div>
@@ -683,27 +693,30 @@
               <div class="timeline-proj-name">4. Wi-Fi Superintendências<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-warning" style="--target-width: 50%;"><span
-                    class="timeline-percent">50%</span></div>
+                <div class="timeline-fill fill-warning" style="--target-width: 45%;"><span
+                    class="timeline-percent">45%</span></div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">5. Solução VOIP</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 37%;"><span class="timeline-percent">37%</span></div>
+                <div class="timeline-fill" style="--target-width: 85%;">
+                  <span class="timeline-percent">85%</span>
+                </div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">6. Telefones VOIP</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-danger" style="--target-width: 12%;"><span
-                    class="timeline-percent">12%</span></div>
+                <div class="timeline-fill" style="--target-width: 50%;"><span class="timeline-percent">50%</span></div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">7. Switches de rede</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 60%;"><span class="timeline-percent">60%</span></div>
+                <div class="timeline-fill" style="--target-width: 35%;">
+                  <span class="timeline-percent">35%</span>
+                </div>
               </div>
             </div>
             <div class="timeline-row">
@@ -810,6 +823,127 @@
             </div>
           </div>
         </div>
+
+        <script>
+          // Script com abordagem de Clonagem para Modal Tela Cheia (Sobrepondo qualquer overflow)
+          (function() {
+            const slide2 = document.getElementById('slide-2');
+            if (!slide2) return;
+            
+            const rows = slide2.querySelectorAll('.timeline-row');
+            
+            // Criar o fundo (backdrop) que cobrirá a tela inteira
+            const backdrop = document.createElement('div');
+            backdrop.style.position = 'fixed';
+            backdrop.style.top = '0';
+            backdrop.style.left = '0';
+            backdrop.style.width = '100vw';
+            backdrop.style.height = '100vh';
+            backdrop.style.background = 'rgba(255, 255, 255, 0.9)';
+            backdrop.style.backdropFilter = 'blur(6px)';
+            backdrop.style.zIndex = '99998';
+            backdrop.style.opacity = '0';
+            backdrop.style.transition = 'opacity 0.4s ease';
+            backdrop.style.pointerEvents = 'none';
+            document.body.appendChild(backdrop);
+            
+            let currentClone = null;
+
+            function closeFocus() {
+              if (currentClone) {
+                currentClone.style.opacity = '0';
+                currentClone.style.transform = 'translate(-50%, -50%) scale(0.9)';
+                setTimeout(() => {
+                  if (currentClone && currentClone.parentNode) {
+                    currentClone.parentNode.removeChild(currentClone);
+                  }
+                  currentClone = null;
+                }, 400);
+              }
+              backdrop.style.opacity = '0';
+              backdrop.style.pointerEvents = 'none';
+            }
+
+            backdrop.addEventListener('click', closeFocus);
+            
+            rows.forEach(row => {
+              row.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                if (currentClone) closeFocus();
+                
+                // Clonamos a linha para ela não ficar presa no container pai (e evitar o corte overflow:hidden)
+                currentClone = row.cloneNode(true);
+                
+                // Reset e estilos para o modal grande
+                currentClone.style.position = 'fixed';
+                currentClone.style.top = '50%';
+                currentClone.style.left = '50%';
+                currentClone.style.width = '70vw'; // Ocupa a tela
+                currentClone.style.background = '#fff';
+                currentClone.style.padding = '50px';
+                currentClone.style.borderRadius = '20px';
+                currentClone.style.boxShadow = '0 25px 80px rgba(11, 46, 99, 0.2)';
+                currentClone.style.zIndex = '99999'; // Acima de tudo
+                
+                currentClone.style.display = 'flex';
+                currentClone.style.flexDirection = 'column';
+                currentClone.style.alignItems = 'center';
+                currentClone.style.justifyContent = 'center';
+                
+                // Animação de entrada
+                currentClone.style.transform = 'translate(-50%, -50%) scale(0.9)';
+                currentClone.style.opacity = '0';
+                currentClone.style.transition = 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)';
+                
+                // Aumentando tamanhos internos do clone
+                const projName = currentClone.querySelector('.timeline-proj-name');
+                if (projName) {
+                    projName.style.fontSize = '2.5rem';
+                    projName.style.width = '100%';
+                    projName.style.textAlign = 'center';
+                    projName.style.marginBottom = '30px';
+                    projName.style.paddingRight = '0';
+                }
+                const trackContainer = currentClone.querySelector('.timeline-track-container');
+                if (trackContainer) {
+                    trackContainer.style.width = '100%';
+                    trackContainer.style.height = '60px'; // barra gigante
+                    trackContainer.style.borderRadius = '30px';
+                }
+                const fill = currentClone.querySelector('.timeline-fill');
+                if (fill) {
+                    fill.style.borderRadius = '30px';
+                }
+                const percent = currentClone.querySelector('.timeline-percent');
+                if (percent) {
+                    percent.style.fontSize = '2rem';
+                    percent.style.right = '25px';
+                    percent.style.top = '10px';
+                }
+                const tag = currentClone.querySelector('.attention-tag');
+                if (tag) {
+                    tag.style.fontSize = '1.2rem';
+                    tag.style.padding = '5px 15px';
+                    tag.style.marginLeft = '15px';
+                    tag.style.transform = 'translateY(-5px)';
+                }
+                
+                document.body.appendChild(currentClone);
+                
+                // Play na animação visual
+                requestAnimationFrame(() => {
+                  backdrop.style.pointerEvents = 'auto';
+                  backdrop.style.opacity = '1';
+                  currentClone.style.opacity = '1';
+                  currentClone.style.transform = 'translate(-50%, -50%) scale(1)';
+                });
+                
+                currentClone.addEventListener('click', closeFocus);
+              });
+            });
+          })();
+        </script>
       </div>
     </section>
 
