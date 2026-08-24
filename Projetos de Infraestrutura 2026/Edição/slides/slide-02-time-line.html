@@ -113,8 +113,11 @@
 
         <h2 style="margin-bottom: 5px;">Visão Geral — Timeline de Execução</h2>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-          <p class="lead" style="margin-bottom: 0; font-size: 1.1rem;">Acompanhamento dos marcos evolutivos dos projetos (0% a 100%)</p>
-          <button id="btn-toggle-completed" style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.05); z-index: 10;"><i class="fa-solid fa-filter"></i> Ocultar Concluídos</button>
+          <p class="lead" style="margin-bottom: 0; font-size: 1.1rem;">Acompanhamento dos marcos evolutivos dos projetos
+            (0% a 100%)</p>
+          <button id="btn-toggle-completed"
+            style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.05); z-index: 10;"><i
+              class="fa-solid fa-filter"></i> Ocultar Concluídos</button>
         </div>
 
         <style>
@@ -394,21 +397,27 @@
               <div class="timeline-proj-name">10. Renovação Impressão (Simpress)
               </div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-success" style="--target-width: 80%;"><span class="timeline-percent">
-                    80%</span>
+                <div class="timeline-fill" style="--target-width: 80%;">
+                  <span class="timeline-percent"> 80%</span>
                 </div>
               </div>
             </div>
-            <div class="timeline-row">
-              <div class="timeline-proj-name">11. Outsourcing de impressão</div>
+            <div class="timeline-row"
+              data-observacao="Priorizamos a renovação do contrato atual, o que nos proporcionará mais 12 meses de vigência para concluir o desenvolvimento e a implantação do projeto de forma adequada, garantindo o tempo necessário para finalizar as etapas de planejamento, dimensionamento e execução.">
+              <div class="timeline-proj-name">11. Outsourcing de impressão<span class="attention-tag"><i
+                    class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 50%;"><span class="timeline-percent">50%</span></div>
+                <div class="timeline-fill fill-warning" style="--target-width: 15%;"><span
+                    class="timeline-percent">15%</span></div>
               </div>
             </div>
-            <div class="timeline-row">
-              <div class="timeline-proj-name">12. Serviços SMS/Whatsapp</div>
+            <div class="timeline-row"
+              data-observacao="Estamos em tratativas com o SERPRO para viabilizar a contratação por dispensa de licitação. Contudo, até o momento, não recebemos uma proposta comercial formal por parte da empresa. Caso não seja possível concluir a contratação por essa modalidade, daremos prosseguimento à abertura de processo para realização de dispensa eletrônica, visando garantir a continuidade e o atendimento da demanda.">
+              <div class="timeline-proj-name">12. Serviços SMS/Whatsapp<span class="attention-tag"><i
+                    class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 70%;"><span class="timeline-percent">70%</span></div>
+                <div class="timeline-fill fill-warning" style="--target-width: 30%;"><span
+                    class="timeline-percent">30%</span></div>
               </div>
             </div>
             <div class="timeline-row">
@@ -420,25 +429,27 @@
                 </div>
               </div>
             </div>
-            <div class="timeline-row" data-observacao="Serviço essencial, relatar o atraso do fornecedor...">
+            <div class="timeline-row" data-observacao="Contrato Emergencial vence em 24/10/2026">
               <div class="timeline-proj-name">14. Serviço Monit. Sala Cofre<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-warning" style="--target-width: 45%;"><span
-                    class="timeline-percent">45%</span></div>
+                <div class="timeline-fill fill-warning" style="--target-width: 78%;"><span
+                    class="timeline-percent">78%</span></div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">15. Licenc. MS Datacenter</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 85%;"><span class="timeline-percent">85%</span></div>
+                <div class="timeline-fill" style="--target-width: 55%;">
+                  <span class="timeline-percent">55%</span>
+                </div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">16. Aquisição de Arcgis</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-danger" style="--target-width: 15%;"><span
-                    class="timeline-percent">15%</span></div>
+                <div class="timeline-fill fill-danger" style="--target-width: 0%;"><span
+                    class="timeline-percent">0%</span></div>
               </div>
             </div>
             <div class="timeline-row">
@@ -452,30 +463,32 @@
             <div class="timeline-row">
               <div class="timeline-proj-name">18. No-Break</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-danger" style="--target-width: 25%;"><span
-                    class="timeline-percent">25%</span></div>
-              </div>
-            </div>
-            <div class="timeline-row">
-              <div class="timeline-proj-name">19. Power-BI Embedded</div>
-              <div class="timeline-track-container">
-                <div class="timeline-fill" style="--target-width: 80%;"><span class="timeline-percent">80%</span></div>
+                <div class="timeline-fill" style="--target-width: 50%;"><span class="timeline-percent">50%</span></div>
               </div>
             </div>
             <div class="timeline-row"
-              data-observacao="Projeto inovador, relatar pendência de aprovação de segurança...">
-              <div class="timeline-proj-name">20. IA (Claude IA)<span class="attention-tag"><i
+              data-observacao="Ao iniciarmos o estudo de viabilidade identificadmos que a contratação do Licenciamento SQL Server supre essa necessidade">
+              <div class="timeline-proj-name">19. Power-BI Embedded<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-warning" style="--target-width: 50%;"><span
-                    class="timeline-percent">50%</span></div>
+                <div class="timeline-fill fill-warning" style="--target-width: 15%;"><span
+                    class="timeline-percent">15%</span></div>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <div class="timeline-proj-name">20. IA (Claude IA)</div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill" style="--target-width: 65%;">
+                  <span class="timeline-percent">65%</span>
+                </div>
               </div>
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">21. Equipamentos Apoio Inst.</div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-danger" style="--target-width: 10%;"><span
-                    class="timeline-percent">10%</span></div>
+                <div class="timeline-fill" style="--target-width: 35%;">
+                  <span class="timeline-percent">35%</span>
+                </div>
               </div>
             </div>
           </div>
@@ -522,7 +535,7 @@
             }
 
             backdrop.addEventListener('click', closeFocus);
-            
+
             // Botão de filtro para ocultar/mostrar 100% concluídos
             const btnToggle = slide2.querySelector('#btn-toggle-completed');
             let isHidden = false;
@@ -530,13 +543,13 @@
               btnToggle.addEventListener('click', (e) => {
                 e.stopPropagation();
                 isHidden = !isHidden;
-                
+
                 if (isHidden) {
                   btnToggle.style.background = '#1d63be';
                   btnToggle.style.color = '#fff';
                   btnToggle.style.borderColor = '#1d63be';
                   btnToggle.innerHTML = '<i class="fa-solid fa-eye"></i> Mostrar Concluídos';
-                  
+
                   rows.forEach(row => {
                     const percentSpan = row.querySelector('.timeline-percent');
                     if (percentSpan && percentSpan.textContent.trim() === '100%') {
@@ -548,7 +561,7 @@
                   btnToggle.style.color = '#334155';
                   btnToggle.style.borderColor = '#cbd5e1';
                   btnToggle.innerHTML = '<i class="fa-solid fa-filter"></i> Ocultar Concluídos';
-                  
+
                   rows.forEach(row => {
                     row.style.display = 'flex'; // Restaura o display original da linha
                   });
