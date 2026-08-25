@@ -112,12 +112,27 @@
         </div>
 
         <h2 style="margin-bottom: 5px;">Visão Geral — Timeline de Execução</h2>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-          <p class="lead" style="margin-bottom: 0; font-size: 1.1rem;">Acompanhamento dos marcos evolutivos dos projetos
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 15px; flex-wrap: wrap;">
+          <p class="lead" style="margin-bottom: 0; margin-top: 0; font-size: 1.05rem;">Acompanhamento dos marcos evolutivos dos projetos
             (0% a 100%)</p>
-          <button id="btn-toggle-completed"
-            style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.05); z-index: 10;"><i
-              class="fa-solid fa-filter"></i> Ocultar Concluídos</button>
+          <div style="display: flex; align-items: center; gap: 10px; z-index: 10;">
+            <!-- Filtro por Tipo de Licitação -->
+            <div id="filter-tipo-wrapper" style="display: inline-flex; align-items: center; gap: 7px; background: #f1f5f9; border: 1px solid #cbd5e1; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: #334155; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: all 0.2s ease;">
+              <i class="fa-solid fa-file-contract" style="color: #1d63be;"></i>
+              <label for="select-filter-tipo" style="cursor: pointer; margin: 0;">Licitação:</label>
+              <select id="select-filter-tipo" style="background: transparent; border: none; font-size: 0.75rem; font-weight: 700; color: #0b2e63; cursor: pointer; outline: none; padding-right: 4px;">
+                <option value="todos">Todos os Tipos</option>
+                <option value="tipo-dispensa">Dispensa</option>
+                <option value="tipo-srp">SRP</option>
+                <option value="tipo-tradicional">Tradicional</option>
+              </select>
+            </div>
+
+            <!-- Botão de Ocultar/Mostrar Concluídos -->
+            <button id="btn-toggle-completed"
+              style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.05);"><i
+                class="fa-solid fa-filter"></i> Ocultar Concluídos</button>
+          </div>
         </div>
 
         <style>
@@ -391,7 +406,7 @@
         <div class="timeline-wrapper">
           <div class="timeline-header">
             <div class="timeline-header-spacer"></div>
-            <div class="timeline-header-tipo">Tipo de<br>Contratação</div>
+            <div class="timeline-header-tipo">Tipo de<br>Licitação</div>
             <div class="timeline-header-milestones">
               <div class="timeline-milestone" style="left: 0; text-align: left;">DOD</div>
               <div class="timeline-milestone" style="left: 12.5%; transform: translateX(-50%);">TAP</div>
@@ -412,9 +427,8 @@
               <div class="timeline-grid-line" style="left: 12.5%;"></div>
               <div class="timeline-grid-line" style="left: 25%;"></div>
               <div class="timeline-grid-line" style="left: 37.5%;"></div>
-              <div class="timeline-grid-line" style="left: 50%; width: 2px; background: rgba(148, 163, 184, 0.8);">
-              </div>
-              <div class="timeline-grid-line" style="left: 60%;"></div>
+              <div class="timeline-grid-line" style="left: 50%;"></div>
+              <div class="timeline-grid-line" style="left: 60%; width: 3px; background: rgba(100, 116, 139, 0.85);"></div>
               <div class="timeline-grid-line" style="left: 70%;"></div>
               <div class="timeline-grid-line" style="left: 80%;"></div>
               <div class="timeline-grid-line" style="left: 90%;"></div>
@@ -423,7 +437,7 @@
 
             <div class="timeline-row">
               <div class="timeline-proj-name">1. Suporte para Monitor</div>
-              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa de Licitação</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
               <div class="timeline-track-container">
                 <div class="timeline-fill fill-success" style="--target-width: 100%;">
                   <span class="timeline-percent">100%</span>
@@ -441,7 +455,7 @@
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">3. Certificados A1 e A3</div>
-              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa de Licitação</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
               <div class="timeline-track-container">
                 <div class="timeline-fill fill-success" style="--target-width: 100%;">
                   <span class="timeline-percent">100%</span>
@@ -460,7 +474,7 @@
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">5. Solução VOIP</div>
-              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-telebras">Dispensa Telebrás</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
               <div class="timeline-track-container">
                 <div class="timeline-fill" style="--target-width: 95%;">
                   <span class="timeline-percent">95%</span>
@@ -487,7 +501,7 @@
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">8. Acervo de imagens</div>
-              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa de Licitação</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
               <div class="timeline-track-container">
                 <div class="timeline-fill" style="--target-width: 90%;"><span class="timeline-percent">90%</span></div>
               </div>
@@ -524,7 +538,7 @@
               data-observacao="Estamos em tratativas com o SERPRO para viabilizar a contratação por dispensa de licitação. Contudo, até o momento, não recebemos uma proposta comercial formal por parte da empresa. Caso não seja possível concluir a contratação por essa modalidade, daremos prosseguimento à abertura de processo para realização de dispensa eletrônica, visando garantir a continuidade e o atendimento da demanda.">
               <div class="timeline-proj-name">12. Serviços SMS/Whatsapp<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
-              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa de Licitação</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
               <div class="timeline-track-container">
                 <div class="timeline-fill fill-warning" style="--target-width: 30%;"><span
                     class="timeline-percent">30%</span></div>
@@ -534,8 +548,8 @@
               <div class="timeline-proj-name">13. Monit. Sala Cofre (Renovação)</div>
               <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-tradicional">Tradicional</span></div>
               <div class="timeline-track-container">
-                <div class="timeline-fill fill-success" style="--target-width: 100%;"><span
-                    class="timeline-percent">100%</span>
+                <div class="timeline-fill fill-success" style="--target-width: 100%;">
+                  <span class="timeline-percent">100%</span>
                 </div>
               </div>
             </div>
@@ -567,7 +581,7 @@
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">17. Cabo de Rede</div>
-              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa de Licitação</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
               <div class="timeline-track-container">
                 <div class="timeline-fill fill-success" style="--target-width: 100%;">
                   <span class="timeline-percent">100%</span>
@@ -576,7 +590,7 @@
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">18. No-Break</div>
-              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa de Licitação</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
               <div class="timeline-track-container">
                 <div class="timeline-fill" style="--target-width: 50%;"><span class="timeline-percent">50%</span></div>
               </div>
@@ -585,7 +599,7 @@
               data-observacao="Ao iniciarmos o estudo de viabilidade identificadmos que a contratação do Licenciamento SQL Server supre essa necessidade">
               <div class="timeline-proj-name">19. Power-BI Embedded<span class="attention-tag"><i
                     class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
-              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa de Licitação</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
               <div class="timeline-track-container">
                 <div class="timeline-fill fill-warning" style="--target-width: 15%;"><span
                     class="timeline-percent">15%</span></div>
@@ -593,7 +607,7 @@
             </div>
             <div class="timeline-row">
               <div class="timeline-proj-name">20. IA (Claude IA)</div>
-              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa de Licitação</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
               <div class="timeline-track-container">
                 <div class="timeline-fill" style="--target-width: 65%;">
                   <span class="timeline-percent">65%</span>
@@ -654,36 +668,72 @@
 
             backdrop.addEventListener('click', closeFocus);
 
-            // Botão de filtro para ocultar/mostrar 100% concluídos
+            // Filtros Combinados (Concluídos + Tipo de Contratação)
             const btnToggle = slide2.querySelector('#btn-toggle-completed');
-            let isHidden = false;
+            const selectFilterTipo = slide2.querySelector('#select-filter-tipo');
+            const filterTipoWrapper = slide2.querySelector('#filter-tipo-wrapper');
+            let isHiddenCompleted = false;
+            let selectedTipoFilter = 'todos';
+
+            function updateFilters() {
+              rows.forEach(row => {
+                let show = true;
+
+                // 1. Filtro de 100% Concluídos
+                if (isHiddenCompleted) {
+                  const percentSpan = row.querySelector('.timeline-percent');
+                  if (percentSpan && percentSpan.textContent.trim() === '100%') {
+                    show = false;
+                  }
+                }
+
+                // 2. Filtro de Tipo de Contratação
+                if (selectedTipoFilter !== 'todos') {
+                  const badge = row.querySelector('.timeline-tipo-badge');
+                  if (!badge || !badge.classList.contains(selectedTipoFilter)) {
+                    show = false;
+                  }
+                }
+
+                row.style.display = show ? 'flex' : 'none';
+              });
+            }
+
             if (btnToggle) {
               btnToggle.addEventListener('click', (e) => {
                 e.stopPropagation();
-                isHidden = !isHidden;
+                isHiddenCompleted = !isHiddenCompleted;
 
-                if (isHidden) {
+                if (isHiddenCompleted) {
                   btnToggle.style.background = '#1d63be';
                   btnToggle.style.color = '#fff';
                   btnToggle.style.borderColor = '#1d63be';
                   btnToggle.innerHTML = '<i class="fa-solid fa-eye"></i> Mostrar Concluídos';
-
-                  rows.forEach(row => {
-                    const percentSpan = row.querySelector('.timeline-percent');
-                    if (percentSpan && percentSpan.textContent.trim() === '100%') {
-                      row.style.display = 'none';
-                    }
-                  });
                 } else {
                   btnToggle.style.background = '#f1f5f9';
                   btnToggle.style.color = '#334155';
                   btnToggle.style.borderColor = '#cbd5e1';
                   btnToggle.innerHTML = '<i class="fa-solid fa-filter"></i> Ocultar Concluídos';
-
-                  rows.forEach(row => {
-                    row.style.display = 'flex'; // Restaura o display original da linha
-                  });
                 }
+                updateFilters();
+              });
+            }
+
+            if (selectFilterTipo) {
+              selectFilterTipo.addEventListener('change', (e) => {
+                e.stopPropagation();
+                selectedTipoFilter = selectFilterTipo.value;
+
+                if (selectedTipoFilter !== 'todos') {
+                  filterTipoWrapper.style.background = '#eff6ff';
+                  filterTipoWrapper.style.borderColor = '#1d63be';
+                  filterTipoWrapper.style.color = '#1d4ed8';
+                } else {
+                  filterTipoWrapper.style.background = '#f1f5f9';
+                  filterTipoWrapper.style.borderColor = '#cbd5e1';
+                  filterTipoWrapper.style.color = '#334155';
+                }
+                updateFilters();
               });
             }
 
