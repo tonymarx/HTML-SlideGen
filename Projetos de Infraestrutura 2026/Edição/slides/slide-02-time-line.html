@@ -112,15 +112,19 @@
         </div>
 
         <h2 style="margin-bottom: 5px;">Visão Geral — Timeline de Execução</h2>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 15px; flex-wrap: wrap;">
-          <p class="lead" style="margin-bottom: 0; margin-top: 0; font-size: 1.05rem;">Acompanhamento dos marcos evolutivos dos projetos
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 15px; flex-wrap: wrap;">
+          <p class="lead" style="margin-bottom: 0; margin-top: 0; font-size: 1.05rem;">Acompanhamento dos marcos
+            evolutivos dos projetos
             (0% a 100%)</p>
           <div style="display: flex; align-items: center; gap: 10px; z-index: 10;">
             <!-- Filtro por Tipo de Licitação -->
-            <div id="filter-tipo-wrapper" style="display: inline-flex; align-items: center; gap: 7px; background: #f1f5f9; border: 1px solid #cbd5e1; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: #334155; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: all 0.2s ease;">
+            <div id="filter-tipo-wrapper"
+              style="display: inline-flex; align-items: center; gap: 7px; background: #f1f5f9; border: 1px solid #cbd5e1; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: #334155; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: all 0.2s ease;">
               <i class="fa-solid fa-file-contract" style="color: #1d63be;"></i>
               <label for="select-filter-tipo" style="cursor: pointer; margin: 0;">Licitação:</label>
-              <select id="select-filter-tipo" style="background: transparent; border: none; font-size: 0.75rem; font-weight: 700; color: #0b2e63; cursor: pointer; outline: none; padding-right: 4px;">
+              <select id="select-filter-tipo"
+                style="background: transparent; border: none; font-size: 0.75rem; font-weight: 700; color: #0b2e63; cursor: pointer; outline: none; padding-right: 4px;">
                 <option value="todos">Todos os Tipos</option>
                 <option value="tipo-dispensa">Dispensa</option>
                 <option value="tipo-srp">SRP</option>
@@ -319,6 +323,10 @@
             overflow: hidden;
             transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
             width: 0%;
+          }
+
+          .slide.active .timeline-fill,
+          .timeline-focus-modal .timeline-fill {
             animation: loadBars 4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
           }
 
@@ -329,14 +337,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-              90deg,
-              transparent 0%,
-              rgba(255, 255, 255, 0.15) 30%,
-              rgba(255, 255, 255, 0.7) 50%,
-              rgba(255, 255, 255, 0.15) 70%,
-              transparent 100%
-            );
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.15) 30%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.15) 70%,
+                transparent 100%);
             border-radius: 8px;
             transform: translateX(-100%);
             animation: shimmerBar 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -409,14 +415,14 @@
             <div class="timeline-header-tipo">Tipo de<br>Licitação</div>
             <div class="timeline-header-milestones">
               <div class="timeline-milestone" style="left: 0; text-align: left;">DOD</div>
-              <div class="timeline-milestone" style="left: 12.5%; transform: translateX(-50%);">TAP</div>
-              <div class="timeline-milestone" style="left: 25%; transform: translateX(-50%);">PGP</div>
-              <div class="timeline-milestone" style="left: 37.5%; transform: translateX(-50%);">Parecer<br>Custos</div>
-              <div class="timeline-milestone" style="left: 50%; transform: translateX(-50%);">ETP</div>
-              <div class="timeline-milestone" style="left: 60%; transform: translateX(-50%);">TR<br>Aprov.</div>
-              <div class="timeline-milestone" style="left: 70%; transform: translateX(-50%);">TR<br>Publicado</div>
-              <div class="timeline-milestone" style="left: 80%; transform: translateX(-50%);">Edital<br>Homol.</div>
-              <div class="timeline-milestone" style="left: 90%; transform: translateX(-50%);">Contrato<br>Assinado</div>
+              <div class="timeline-milestone" style="left: 15%; transform: translateX(-50%);">TAP</div>
+              <div class="timeline-milestone" style="left: 30%; transform: translateX(-50%);">PGP</div>
+              <div class="timeline-milestone" style="left: 45%; transform: translateX(-50%);">Parecer<br>Custos</div>
+              <div class="timeline-milestone" style="left: 60%; transform: translateX(-50%);">ETP</div>
+              <div class="timeline-milestone" style="left: 68%; transform: translateX(-50%);">TR<br>Aprov.</div>
+              <div class="timeline-milestone" style="left: 76%; transform: translateX(-50%);">TR<br>Publicado</div>
+              <div class="timeline-milestone" style="left: 84%; transform: translateX(-50%);">Edital<br>Homol.</div>
+              <div class="timeline-milestone" style="left: 92%; transform: translateX(-50%);">Contrato<br>Assinado</div>
               <div class="timeline-milestone" style="right: 0; text-align: right;">Publ.<br>D.O.U</div>
             </div>
           </div>
@@ -424,14 +430,16 @@
           <div class="timeline-body">
             <div class="timeline-grid">
               <div class="timeline-grid-line" style="left: 0;"></div>
-              <div class="timeline-grid-line" style="left: 12.5%;"></div>
-              <div class="timeline-grid-line" style="left: 25%;"></div>
-              <div class="timeline-grid-line" style="left: 37.5%;"></div>
-              <div class="timeline-grid-line" style="left: 50%;"></div>
-              <div class="timeline-grid-line" style="left: 60%; width: 3px; background: rgba(100, 116, 139, 0.85);"></div>
-              <div class="timeline-grid-line" style="left: 70%;"></div>
-              <div class="timeline-grid-line" style="left: 80%;"></div>
-              <div class="timeline-grid-line" style="left: 90%;"></div>
+              <div class="timeline-grid-line" style="left: 15%;"></div>
+              <div class="timeline-grid-line" style="left: 30%;"></div>
+              <div class="timeline-grid-line" style="left: 45%;"></div>
+              <div class="timeline-grid-line" style="left: 60%;"></div>
+              <div class="timeline-grid-line" style="left: 64%;"></div>
+              <div class="timeline-grid-line" style="left: 68%; width: 3px; background: rgba(100, 116, 139, 0.85);">
+              </div>
+              <div class="timeline-grid-line" style="left: 76%;"></div>
+              <div class="timeline-grid-line" style="left: 84%;"></div>
+              <div class="timeline-grid-line" style="left: 92%;"></div>
               <div class="timeline-grid-line" style="right: 0;"></div>
             </div>
 
@@ -748,6 +756,7 @@
 
                 // Criação do Modal principal
                 currentModal = document.createElement('div');
+                currentModal.className = 'timeline-focus-modal';
                 currentModal.style.position = 'fixed';
                 currentModal.style.top = '50%';
                 currentModal.style.left = '50%';

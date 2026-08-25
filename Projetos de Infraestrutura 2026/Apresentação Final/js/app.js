@@ -266,6 +266,17 @@ class Presentation {
         });
       }, 80);
     }
+    // Slide 2 — Timeline de Projetos: dispara/reinicia animações das barras de progresso
+    if (slideId === 'slide-2') {
+      setTimeout(() => {
+        const fills = document.querySelectorAll('#slide-2 .timeline-fill');
+        fills.forEach(fill => {
+          fill.style.animation = 'none';
+          void fill.offsetWidth; // force reflow
+          fill.style.animation = '';
+        });
+      }, 80);
+    }
     // Slide 3 (antigo slide 2) — Collab Graph
     if (slideId === 'slide-3' && !this.cg) {
       setTimeout(() => { this.cg = new CollabGraph('collab-canvas'); }, 200);
