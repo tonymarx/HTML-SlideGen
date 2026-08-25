@@ -210,12 +210,38 @@
           .project-table tbody tr:hover .proj-desc {
             color: #1d63be;
           }
-          
-          .proj-num { font-weight: 800; color: #1d63be; text-align: center; }
-          .proj-id { font-weight: 700; color: #94a3b8; text-align: center; }
-          .proj-desc { font-weight: 600; color: #0f172a; transition: color 0.15s ease; }
-          .proj-proc { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; color: #0b2e63; font-size: 0.85rem; }
-          .proj-val { font-weight: 700; color: #0b2e63; text-align: right; white-space: nowrap; font-size: 0.85rem; }
+
+          .proj-num {
+            font-weight: 800;
+            color: #1d63be;
+            text-align: center;
+          }
+
+          .proj-id {
+            font-weight: 700;
+            color: #94a3b8;
+            text-align: center;
+          }
+
+          .proj-desc {
+            font-weight: 600;
+            color: #0f172a;
+            transition: color 0.15s ease;
+          }
+
+          .proj-proc {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: #0b2e63;
+            font-size: 0.85rem;
+          }
+
+          .proj-val {
+            font-weight: 700;
+            color: #0b2e63;
+            text-align: right;
+            white-space: nowrap;
+            font-size: 0.85rem;
+          }
         </style>
 
         <div style="flex-grow: 1; overflow: hidden; display: flex; align-items: flex-start; width: 100%;">
@@ -375,7 +401,7 @@
                 <td class="proj-id">2.2.33</td>
                 <td class="proj-desc">Aquisição de Equipamentos de Apoio Institucional - 2026</td>
                 <td class="proj-proc">59500.002321/2026-06-e</td>
-                <td class="proj-val">R$ 4.500.000,00</td>
+                <td class="proj-val">R$ 9.397.272,30</td>
               </tr>
             </tbody>
           </table>
@@ -911,7 +937,7 @@
                 </div>
               </div>
             </div>
-            <div class="timeline-row" data-valor="4.500.000,00" data-data-licitacao="30/10/2026"
+            <div class="timeline-row" data-valor="9.397.272,30" data-data-licitacao="30/10/2026"
               data-tramite="AA/GTI/UIT">
               <div class="timeline-proj-name">21. Equipamentos Apoio Inst.</div>
               <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-srp">SRP</span></div>
@@ -1293,45 +1319,58 @@
 
                 currentModal.appendChild(infoRow);
 
-                // Se tiver tag de atenção, adiciona o campo de observação
+                // Campo de Observação (Personalizado se tiver atenção/urgência, ou Padrão para os demais)
+                const obsContainer = document.createElement('div');
+                obsContainer.style.marginTop = '20px';
+                obsContainer.style.width = '100%';
+
+                const obsLabel = document.createElement('div');
+                obsLabel.style.fontSize = '0.85rem';
+                obsLabel.style.fontWeight = '800';
+                obsLabel.style.marginBottom = '8px';
+                obsLabel.style.textTransform = 'uppercase';
+                obsLabel.style.letterSpacing = '0.04em';
+
+                const obsInput = document.createElement('textarea');
+                obsInput.style.width = '100%';
+                obsInput.style.padding = '12px 16px';
+                obsInput.style.borderRadius = '10px';
+                obsInput.style.fontFamily = 'inherit';
+                obsInput.style.fontSize = '1.05rem';
+                obsInput.style.resize = 'none';
+                obsInput.style.outline = 'none';
+                obsInput.value = row.getAttribute('data-observacao') || '';
+
                 if (hasAttention) {
-                  const obsContainer = document.createElement('div');
-                  obsContainer.style.marginTop = '30px';
-                  obsContainer.style.width = '100%';
-
-                  const obsLabel = document.createElement('div');
+                  // Estilo com Destaque de Atenção / Urgência
                   obsLabel.textContent = 'OBSERVAÇÃO / MOTIVO DA ATENÇÃO:';
-                  obsLabel.style.fontSize = '1.1rem';
-                  obsLabel.style.fontWeight = '800';
                   obsLabel.style.color = '#b45309';
-                  obsLabel.style.marginBottom = '10px';
-
-                  const obsInput = document.createElement('textarea');
-                  obsInput.style.width = '100%';
-                  obsInput.style.height = '100px';
-                  obsInput.style.padding = '15px';
-                  obsInput.style.borderRadius = '10px';
+                  obsInput.style.height = '95px';
                   obsInput.style.border = '2px solid #fde68a';
                   obsInput.style.backgroundColor = '#fffbeb';
                   obsInput.style.color = '#1e293b';
-                  obsInput.style.fontSize = '1.2rem';
-                  obsInput.style.fontFamily = 'inherit';
-                  obsInput.style.resize = 'none';
-                  obsInput.style.outline = 'none';
                   obsInput.style.boxShadow = 'inset 0 2px 4px rgba(0,0,0,0.05)';
                   obsInput.placeholder = 'Digite aqui os entraves, riscos ou detalhes sobre este projeto...';
-                  obsInput.value = row.getAttribute('data-observacao') || '';
-
-                  // Impede que clicar no textarea feche o modal
-                  obsInput.addEventListener('click', (ev) => ev.stopPropagation());
-                  // Impede que digitar as setas ou barra de espaço avance o slide
-                  obsInput.addEventListener('keydown', (ev) => ev.stopPropagation());
-
-                  obsContainer.appendChild(obsLabel);
-                  obsContainer.appendChild(obsInput);
-
-                  currentModal.appendChild(obsContainer);
+                } else {
+                  // Estilo Normal Padrão
+                  obsLabel.innerHTML = '<i class="fa-regular fa-comment-dots" style="color: #1d63be; margin-right: 6px;"></i> Observação:';
+                  obsLabel.style.color = '#0b2e63';
+                  obsInput.style.height = '75px';
+                  obsInput.style.border = '1px solid #cbd5e1';
+                  obsInput.style.backgroundColor = '#f8fafc';
+                  obsInput.style.color = '#334155';
+                  obsInput.placeholder = 'Observações gerais sobre este projeto...';
                 }
+
+                // Impede que clicar no textarea feche o modal
+                obsInput.addEventListener('click', (ev) => ev.stopPropagation());
+                // Impede que digitar as setas ou barra de espaço avance o slide
+                obsInput.addEventListener('keydown', (ev) => ev.stopPropagation());
+
+                obsContainer.appendChild(obsLabel);
+                obsContainer.appendChild(obsInput);
+
+                currentModal.appendChild(obsContainer);
 
                 document.body.appendChild(currentModal);
 
