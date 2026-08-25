@@ -24,14 +24,6 @@ const SLIDE_FILES = [
   'slide-00-capa.html',
   'slide-01-lista-de-Projetos.html',
   'slide-02-time-line.html',
-  'slide-03-colaborativa.html',
-  'slide-04-contas-migradas.html',
-  'slide-05-volume-dados.html',
-  'slide-06-50gb-email.html',
-  'slide-07-petabytes.html',
-  'slide-08-testes-validacao.html',
-  'slide-09-ecossistema.html',
-  'slide-10-transformacao.html',
 ];
 
 function build() {
