@@ -142,13 +142,54 @@
             border-bottom: 1px solid #e2e8f0;
             color: #334155;
             line-height: 1.1;
+            transition: color 0.15s ease;
           }
-          
-          .proj-num { font-weight: 800; color: #1d63be; text-align: center; }
-          .proj-id { font-weight: 700; color: #94a3b8; text-align: center; }
-          .proj-desc { font-weight: 600; color: #0f172a; }
-          .proj-proc { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; color: #0b2e63; font-size: 0.85rem; }
-          .proj-val { font-weight: 700; color: #0b2e63; text-align: right; white-space: nowrap; font-size: 0.85rem; }
+
+          .project-table tbody tr {
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+          }
+
+          .project-table tbody tr:hover {
+            background-color: #f0f7ff;
+            box-shadow: inset 4px 0 0 #1d63be;
+            cursor: default;
+          }
+
+          .project-table tbody tr:hover .proj-desc {
+            color: #1d63be;
+          }
+
+          .proj-num {
+            font-weight: 800;
+            color: #1d63be;
+            text-align: center;
+          }
+
+          .proj-id {
+            font-weight: 700;
+            color: #94a3b8;
+            text-align: center;
+          }
+
+          .proj-desc {
+            font-weight: 600;
+            color: #0f172a;
+            transition: color 0.15s ease;
+          }
+
+          .proj-proc {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: #0b2e63;
+            font-size: 0.85rem;
+          }
+
+          .proj-val {
+            font-weight: 700;
+            color: #0b2e63;
+            text-align: right;
+            white-space: nowrap;
+            font-size: 0.85rem;
+          }
         </style>
 
         <div style="flex-grow: 1; overflow: hidden; display: flex; align-items: flex-start; width: 100%;">
@@ -308,7 +349,7 @@
                 <td class="proj-id">2.2.33</td>
                 <td class="proj-desc">Aquisição de Equipamentos de Apoio Institucional - 2026</td>
                 <td class="proj-proc">59500.002321/2026-06-e</td>
-                <td class="proj-val">R$ 4.500.000,00</td>
+                <td class="proj-val">R$ 9.397.272,30</td>
               </tr>
             </tbody>
           </table>
