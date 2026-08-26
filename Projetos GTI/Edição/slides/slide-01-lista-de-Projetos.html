@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b2e63">
+  <title>Projetos de Infraestrutura 2026</title>
+
+  <!-- Fontes locais (offline) -->
+  <link rel="stylesheet" href="../fonts/inter/inter.css">
+  <!-- Font Awesome local (offline) -->
+  <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
+  <!-- Estilos da Apresentação (offline) -->
+  <link rel="stylesheet" href="../css/main.css">
+
+</head>
+
+<body>
+
+  <!-- Onda de fundo decorativa animada com pontos de luz sutis -->
+  <div class="bg-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+      <defs>
+        <!-- Gradientes de luz discretos -->
+        <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#49b7ff" stop-opacity="0.6" />
+          <stop offset="60%" stop-color="#1d63be" stop-opacity="0.2" />
+          <stop offset="100%" stop-color="#0b2e63" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="glow-blue" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#2f7de6" stop-opacity="0.5" />
+          <stop offset="100%" stop-color="#114894" stop-opacity="0" />
+        </radialGradient>
+        <filter id="blur-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="6" />
+        </filter>
+      </defs>
+
+      <!-- Linhas Onduladas Animadas -->
+      <g class="bg-lines-group">
+        <path class="wave-line wave-line-1" d="M -80 340 C 220 180, 520 520, 820 300 S 1220 160, 1520 340"
+          stroke="rgba(73,183,255,.22)" stroke-width="2.2" />
+        <path class="wave-line wave-line-2" d="M -80 410 C 270 240, 570 580, 870 360 S 1270 210, 1520 410"
+          stroke="rgba(29,99,190,.16)" stroke-width="1.8" />
+        <path class="wave-line wave-line-3" d="M -80 480 C 300 300, 620 620, 920 420 S 1300 270, 1520 480"
+          stroke="rgba(73,183,255,.12)" stroke-width="1.2" />
+        <path class="wave-line wave-line-4" d="M -80 260 C 180 380, 480 140, 780 240 S 1180 390, 1520 220"
+          stroke="rgba(123,94,167,.10)" stroke-width="1" stroke-dasharray="8 12" />
+      </g>
+
+      <!-- Pontos de Luz Discretos Animados (Light Nodes com Flutuação 2D) -->
+      <g class="bg-lights-group">
+        <!-- Ponto 1: Superior Esquerdo -->
+        <g class="light-node light-node-1">
+          <circle class="light-orb" cx="140" cy="150" r="22" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="140" cy="150" r="3.5" fill="#49b7ff" />
+        </g>
+
+        <!-- Ponto 2: Centro Superior -->
+        <g class="light-node light-node-2">
+          <circle class="light-orb" cx="520" cy="100" r="18" fill="url(#glow-blue)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="520" cy="100" r="2.5" fill="#a0d4f5" />
+        </g>
+
+        <!-- Ponto 3: Centro Direito -->
+        <g class="light-node light-node-3">
+          <circle class="light-orb" cx="920" cy="220" r="24" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="920" cy="220" r="4" fill="#ffffff" />
+        </g>
+
+        <!-- Ponto 4: Superior Direito -->
+        <g class="light-node light-node-4">
+          <circle class="light-orb" cx="1260" cy="110" r="20" fill="url(#glow-blue)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="1260" cy="110" r="3" fill="#49b7ff" />
+        </g>
+
+        <!-- Ponto 5: Inferior Esquerdo -->
+        <g class="light-node light-node-5">
+          <circle class="light-orb" cx="280" cy="580" r="26" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="280" cy="580" r="3.5" fill="#38bdf8" />
+        </g>
+
+        <!-- Ponto 6: Inferior Direito -->
+        <g class="light-node light-node-6">
+          <circle class="light-orb" cx="1380" cy="520" r="22" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="1380" cy="520" r="3" fill="#ffffff" />
+        </g>
+
+        <!-- Ponto 7: Centro Inferior -->
+        <g class="light-node light-node-7">
+          <circle class="light-orb" cx="720" cy="650" r="20" fill="url(#glow-blue)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="720" cy="650" r="3" fill="#a0d4f5" />
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <!-- DECK de Slides -->
+  <main class="deck" id="deck" aria-live="polite">
+
+
+    <!-- %%SLIDE_START%% -->
+    <!-- ============================================================
+         SLIDE 1 — Reconhecimento às Equipes
+    ============================================================ -->
+    <section class="slide" id="slide-1">
+      <div class="slide-content" style="height: 100%; display: flex; flex-direction: column;">
+        <div class="slide-top" style="flex-shrink: 0;">
+          <div class="kicker">Projetos 2026</div>
+          <img src="../imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
+        </div>
+
+        <h2 style="margin-bottom: 0px; font-size: 1.8rem;">Lista de Projetos</h2>
+        <p class="lead" style="margin-bottom: 5px; font-size: 0.95rem;">Projetos em execução na Unidade de
+          Infraestrutura (UIT)</p>
+
+        <style>
+          .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(11, 46, 99, 0.1);
+          }
+
+          .project-table th {
+            background: #1d63be;
+            color: #fff;
+            padding: 5px 8px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+          }
+
+          .project-table td {
+            padding: 4px 8px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #334155;
+            line-height: 1.1;
+            transition: color 0.15s ease;
+          }
+
+          .project-table tbody tr {
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+          }
+
+          .project-table tbody tr:hover {
+            background-color: #f0f7ff;
+            box-shadow: inset 4px 0 0 #1d63be;
+            cursor: default;
+          }
+
+          .project-table tbody tr:hover .proj-desc {
+            color: #1d63be;
+          }
+
+          .proj-num {
+            font-weight: 800;
+            color: #1d63be;
+            text-align: center;
+          }
+
+          .proj-id {
+            font-weight: 700;
+            color: #94a3b8;
+            text-align: center;
+          }
+
+          .proj-desc {
+            font-weight: 600;
+            color: #0f172a;
+            transition: color 0.15s ease;
+          }
+
+          .proj-proc {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: #0b2e63;
+            font-size: 0.85rem;
+          }
+
+          .proj-val {
+            font-weight: 700;
+            color: #0b2e63;
+            text-align: right;
+            white-space: nowrap;
+            font-size: 0.85rem;
+          }
+        </style>
+
+        <div style="flex-grow: 1; overflow: hidden; display: flex; align-items: flex-start; width: 100%;">
+          <table class="project-table">
+            <thead>
+              <tr>
+                <th style="width: 4%; text-align: center;">#</th>
+                <th style="width: 8%; text-align: center;">Projeto</th>
+                <th style="width: 46%;">Descrição</th>
+                <th style="width: 25%;">Processo</th>
+                <th style="width: 17%; text-align: right;">Valor Estimado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="proj-num">1</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de Suporte para Monitor</td>
+                <td class="proj-proc">59500.000120/2026-66-e</td>
+                <td class="proj-val">R$ 646,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">2</td>
+                <td class="proj-id">2.2.13</td>
+                <td class="proj-desc">Aquisição de Licenciamento Adobe Creative Cloud</td>
+                <td class="proj-proc">59500.001583/2026-45-e</td>
+                <td class="proj-val">R$ 230.272,88</td>
+              </tr>
+              <tr>
+                <td class="proj-num">3</td>
+                <td class="proj-id">2.2.15</td>
+                <td class="proj-desc">Aquisição de Certificados digitais A1 e A3</td>
+                <td class="proj-proc">59500.000602/2026-16-e</td>
+                <td class="proj-val">R$ 43.765,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">4</td>
+                <td class="proj-id">2.2.07</td>
+                <td class="proj-desc">Aquisição de Solução de Wi-Fi para Superintendências</td>
+                <td class="proj-proc">59500.000604/2026-13-e</td>
+                <td class="proj-val">R$ 550.000,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">5</td>
+                <td class="proj-id">2.2.12</td>
+                <td class="proj-desc">Aquisição de solução de VOIP</td>
+                <td class="proj-proc">59500.000272/2025-88-e</td>
+                <td class="proj-val">R$ 2.184.427,44</td>
+              </tr>
+              <tr>
+                <td class="proj-num">6</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de telefones VOIP</td>
+                <td class="proj-proc">59500.001391/2026-39-e</td>
+                <td class="proj-val">R$ 1.870.767,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">7</td>
+                <td class="proj-id">2.2.07</td>
+                <td class="proj-desc">Aquisição de Switches de rede</td>
+                <td class="proj-proc">59500.000601/2026-71-e</td>
+                <td class="proj-val">R$ 2.302.442,80</td>
+              </tr>
+              <tr>
+                <td class="proj-num">8</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de Serviço para acervo de imagens</td>
+                <td class="proj-proc">59500.004307/2025-58-e</td>
+                <td class="proj-val">R$ 13.245,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">9</td>
+                <td class="proj-id">2.2.23</td>
+                <td class="proj-desc">Renovação dos links de internet</td>
+                <td class="proj-proc">59500.003486/2023-44-e</td>
+                <td class="proj-val">R$ 14.400,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">10</td>
+                <td class="proj-id">4.3.68</td>
+                <td class="proj-desc">Renovação do Outsorsing de Impressão (Simpress)</td>
+                <td class="proj-proc">59500.000554/2021-51-e</td>
+                <td class="proj-val">R$ 1.527.701,40</td>
+              </tr>
+              <tr>
+                <td class="proj-num">11</td>
+                <td class="proj-id">2.2.05</td>
+                <td class="proj-desc">Contratação de Serviços de Outsourcing de impressão</td>
+                <td class="proj-proc">59500.001996/2025-49-e</td>
+                <td class="proj-val">R$ 0,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">12</td>
+                <td class="proj-id">2.1.12</td>
+                <td class="proj-desc">Serviços de mensagens SMS/Whatsapp</td>
+                <td class="proj-proc">59500.000605/2026-50-e</td>
+                <td class="proj-val">R$ 12.000,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">13</td>
+                <td class="proj-id">2.2.26</td>
+                <td class="proj-desc">Renovação Serviço de Monitoramento da Sala Cofre</td>
+                <td class="proj-proc">59500.000285/2020-42-e</td>
+                <td class="proj-val">R$ 132.224,12</td>
+              </tr>
+              <tr>
+                <td class="proj-num">14</td>
+                <td class="proj-id">2.2.26</td>
+                <td class="proj-desc">Serviço de Monitoramento da Sala Cofre</td>
+                <td class="proj-proc">59500.001392/2025-01-e</td>
+                <td class="proj-val">R$ 3.373.101,60</td>
+              </tr>
+              <tr>
+                <td class="proj-num">15</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Licenciamento Microsoft - Datacenter</td>
+                <td class="proj-proc">59500.000606/2026-02-e</td>
+                <td class="proj-val">R$ 6.131.810,16</td>
+              </tr>
+              <tr>
+                <td class="proj-num">16</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de Arcgis</td>
+                <td class="proj-proc">-</td>
+                <td class="proj-val">R$ 0,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">17</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de Cabo de Rede</td>
+                <td class="proj-proc">59500.000583/2026-28-e</td>
+                <td class="proj-val">R$ 17.950,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">18</td>
+                <td class="proj-id">-</td>
+                <td class="proj-desc">Aquisição de No-Break</td>
+                <td class="proj-proc">59500.002082/2026-86-e</td>
+                <td class="proj-val">R$ 65.000,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">19</td>
+                <td class="proj-id">2.1.10</td>
+                <td class="proj-desc">Aquisição de Power-BI Embedded</td>
+                <td class="proj-proc">59500.002106/2026-05-e</td>
+                <td class="proj-val">R$ 60.000,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">20</td>
+                <td class="proj-id">2.1.04</td>
+                <td class="proj-desc">Contratação de Inteligência Artificial (Claude IA)</td>
+                <td class="proj-proc">59500.003678/2025-12-e</td>
+                <td class="proj-val">R$ 65.153,00</td>
+              </tr>
+              <tr>
+                <td class="proj-num">21</td>
+                <td class="proj-id">2.2.33</td>
+                <td class="proj-desc">Aquisição de Equipamentos de Apoio Institucional - 2026</td>
+                <td class="proj-proc">59500.002321/2026-06-e</td>
+                <td class="proj-val">R$ 9.397.272,30</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- %%SLIDE_END%% -->
+
+
+  </main>
+
+  <!-- BARRA DE NAVEGAÇÃO FIXA INFERIOR -->
+  <nav class="nav-bar">
+    <img src="../imagens/logo-codevasf.svg" alt="Codevasf" class="nav-logo">
+    <div class="nav-center">
+      <div class="prog-bar"><span id="prog-fill"></span></div>
+      <div class="slide-count"><strong id="cur-slide">1</strong> / <span id="total-slides">11</span></div>
+    </div>
+    <div class="nav-btns">
+      <button class="btn-nav" id="btn-grid"><i class="fa-solid fa-border-all"></i> Slides</button>
+      <button class="btn-nav" id="btn-prev"><i class="fa-solid fa-chevron-left"></i> Anterior</button>
+      <button class="btn-nav" id="btn-next">Próximo <i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </nav>
+
+  <!-- MODAL DE MINIATURAS DA APRESENTAÇÃO -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-header">
+      <h3>Visão Geral dos Slides</h3>
+      <button class="btn-close" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="thumbs-grid" id="thumbs-grid"></div>
+  </div>
+
+  <!-- Scripts da Apresentação (offline) -->
+  <script src="../js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b2e63">
+  <title>Infraestrutura de TI Codevasf</title>
+
+  <!-- Fontes locais (offline) -->
+  <link rel="stylesheet" href="../fonts/inter/inter.css">
+  <!-- Font Awesome local (offline) -->
+  <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
+  <!-- Estilos da Apresentação (offline) -->
+  <link rel="stylesheet" href="../css/main.css">
+
+</head>
+
+<body>
+
+  <!-- Onda de fundo decorativa animada com pontos de luz sutis -->
+  <div class="bg-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+      <defs>
+        <!-- Gradientes de luz discretos -->
+        <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#49b7ff" stop-opacity="0.6" />
+          <stop offset="60%" stop-color="#1d63be" stop-opacity="0.2" />
+          <stop offset="100%" stop-color="#0b2e63" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="glow-blue" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#2f7de6" stop-opacity="0.5" />
+          <stop offset="100%" stop-color="#114894" stop-opacity="0" />
+        </radialGradient>
+        <filter id="blur-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="6" />
+        </filter>
+      </defs>
+
+      <!-- Linhas Onduladas Animadas -->
+      <g class="bg-lines-group">
+        <path class="wave-line wave-line-1" d="M -80 340 C 220 180, 520 520, 820 300 S 1220 160, 1520 340"
+          stroke="rgba(73,183,255,.22)" stroke-width="2.2" />
+        <path class="wave-line wave-line-2" d="M -80 410 C 270 240, 570 580, 870 360 S 1270 210, 1520 410"
+          stroke="rgba(29,99,190,.16)" stroke-width="1.8" />
+        <path class="wave-line wave-line-3" d="M -80 480 C 300 300, 620 620, 920 420 S 1300 270, 1520 480"
+          stroke="rgba(73,183,255,.12)" stroke-width="1.2" />
+        <path class="wave-line wave-line-4" d="M -80 260 C 180 380, 480 140, 780 240 S 1180 390, 1520 220"
+          stroke="rgba(123,94,167,.10)" stroke-width="1" stroke-dasharray="8 12" />
+      </g>
+
+      <!-- Pontos de Luz Discretos Animados (Light Nodes com Flutuação 2D) -->
+      <g class="bg-lights-group">
+        <!-- Ponto 1: Superior Esquerdo -->
+        <g class="light-node light-node-1">
+          <circle class="light-orb" cx="140" cy="150" r="22" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="140" cy="150" r="3.5" fill="#49b7ff" />
+        </g>
+
+        <!-- Ponto 2: Centro Superior -->
+        <g class="light-node light-node-2">
+          <circle class="light-orb" cx="520" cy="100" r="18" fill="url(#glow-blue)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="520" cy="100" r="2.5" fill="#a0d4f5" />
+        </g>
+
+        <!-- Ponto 3: Centro Direito -->
+        <g class="light-node light-node-3">
+          <circle class="light-orb" cx="920" cy="220" r="24" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="920" cy="220" r="4" fill="#ffffff" />
+        </g>
+
+        <!-- Ponto 4: Superior Direito -->
+        <g class="light-node light-node-4">
+          <circle class="light-orb" cx="1260" cy="110" r="20" fill="url(#glow-blue)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="1260" cy="110" r="3" fill="#49b7ff" />
+        </g>
+
+        <!-- Ponto 5: Inferior Esquerdo -->
+        <g class="light-node light-node-5">
+          <circle class="light-orb" cx="280" cy="580" r="26" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="280" cy="580" r="3.5" fill="#38bdf8" />
+        </g>
+
+        <!-- Ponto 6: Inferior Direito -->
+        <g class="light-node light-node-6">
+          <circle class="light-orb" cx="1380" cy="520" r="22" fill="url(#glow-cyan)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="1380" cy="520" r="3" fill="#ffffff" />
+        </g>
+
+        <!-- Ponto 7: Centro Inferior -->
+        <g class="light-node light-node-7">
+          <circle class="light-orb" cx="720" cy="650" r="20" fill="url(#glow-blue)" filter="url(#blur-glow)" />
+          <circle class="light-core" cx="720" cy="650" r="3" fill="#a0d4f5" />
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <!-- DECK de Slides -->
+  <main class="deck" id="deck" aria-live="polite">
+
+
+    <!-- %%SLIDE_START%% -->
+    <!-- ============================================================
+         SLIDE 2 — Timeline de Projetos
+    ============================================================ -->
+    <section class="slide" id="slide-2">
+      <div class="slide-content" style="height: 100%; display: flex; flex-direction: column;">
+        <div class="slide-top" style="flex-shrink: 0;">
+          <div class="kicker">Projetos 2026</div>
+          <img src="../imagens/logo-codevasf.svg" alt="Codevasf" class="slide-logo">
+        </div>
+
+        <h2 style="margin-bottom: 5px;">Visão Geral — Timeline de Execução</h2>
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 15px; flex-wrap: wrap;">
+          <p class="lead" style="margin-bottom: 0; margin-top: 0; font-size: 1.05rem;">Acompanhamento dos marcos
+            evolutivos dos projetos
+          </p>
+          <div style="display: flex; align-items: center; gap: 10px; z-index: 10;">
+            <!-- Filtro por Tipo de Licitação -->
+            <div id="filter-tipo-wrapper"
+              style="display: inline-flex; align-items: center; gap: 7px; background: #f1f5f9; border: 1px solid #cbd5e1; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: #334155; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: all 0.2s ease;">
+              <i class="fa-solid fa-file-contract" style="color: #1d63be;"></i>
+              <label for="select-filter-tipo" style="cursor: pointer; margin: 0;">Licitação:</label>
+              <select id="select-filter-tipo"
+                style="background: transparent; border: none; font-size: 0.75rem; font-weight: 700; color: #0b2e63; cursor: pointer; outline: none; padding-right: 4px;">
+                <option value="todos">Todos os Tipos</option>
+                <option value="tipo-dispensa">Dispensa</option>
+                <option value="tipo-srp">SRP</option>
+                <option value="tipo-tradicional">Tradicional</option>
+              </select>
+            </div>
+
+            <!-- Botão de Ocultar/Mostrar Concluídos -->
+            <button id="btn-toggle-completed"
+              style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.05);"><i
+                class="fa-solid fa-filter"></i> Ocultar Concluídos</button>
+          </div>
+        </div>
+
+        <style>
+          .timeline-wrapper {
+            flex-grow: 1;
+            position: relative;
+            background: #fff;
+            border-radius: 12px;
+            padding: 10px 15px;
+            box-shadow: 0 8px 25px rgba(11, 46, 99, 0.08);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin-bottom: 5px;
+          }
+
+          .timeline-header {
+            position: relative;
+            display: flex;
+            align-items: stretch;
+            margin-bottom: 5px;
+            height: 40px;
+          }
+
+          .timeline-header-spacer {
+            width: 26%;
+            flex-shrink: 0;
+          }
+
+          .timeline-header-tipo {
+            width: 13%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #0b2e63;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.1;
+            padding-bottom: 2px;
+            padding-right: 10px;
+            letter-spacing: 0.03em;
+          }
+
+          .timeline-header-milestones {
+            flex: 1;
+            position: relative;
+          }
+
+          .timeline-milestone {
+            position: absolute;
+            bottom: 0;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #0b2e63;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.1;
+            white-space: nowrap;
+          }
+
+          .timeline-body {
+            position: relative;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .timeline-grid {
+            position: absolute;
+            top: 0;
+            left: 39%;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 1;
+          }
+
+          .timeline-grid-line {
+            width: 1px;
+            background: rgba(29, 99, 190, 0.15);
+            height: 100%;
+          }
+
+          .timeline-row {
+            display: flex;
+            align-items: center;
+            z-index: 2;
+            padding: 2px 0;
+          }
+
+          .timeline-proj-name {
+            width: 26%;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            padding-right: 10px;
+            line-height: 1.2;
+            flex-shrink: 0;
+          }
+
+          .timeline-tipo-col {
+            width: 13%;
+            flex-shrink: 0;
+            padding-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .timeline-tipo-badge {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.67rem;
+            font-weight: 700;
+            color: #475569;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 999px;
+            padding: 2.5px 6px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.25;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+            user-select: none;
+          }
+
+          .timeline-tipo-badge.tipo-dispensa {
+            border-color: #ddd6fe;
+            background-color: #f5f3ff;
+            color: #6d28d9;
+          }
+
+          .timeline-tipo-badge.tipo-srp {
+            border-color: #bae6fd;
+            background-color: #f0f9ff;
+            color: #0284c7;
+          }
+
+          .timeline-tipo-badge.tipo-tradicional {
+            border-color: #bfdbfe;
+            background-color: #eff6ff;
+            color: #1d4ed8;
+          }
+
+          .timeline-tipo-badge.tipo-telebras {
+            border-color: #fde68a;
+            background-color: #fffbeb;
+            color: #b45309;
+          }
+
+          .timeline-track-container {
+            flex: 1;
+            position: relative;
+            height: 18px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+          }
+
+          .timeline-track-container:hover {
+            transform: scaleY(1.18);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(29, 99, 190, 0.25);
+            z-index: 10;
+          }
+
+          .timeline-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1d63be, #49b7ff);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+            width: 0%;
+          }
+
+          .slide.active .timeline-fill,
+          .timeline-focus-modal .timeline-fill {
+            animation: loadBars 4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          }
+
+          .timeline-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.15) 30%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.15) 70%,
+                transparent 100%);
+            border-radius: 8px;
+            transform: translateX(-100%);
+            animation: shimmerBar 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          }
+
+          .timeline-percent {
+            position: absolute;
+            right: 8px;
+            top: 2px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+          }
+
+          @keyframes shimmerBar {
+            0% {
+              transform: translateX(-100%);
+            }
+
+            100% {
+              transform: translateX(100%);
+            }
+          }
+
+          @keyframes loadBars {
+            0% {
+              width: 0%;
+            }
+
+            100% {
+              width: var(--target-width);
+            }
+          }
+
+          .timeline-fill.fill-success {
+            background: linear-gradient(90deg, #059669, #34d399);
+          }
+
+          .timeline-fill.fill-danger {
+            background: linear-gradient(90deg, #e11d48, #fb7185);
+          }
+
+          .timeline-fill.fill-warning {
+            background: linear-gradient(90deg, #d97706, #fbbf24);
+          }
+
+          .attention-tag {
+            display: inline-block;
+            background-color: #fef3c7;
+            color: #b45309;
+            padding: 1px 4px;
+            border-radius: 4px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            margin-left: 6px;
+            vertical-align: middle;
+            border: 1px solid #fde68a;
+          }
+
+          .timeline-row {
+            cursor: default;
+          }
+        </style>
+
+        <div class="timeline-wrapper">
+          <div class="timeline-header">
+            <div class="timeline-header-spacer"></div>
+            <div class="timeline-header-tipo">Tipo de<br>Licitação</div>
+            <div class="timeline-header-milestones">
+              <div class="timeline-milestone" style="left: 0; text-align: left;">DOD</div>
+              <div class="timeline-milestone" style="left: 15%; transform: translateX(-50%);">TAP</div>
+              <div class="timeline-milestone" style="left: 30%; transform: translateX(-50%);">PGP</div>
+              <div class="timeline-milestone" style="left: 45%; transform: translateX(-50%);">Parecer<br>Custos</div>
+              <div class="timeline-milestone" style="left: 60%; transform: translateX(-50%);">ETP</div>
+              <div class="timeline-milestone" style="left: 68%; transform: translateX(-50%);">TR<br>Aprov.</div>
+              <div class="timeline-milestone" style="left: 76%; transform: translateX(-50%);">TR<br>Publicado</div>
+              <div class="timeline-milestone" style="left: 84%; transform: translateX(-50%);">Edital<br>Homol.</div>
+              <div class="timeline-milestone" style="left: 92%; transform: translateX(-50%);">Contrato<br>Assinado</div>
+              <div class="timeline-milestone" style="right: 0; text-align: right;">Publ.<br>D.O.U</div>
+            </div>
+          </div>
+
+          <div class="timeline-body">
+            <div class="timeline-grid">
+              <div class="timeline-grid-line" style="left: 0;"></div>
+              <div class="timeline-grid-line" style="left: 15%;"></div>
+              <div class="timeline-grid-line" style="left: 30%;"></div>
+              <div class="timeline-grid-line" style="left: 45%;"></div>
+              <div class="timeline-grid-line" style="left: 60%;"></div>
+              <div class="timeline-grid-line" style="left: 64%;"></div>
+              <div class="timeline-grid-line" style="left: 68%; width: 3px; background: rgba(100, 116, 139, 0.85);">
+              </div>
+              <div class="timeline-grid-line" style="left: 76%;"></div>
+              <div class="timeline-grid-line" style="left: 84%;"></div>
+              <div class="timeline-grid-line" style="left: 92%;"></div>
+              <div class="timeline-grid-line" style="right: 0;"></div>
+            </div>
+
+            <div class="timeline-row" data-valor="646,00" data-data-licitacao="05/03/2026" data-tramite="AA/GTI/UIT">
+              <div class="timeline-proj-name">1. Suporte para Monitor</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill fill-success" style="--target-width: 100%;">
+                  <span class="timeline-percent">100%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="230.272,88" data-data-licitacao="15/11/2026"
+              data-tramite="AA/GTI/UIT">
+              <div class="timeline-proj-name">2. Licenc. Adobe CC</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-srp">SRP</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill " style="--target-width: 35%;">
+                  <span class="timeline-percent">35%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="43.765,00" data-data-licitacao="02/07/2026" data-tramite="AA/GTI/UIT">
+              <div class="timeline-proj-name">3. Certificados A1 e A3</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill fill-success" style="--target-width: 100%;">
+                  <span class="timeline-percent">100%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="550.000,00" data-data-licitacao="10/10/2026" data-tramite="AA/GTI/UIT"
+              data-observacao="Houve um atraso significativo na etapa de levantamento das necessidades, uma vez que foi necessário solicitar e analisar as plantas de todas as localidades da Codevasf. Essa etapa foi fundamental para permitir o correto dimensionamento do projeto, especialmente para definir, de forma técnica e adequada, a quantidade necessária de Access Points (APs) para atender às diferentes áreas e ambientes.">
+              <div class="timeline-proj-name">4. Wi-Fi Superintendências<span class="attention-tag"><i
+                    class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-srp">SRP</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill fill-warning" style="--target-width: 60%;"><span
+                    class="timeline-percent">60%</span></div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="2.184.427,44" data-data-licitacao="30/08/2026"
+              data-tramite="PR/AJ/UAA">
+              <div class="timeline-proj-name">5. Solução VOIP</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill" style="--target-width: 95%;">
+                  <span class="timeline-percent">95%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="1.870.767,00" data-data-licitacao="05/10/2026"
+              data-tramite="AA/GTI/UIT">
+              <div class="timeline-proj-name">6. Telefones VOIP</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-srp">SRP</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill" style="--target-width: 65%;">
+                  <span class="timeline-percent">65%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="2.302.442,80" data-data-licitacao="20/10/2026" data-tramite="AG">
+              <div class="timeline-proj-name">7. Switches de rede</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-srp">SRP</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill" style="--target-width: 50%;">
+                  <span class="timeline-percent">50%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="13.245,00" data-data-licitacao="15/06/2026" data-tramite="AA">
+              <div class="timeline-proj-name">8. Acervo de imagens</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill" style="--target-width: 95%;">
+                  <span class="timeline-percent">95%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="14.400,00" data-data-licitacao="28/07/2026" data-tramite="AA/GTI/UIT">
+              <div class="timeline-proj-name">9. Renovação Links de internet</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-tradicional">Tradicional</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill fill-success" style="--target-width: 100%;">
+                  <span class="timeline-percent">100%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="1.527.701,40" data-data-licitacao="10/09/2026" data-tramite="AA/GTI">
+              <div class="timeline-proj-name">10. Renovação Impressão (Simpress)</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-tradicional">Tradicional</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill" style="--target-width: 85%;">
+                  <span class="timeline-percent">85%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="0,00" data-data-licitacao="10/05/2027" data-tramite="AA/GTI/UIT"
+              data-observacao="Priorizamos a renovação do contrato atual, o que nos proporcionará mais 12 meses de vigência para concluir o desenvolvimento e a implantação do projeto de forma adequada, garantindo o tempo necessário para finalizar as etapas de planejamento, dimensionamento e execução.">
+              <div class="timeline-proj-name">11. Outsourcing de impressão<span class="attention-tag"><i
+                    class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-tradicional">Tradicional</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill fill-warning" style="--target-width: 15%;"><span
+                    class="timeline-percent">15%</span></div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="12.000,00" data-data-licitacao="20/10/2026" data-tramite="AA/GTI/UIT"
+              data-observacao="Estamos em tratativas com o SERPRO para viabilizar a contratação por dispensa de licitação. Contudo, até o momento, não recebemos uma proposta comercial formal por parte da empresa. Caso não seja possível concluir a contratação por essa modalidade, daremos prosseguimento à abertura de processo para realização de dispensa eletrônica, visando garantir a continuidade e o atendimento da demanda.">
+              <div class="timeline-proj-name">12. Serviços SMS/Whatsapp<span class="attention-tag"><i
+                    class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill fill-warning" style="--target-width: 40%;"><span
+                    class="timeline-percent">40%</span></div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="132.224,12" data-data-licitacao="23/06/2026"
+              data-tramite="AA/GTI/UIT">
+              <div class="timeline-proj-name">13. Monit. Sala Cofre (Renovação)</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-tradicional">Tradicional</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill fill-success" style="--target-width: 100%;">
+                  <span class="timeline-percent">100%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="3.373.101,60" data-data-licitacao="17/09/2026" data-tramite="PR/SLC"
+              data-observacao="Contrato Emergencial vence em 24/10/2026">
+              <div class="timeline-proj-name">14. Serviço Monit. Sala Cofre<span class="attention-tag"><i
+                    class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-tradicional">Tradicional</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill fill-warning" style="--target-width: 80%;"><span
+                    class="timeline-percent">80%</span></div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="6.131.810,16" data-data-licitacao="20/10/2026" data-tramite="AA/GTI">
+              <div class="timeline-proj-name">15. Licenc. MS Datacenter</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-srp">SRP</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill" style="--target-width: 60%;">
+                  <span class="timeline-percent">60%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="0,00" data-data-licitacao="10/05/2026" data-tramite="AG">
+              <div class="timeline-proj-name">16. Aquisição de Arcgis</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-tradicional">Tradicional</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill fill-danger" style="--target-width: 5%;"><span
+                    class="timeline-percent">5%</span></div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="17.950,00" data-data-licitacao="20/06/2026" data-tramite="AA/GTI/UIT">
+              <div class="timeline-proj-name">17. Cabo de Rede</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill fill-success" style="--target-width: 100%;">
+                  <span class="timeline-percent">100%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="65.000,00" data-data-licitacao="20/10/2026" data-tramite="AA/GTI/UIT">
+              <div class="timeline-proj-name">18. No-Break</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill" style="--target-width: 55%;">
+                  <span class="timeline-percent">55%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="60.000,00" data-data-licitacao="20/10/2026" data-tramite="AA/GTI/UIT"
+              data-observacao="Ao iniciarmos o estudo de viabilidade identificadmos que a contratação do Licenciamento SQL Server supre essa necessidade">
+              <div class="timeline-proj-name">19. Power-BI Embedded<span class="attention-tag"><i
+                    class="fa-solid fa-triangle-exclamation"></i> Atenção</span></div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill fill-warning" style="--target-width: 18%;"><span
+                    class="timeline-percent">18%</span></div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="65.153,00" data-data-licitacao="30/09/2026" data-tramite="AA/GTI">
+              <div class="timeline-proj-name">20. IA (Claude IA)</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-dispensa">Dispensa</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill" style="--target-width: 70%;">
+                  <span class="timeline-percent">70%</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row" data-valor="9.397.272,30" data-data-licitacao="30/10/2026"
+              data-tramite="AA/GTI/UIT">
+              <div class="timeline-proj-name">21. Equipamentos Apoio Inst.</div>
+              <div class="timeline-tipo-col"><span class="timeline-tipo-badge tipo-srp">SRP</span></div>
+              <div class="timeline-track-container">
+                <div class="timeline-fill" style="--target-width: 40%;">
+                  <span class="timeline-percent">40%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          // Script com abordagem de Clonagem para Modal Tela Cheia (Com Marcos Temporais)
+          (function () {
+            const slide2 = document.getElementById('slide-2');
+            if (!slide2) return;
+
+            const rows = slide2.querySelectorAll('.timeline-row');
+
+            // Criar o fundo (backdrop)
+            const backdrop = document.createElement('div');
+            backdrop.style.position = 'fixed';
+            backdrop.style.top = '0';
+            backdrop.style.left = '0';
+            backdrop.style.width = '100vw';
+            backdrop.style.height = '100vh';
+            backdrop.style.background = 'rgba(255, 255, 255, 0.9)';
+            backdrop.style.backdropFilter = 'blur(6px)';
+            backdrop.style.zIndex = '99998';
+            backdrop.style.opacity = '0';
+            backdrop.style.transition = 'opacity 0.4s ease';
+            backdrop.style.pointerEvents = 'none';
+            document.body.appendChild(backdrop);
+
+            let currentModal = null;
+
+            function closeFocus() {
+              if (currentModal) {
+                currentModal.style.opacity = '0';
+                currentModal.style.transform = 'translate(-50%, -50%) scale(0.9)';
+                setTimeout(() => {
+                  if (currentModal && currentModal.parentNode) {
+                    currentModal.parentNode.removeChild(currentModal);
+                  }
+                  currentModal = null;
+                }, 400);
+              }
+              backdrop.style.opacity = '0';
+              backdrop.style.pointerEvents = 'none';
+            }
+
+            backdrop.addEventListener('click', closeFocus);
+
+            // Filtros Combinados (Concluídos + Tipo de Contratação)
+            const btnToggle = slide2.querySelector('#btn-toggle-completed');
+            const selectFilterTipo = slide2.querySelector('#select-filter-tipo');
+            const filterTipoWrapper = slide2.querySelector('#filter-tipo-wrapper');
+            let isHiddenCompleted = false;
+            let selectedTipoFilter = 'todos';
+
+            function updateFilters() {
+              rows.forEach(row => {
+                let show = true;
+
+                // 1. Filtro de 100% Concluídos
+                if (isHiddenCompleted) {
+                  const percentSpan = row.querySelector('.timeline-percent');
+                  if (percentSpan && percentSpan.textContent.trim() === '100%') {
+                    show = false;
+                  }
+                }
+
+                // 2. Filtro de Tipo de Contratação
+                if (selectedTipoFilter !== 'todos') {
+                  const badge = row.querySelector('.timeline-tipo-badge');
+                  if (!badge || !badge.classList.contains(selectedTipoFilter)) {
+                    show = false;
+                  }
+                }
+
+                row.style.display = show ? 'flex' : 'none';
+              });
+            }
+
+            if (btnToggle) {
+              btnToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                isHiddenCompleted = !isHiddenCompleted;
+
+                if (isHiddenCompleted) {
+                  btnToggle.style.background = '#1d63be';
+                  btnToggle.style.color = '#fff';
+                  btnToggle.style.borderColor = '#1d63be';
+                  btnToggle.innerHTML = '<i class="fa-solid fa-eye"></i> Mostrar Concluídos';
+                } else {
+                  btnToggle.style.background = '#f1f5f9';
+                  btnToggle.style.color = '#334155';
+                  btnToggle.style.borderColor = '#cbd5e1';
+                  btnToggle.innerHTML = '<i class="fa-solid fa-filter"></i> Ocultar Concluídos';
+                }
+                updateFilters();
+              });
+            }
+
+            if (selectFilterTipo) {
+              selectFilterTipo.addEventListener('change', (e) => {
+                e.stopPropagation();
+                selectedTipoFilter = selectFilterTipo.value;
+
+                if (selectedTipoFilter !== 'todos') {
+                  filterTipoWrapper.style.background = '#eff6ff';
+                  filterTipoWrapper.style.borderColor = '#1d63be';
+                  filterTipoWrapper.style.color = '#1d4ed8';
+                } else {
+                  filterTipoWrapper.style.background = '#f1f5f9';
+                  filterTipoWrapper.style.borderColor = '#cbd5e1';
+                  filterTipoWrapper.style.color = '#334155';
+                }
+                updateFilters();
+              });
+            }
+
+            rows.forEach(row => {
+              const trackContainer = row.querySelector('.timeline-track-container');
+              if (!trackContainer) return;
+
+              trackContainer.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                if (currentModal) closeFocus();
+
+                // Criação do Modal principal
+                currentModal = document.createElement('div');
+                currentModal.className = 'timeline-focus-modal';
+                currentModal.style.position = 'fixed';
+                currentModal.style.top = '50%';
+                currentModal.style.left = '50%';
+                currentModal.style.width = '85vw';
+                currentModal.style.background = '#fff';
+                currentModal.style.padding = '40px 50px';
+                currentModal.style.borderRadius = '20px';
+                currentModal.style.boxShadow = '0 25px 80px rgba(11, 46, 99, 0.2)';
+                currentModal.style.zIndex = '99999';
+                currentModal.style.display = 'flex';
+                currentModal.style.flexDirection = 'column';
+
+                // Animação inicial
+                currentModal.style.transform = 'translate(-50%, -50%) scale(0.9)';
+                currentModal.style.opacity = '0';
+                currentModal.style.transition = 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)';
+
+                // 1. Título do Projeto (Clonado da linha)
+                const projNameClone = row.querySelector('.timeline-proj-name').cloneNode(true);
+                projNameClone.style.fontSize = '2.2rem';
+                projNameClone.style.width = '100%';
+                projNameClone.style.textAlign = 'center';
+                projNameClone.style.marginBottom = '10px';
+                projNameClone.style.paddingRight = '0';
+
+                // Aumentar tag de atenção se houver
+                const tag = projNameClone.querySelector('.attention-tag');
+                let hasAttention = false;
+                if (tag) {
+                  tag.style.fontSize = '1.2rem';
+                  tag.style.padding = '5px 15px';
+                  tag.style.marginLeft = '20px';
+                  tag.style.transform = 'translateY(-5px)';
+                  hasAttention = true;
+                }
+                currentModal.appendChild(projNameClone);
+
+                // 1b. Tipo de contratação clonado
+                const tipoBadgeSrc = row.querySelector('.timeline-tipo-badge');
+                if (tipoBadgeSrc) {
+                  const tipoBadgeWrapper = document.createElement('div');
+                  tipoBadgeWrapper.style.textAlign = 'center';
+                  tipoBadgeWrapper.style.marginBottom = '25px';
+                  const cloneBadge = tipoBadgeSrc.cloneNode(true);
+                  cloneBadge.style.width = 'auto';
+                  cloneBadge.style.display = 'inline-flex';
+                  cloneBadge.style.alignItems = 'center';
+                  cloneBadge.style.gap = '8px';
+                  cloneBadge.style.padding = '6px 22px';
+                  cloneBadge.style.fontSize = '1.05rem';
+                  cloneBadge.style.borderWidth = '1.5px';
+                  cloneBadge.style.boxShadow = '0 2px 10px rgba(0,0,0,0.04)';
+                  cloneBadge.innerHTML = `<i class="fa-solid fa-file-contract" style="font-size:0.95rem;"></i> ` + cloneBadge.textContent;
+                  tipoBadgeWrapper.appendChild(cloneBadge);
+                  currentModal.appendChild(tipoBadgeWrapper);
+                } else {
+                  const spacer = document.createElement('div');
+                  spacer.style.marginBottom = '25px';
+                  currentModal.appendChild(spacer);
+                }
+
+                // 2. Container interno para alinhar Grid, Header e Track
+                const innerContainer = document.createElement('div');
+                innerContainer.style.position = 'relative';
+                innerContainer.style.width = '100%';
+
+                // 3. Header de Marcos (Clona somente a área de milestones para cobrir 100% da barra)
+                const milestonesSource = slide2.querySelector('.timeline-header-milestones');
+                if (milestonesSource) {
+                  const headerClone = milestonesSource.cloneNode(true);
+                  headerClone.style.width = '100%';
+                  headerClone.style.height = '40px';
+                  headerClone.style.position = 'relative';
+                  headerClone.style.marginBottom = '15px';
+                  headerClone.querySelectorAll('.timeline-milestone').forEach(m => {
+                    m.style.fontSize = '1.05rem';
+                  });
+                  innerContainer.appendChild(headerClone);
+                }
+
+                // 4. Grid de linhas de fundo (Clonado)
+                const gridClone = slide2.querySelector('.timeline-grid').cloneNode(true);
+                gridClone.style.left = '0';
+                gridClone.style.width = '100%';
+                // Grid deve cobrir até o final da barra
+                gridClone.style.height = '120px';
+                gridClone.style.top = '30px';
+                innerContainer.appendChild(gridClone);
+
+                // 5. Barra de progresso (Clonada da linha clicada)
+                const trackClone = row.querySelector('.timeline-track-container').cloneNode(true);
+                trackClone.style.width = '100%';
+                trackClone.style.height = '60px'; // Mais grossa no modal
+                trackClone.style.borderRadius = '30px';
+                trackClone.style.marginTop = '20px';
+                trackClone.style.marginBottom = '20px';
+                trackClone.style.position = 'relative'; // garante o z-index correto
+                trackClone.style.zIndex = '5';
+
+                const fill = trackClone.querySelector('.timeline-fill');
+                if (fill) fill.style.borderRadius = '30px';
+
+                const percent = trackClone.querySelector('.timeline-percent');
+                if (percent) {
+                  percent.style.fontSize = '1.8rem';
+                  percent.style.right = '20px';
+                  percent.style.top = '12px';
+                }
+                innerContainer.appendChild(trackClone);
+
+                currentModal.appendChild(innerContainer);
+
+                // 6. Bloco de Informações Adicionais (Valor Estimado, Previsão de Licitação e Trâmite)
+                const infoRow = document.createElement('div');
+                infoRow.style.display = 'grid';
+                infoRow.style.gridTemplateColumns = '1.1fr 1.1fr 1.8fr';
+                infoRow.style.gap = '15px';
+                infoRow.style.marginTop = '25px';
+                infoRow.style.width = '100%';
+
+                // 6a. Card Valor Estimado
+                const valorCard = document.createElement('div');
+                valorCard.style.background = '#f8fafc';
+                valorCard.style.border = '1px solid #cbd5e1';
+                valorCard.style.borderRadius = '12px';
+                valorCard.style.padding = '12px 16px';
+                valorCard.style.boxShadow = '0 2px 6px rgba(0,0,0,0.03)';
+                valorCard.style.display = 'flex';
+                valorCard.style.flexDirection = 'column';
+                valorCard.style.gap = '6px';
+
+                const valorLabel = document.createElement('div');
+                valorLabel.innerHTML = '<i class="fa-solid fa-money-bill-wave" style="color: #0284c7; margin-right: 6px;"></i> <strong style="color: #0b2e63; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em;">Valor Estimado:</strong>';
+
+                const valorInputWrapper = document.createElement('div');
+                valorInputWrapper.style.display = 'flex';
+                valorInputWrapper.style.alignItems = 'center';
+                valorInputWrapper.style.background = '#fff';
+                valorInputWrapper.style.border = '1px solid #cbd5e1';
+                valorInputWrapper.style.borderRadius = '8px';
+                valorInputWrapper.style.padding = '6px 12px';
+
+                const valorPrefix = document.createElement('span');
+                valorPrefix.textContent = 'R$ ';
+                valorPrefix.style.fontWeight = '800';
+                valorPrefix.style.color = '#0b2e63';
+                valorPrefix.style.fontSize = '1.1rem';
+                valorPrefix.style.marginRight = '4px';
+
+                const valorInput = document.createElement('input');
+                valorInput.type = 'text';
+                valorInput.placeholder = '0,00';
+                valorInput.style.border = 'none';
+                valorInput.style.outline = 'none';
+                valorInput.style.fontWeight = '700';
+                valorInput.style.color = '#0f172a';
+                valorInput.style.fontSize = '1.1rem';
+                valorInput.style.width = '100%';
+                valorInput.style.background = 'transparent';
+                valorInput.style.fontFamily = 'inherit';
+                valorInput.value = (row.getAttribute('data-valor') || '').replace(/^R\$\s*/i, '');
+
+                valorInput.addEventListener('click', (ev) => ev.stopPropagation());
+                valorInput.addEventListener('keydown', (ev) => ev.stopPropagation());
+
+                valorInputWrapper.appendChild(valorPrefix);
+                valorInputWrapper.appendChild(valorInput);
+                valorCard.appendChild(valorLabel);
+                valorCard.appendChild(valorInputWrapper);
+
+                // 6b. Card Data Prevista da Licitação
+                const dataCard = document.createElement('div');
+                dataCard.style.background = '#f8fafc';
+                dataCard.style.border = '1px solid #cbd5e1';
+                dataCard.style.borderRadius = '12px';
+                dataCard.style.padding = '12px 16px';
+                dataCard.style.boxShadow = '0 2px 6px rgba(0,0,0,0.03)';
+                dataCard.style.display = 'flex';
+                dataCard.style.flexDirection = 'column';
+                dataCard.style.gap = '6px';
+
+                const dataLabel = document.createElement('div');
+                dataLabel.innerHTML = '<i class="fa-solid fa-calendar-days" style="color: #0284c7; margin-right: 6px;"></i> <strong style="color: #0b2e63; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em;">Previsão da Licitação:</strong>';
+
+                const dataInput = document.createElement('input');
+                dataInput.type = 'text';
+                dataInput.placeholder = 'Ex: 10/2026 ou 15/10/2026';
+                dataInput.style.background = '#fff';
+                dataInput.style.border = '1px solid #cbd5e1';
+                dataInput.style.borderRadius = '8px';
+                dataInput.style.padding = '6px 12px';
+                dataInput.style.fontWeight = '700';
+                dataInput.style.color = '#0b2e63';
+                dataInput.style.fontSize = '1.05rem';
+                dataInput.style.width = '100%';
+                dataInput.style.outline = 'none';
+                dataInput.style.fontFamily = 'inherit';
+                dataInput.value = row.getAttribute('data-data-licitacao') || row.getAttribute('data-data-prevista') || '';
+
+                dataInput.addEventListener('click', (ev) => ev.stopPropagation());
+                dataInput.addEventListener('keydown', (ev) => ev.stopPropagation());
+
+                dataCard.appendChild(dataLabel);
+                dataCard.appendChild(dataInput);
+
+                // 6c. Card Trâmite
+                const tramiteCard = document.createElement('div');
+                tramiteCard.style.background = '#f8fafc';
+                tramiteCard.style.border = '1px solid #cbd5e1';
+                tramiteCard.style.borderRadius = '12px';
+                tramiteCard.style.padding = '12px 16px';
+                tramiteCard.style.boxShadow = '0 2px 6px rgba(0,0,0,0.03)';
+                tramiteCard.style.display = 'flex';
+                tramiteCard.style.flexDirection = 'column';
+                tramiteCard.style.gap = '6px';
+
+                const tramiteLabel = document.createElement('div');
+                tramiteLabel.innerHTML = '<i class="fa-solid fa-route" style="color: #0284c7; margin-right: 6px;"></i> <strong style="color: #0b2e63; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em;">Trâmite:</strong>';
+
+                const tramiteInput = document.createElement('input');
+                tramiteInput.type = 'text';
+                tramiteInput.placeholder = 'Processo / Status do trâmite atual...';
+                tramiteInput.style.background = '#fff';
+                tramiteInput.style.border = '1px solid #cbd5e1';
+                tramiteInput.style.borderRadius = '8px';
+                tramiteInput.style.padding = '6px 12px';
+                tramiteInput.style.fontWeight = '600';
+                tramiteInput.style.color = '#334155';
+                tramiteInput.style.fontSize = '1.05rem';
+                tramiteInput.style.width = '100%';
+                tramiteInput.style.outline = 'none';
+                tramiteInput.style.fontFamily = 'inherit';
+                tramiteInput.value = row.getAttribute('data-tramite') || '';
+
+                tramiteInput.addEventListener('click', (ev) => ev.stopPropagation());
+                tramiteInput.addEventListener('keydown', (ev) => ev.stopPropagation());
+
+                tramiteCard.appendChild(tramiteLabel);
+                tramiteCard.appendChild(tramiteInput);
+
+                infoRow.appendChild(valorCard);
+                infoRow.appendChild(dataCard);
+                infoRow.appendChild(tramiteCard);
+
+                currentModal.appendChild(infoRow);
+
+                // Campo de Observação (Personalizado se tiver atenção/urgência, ou Padrão para os demais)
+                const obsContainer = document.createElement('div');
+                obsContainer.style.marginTop = '20px';
+                obsContainer.style.width = '100%';
+
+                const obsLabel = document.createElement('div');
+                obsLabel.style.fontSize = '0.85rem';
+                obsLabel.style.fontWeight = '800';
+                obsLabel.style.marginBottom = '8px';
+                obsLabel.style.textTransform = 'uppercase';
+                obsLabel.style.letterSpacing = '0.04em';
+
+                const obsInput = document.createElement('textarea');
+                obsInput.style.width = '100%';
+                obsInput.style.padding = '12px 16px';
+                obsInput.style.borderRadius = '10px';
+                obsInput.style.fontFamily = 'inherit';
+                obsInput.style.fontSize = '1.05rem';
+                obsInput.style.resize = 'none';
+                obsInput.style.outline = 'none';
+                obsInput.value = row.getAttribute('data-observacao') || '';
+
+                if (hasAttention) {
+                  // Estilo com Destaque de Atenção / Urgência
+                  obsLabel.textContent = 'OBSERVAÇÃO / MOTIVO DA ATENÇÃO:';
+                  obsLabel.style.color = '#b45309';
+                  obsInput.style.height = '95px';
+                  obsInput.style.border = '2px solid #fde68a';
+                  obsInput.style.backgroundColor = '#fffbeb';
+                  obsInput.style.color = '#1e293b';
+                  obsInput.style.boxShadow = 'inset 0 2px 4px rgba(0,0,0,0.05)';
+                  obsInput.placeholder = 'Digite aqui os entraves, riscos ou detalhes sobre este projeto...';
+                } else {
+                  // Estilo Normal Padrão
+                  obsLabel.innerHTML = '<i class="fa-regular fa-comment-dots" style="color: #1d63be; margin-right: 6px;"></i> Observação:';
+                  obsLabel.style.color = '#0b2e63';
+                  obsInput.style.height = '75px';
+                  obsInput.style.border = '1px solid #cbd5e1';
+                  obsInput.style.backgroundColor = '#f8fafc';
+                  obsInput.style.color = '#334155';
+                  obsInput.placeholder = 'Observações gerais sobre este projeto...';
+                }
+
+                // Impede que clicar no textarea feche o modal
+                obsInput.addEventListener('click', (ev) => ev.stopPropagation());
+                // Impede que digitar as setas ou barra de espaço avance o slide
+                obsInput.addEventListener('keydown', (ev) => ev.stopPropagation());
+
+                obsContainer.appendChild(obsLabel);
+                obsContainer.appendChild(obsInput);
+
+                currentModal.appendChild(obsContainer);
+
+                document.body.appendChild(currentModal);
+
+                // Aplicar animação
+                requestAnimationFrame(() => {
+                  backdrop.style.pointerEvents = 'auto';
+                  backdrop.style.opacity = '1';
+                  currentModal.style.opacity = '1';
+                  currentModal.style.transform = 'translate(-50%, -50%) scale(1)';
+                });
+
+                currentModal.addEventListener('click', closeFocus);
+              });
+            });
+          })();
+        </script>
+      </div>
+    </section>
+    <!-- %%SLIDE_END%% -->
+
+  </main>
+
+  <!-- BARRA DE NAVEGAÇÃO FIXA INFERIOR -->
+  <nav class="nav-bar">
+    <img src="../imagens/logo-codevasf.svg" alt="Codevasf" class="nav-logo">
+    <div class="nav-center">
+      <div class="prog-bar"><span id="prog-fill"></span></div>
+      <div class="slide-count"><strong id="cur-slide">1</strong> / <span id="total-slides">11</span></div>
+    </div>
+    <div class="nav-btns">
+      <button class="btn-nav" id="btn-grid"><i class="fa-solid fa-border-all"></i> Slides</button>
+      <button class="btn-nav" id="btn-prev"><i class="fa-solid fa-chevron-left"></i> Anterior</button>
+      <button class="btn-nav" id="btn-next">Próximo <i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </nav>
+
+  <!-- MODAL DE MINIATURAS DA APRESENTAÇÃO -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-header">
+      <h3>Visão Geral dos Slides</h3>
+      <button class="btn-close" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="thumbs-grid" id="thumbs-grid"></div>
+  </div>
+
+  <!-- Scripts da Apresentação (offline) -->
+  <script src="../js/app.js"></script>
+</body>
+
+</html>
